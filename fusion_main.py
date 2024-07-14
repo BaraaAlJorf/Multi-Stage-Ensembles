@@ -14,7 +14,7 @@ from trainers.daft_trainer import DAFTTrainer
 from ehr_utils.preprocessing import Discretizer, Normalizer
 from datasets.ehr_dataset import get_datasets
 from datasets.cxr_dataset import get_cxr_datasets
-from datasets.fusion import load_cxr_ehr
+from datasets.Quatrimodal_Fusion import load_cxr_ehr
 from pathlib import Path
 import torch
 

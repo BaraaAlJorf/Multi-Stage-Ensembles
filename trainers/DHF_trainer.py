@@ -19,65 +19,6 @@ import numpy as np
 from sklearn import metrics
 import wandb
 
-class CustomBins:
-    inf = 1e18
-    bins = [(-1*inf, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 14), (14, inf)]
-    nbins = len(bins)
-    means = [11.450379, 35.070846, 59.206531, 83.382723, 107.487817,
-             131.579534, 155.643957, 179.660558, 254.306624, 585.325890]
-             
-    
-def get_bin_custom(x, nbins, one_hot=False):
-    for i in range(nbins):
-        a = CustomBins.bins[i][0]*24.0
-        b = CustomBins.bins[i][1]*24.0
-        if a <= x < b:
-            if one_hot:
-                ret = np.zeros((CustomBins.nbins,))
-                ret[i] = 1
-                return ret
-            return i
-    return None
-    
-def mean_absolute_percentage_error(y_true, y_pred):
-    return np.mean(np.abs((y_true - y_pred) / (y_true + 0.1))) * 100
-
-def evaluate_kappa_mad(df):
-    kappa =  metrics.cohen_kappa_score(df['y_truth'], np.round(df['y_pred']))
-    mad = np.mean(np.abs(df['y_truth'] - df['y_pred']))
-    return kappa, mad
-
-def bootstraping_eval_kappa_mad(df, num_iter):
-    """This function samples from the testing dataset to generate a list of Kappa and MAD metrics using bootstrapping method."""
-    kappa_list = []
-    mad_list = []
-    for _ in range(num_iter):
-        sample = df.sample(frac=1, replace=True)
-        kappa, mad = evaluate_kappa_mad(sample)
-        kappa_list.append(kappa)
-        mad_list.append(mad)
-    return kappa_list, mad_list
-
-def computing_confidence_intervals(list_, true_value):
-    """This function calculates the 95% Confidence Intervals."""
-    delta = (true_value - list_)
-    delta = np.sort(delta)
-    delta_lower = np.percentile(delta, 97.5)
-    delta_upper = np.percentile(delta, 2.5)
-
-    upper = true_value - delta_upper
-    lower = true_value - delta_lower
-    return (upper, lower)
-    
-def get_model_performance_kappa_mad(df):
-    test_kappa, test_mad = evaluate_kappa_mad(df)
-    kappa_list, mad_list = bootstraping_eval_kappa_mad(df, num_iter=1000)
-    
-    upper_kappa, lower_kappa = computing_confidence_intervals(kappa_list, test_kappa)
-    upper_mad, lower_mad = computing_confidence_intervals(mad_list, test_mad)
-    
-    return (test_kappa, upper_kappa, lower_kappa), (test_mad, upper_mad, lower_mad)
-
 
 class FusionTrainer(Trainer):
     def __init__(self, 
@@ -140,22 +81,113 @@ class FusionTrainer(Trainer):
         if self.args.load_state is not None:
             print("jerry")
             self.load_state()
+    
+    def train_epoch(self):
+        def train_epoch(self):
+        print(f'starting train epoch {self.epoch}')
+        epoch_loss = 0
+        epoch_loss_align = 0
+        outGT = torch.FloatTensor().to(self.device)
+        outPRED = torch.FloatTensor().to(self.device)
+        steps = len(self.train_dl)
+        token_vector = torch.nn.Parameter(torch.randn(self.token_dim).to(self.device))
+        for i, (x, img, dn, rn, y_ehr, y_cxr, seq_lengths, pairs) in enumerate (self.train_dl):
+            y = self.get_gt(y_ehr, y_cxr)
+            x = torch.from_numpy(x).float()
+            x = x.to(self.device)
+            y = y.to(self.device)
+            img = img.to(self.device)
+            
+            v_ehr = self.ehr_encoder(x)
+            v_cxr = self.cxr_encoder(img)
+            v_dn = self.dn_encoder(dn)
+            v_rn = self.rn_encoder(v_rn)
+            
+            y_ehr_pred = self.ehr_classifier(v_ehr)
+            y_cxr_pred = self.cxr_classifier(v_cxr)
+            y_dn_pred = self.dn_classifier(v_dn)
+            y_rn_pred = self.rn_classifier(v_rn)
+            
+            r_ehr = self.ehr_r_classifier(v_ehr)
+            r_cxr = self.cxr_r_classifier(v_cxr)
+            r_dn = self.dn_r_classifier(v_dn)
+            r_rn = self.rn_r_classifier(v_rn)
+            
+            
+            # Calculate the weakest modality based on the r scores
+            r_scores = {'ehr': r_ehr, 'cxr': r_cxr, 'dn': r_dn, 'rn': r_rn}
+            sorted_modalities = sorted(r_scores, key=r_scores.get)
+            
+            # Fetch the vectors for each modality in the sorted order
+            vectors = {
+            'ehr': v_ehr,
+            'cxr': v_cxr,
+            'dn': v_dn,
+            'rn': v_rn
+            }
+        
+            # Fuse the vectors in the sorted order using the fixed transformer layers
+            fused_vector = torch.cat((vectors[sorted_modalities[0]], token_vector), dim=1)
+            fused_vector = self.transformer_layer1(fused_vector)
+            
+            fused_vector = torch.cat((fused_vector, vectors[sorted_modalities[1]]), dim=1)
+            fused_vector = self.transformer_layer2(fused_vector)
+            
+            fused_vector = torch.cat((fused_vector, vectors[sorted_modalities[2]]), dim=1)
+            fused_vector = self.transformer_layer3(fused_vector)
+            
+            fused_vector = torch.cat((fused_vector, vectors[sorted_modalities[3]]), dim=1)
+            fused_vector = self.transformer_layer4(fused_vector)
+            
+            # Final classifier
+            y_fused_pred = self.final_classifier(fused_vector)
+            
+           
+            loss = self.loss(pred, y)
+            
+            epoch_loss += loss.item()
+            if self.args.align > 0.0:
+                loss = loss + self.args.align * output['align_loss']
+                epoch_loss_align = epoch_loss_align + self.args.align * output['align_loss'].item()
 
+            self.optimizer.zero_grad()
+            loss.backward()
+            self.optimizer.step()
+            outPRED = torch.cat((outPRED, pred), 0)
+            outGT = torch.cat((outGT, y), 0)
 
-        if 'uni_ehr' in self.args.fusion_type:
-            self.freeze(self.model.cxr_model)
-        elif 'uni_cxr' in self.args.fusion_type:
-            self.freeze(self.model.ehr_model)
-        elif 'late_avg' in self.args.fusion_type:
-            self.freeze(self.model)
-        elif 'early' in self.args.fusion_type:
-            self.freeze(self.model.cxr_model)
-            self.freeze(self.model.ehr_model)
-        elif 'lstm' in self.args.fusion_type:
-            # self.freeze(self.model.cxr_model)
-            # self.freeze(self.model.ehr_model)
-            pass
-
+            if i % 100 == 9:
+                eta = self.get_eta(self.epoch, i)
+                print(f" epoch [{self.epoch:04d} / {self.args.epochs:04d}] [{i:04}/{steps}] eta: {eta:<20}  lr: \t{self.optimizer.param_groups[0]['lr']:0.4E} loss: \t{epoch_loss/i:0.5f} loss align {epoch_loss_align/i:0.4f}")
+        
+        if self.args.task == "length-of-stay":
+            with torch.no_grad():
+                y_true_bins = [get_bin_custom(y_item.item(), CustomBins.nbins) for y_item in outGT.cpu().numpy()]
+                pred_labels = torch.max(outPRED, 1)[1].cpu().numpy()  # Convert logits to predicted labels
+                cf = metrics.confusion_matrix(y_true_bins, pred_labels)
+                kappa = metrics.cohen_kappa_score(y_true_bins, pred_labels, weights='linear')
+                mad = metrics.mean_absolute_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
+                mse = metrics.mean_squared_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
+                mape = mean_absolute_percentage_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
+    
+                best_stats = {"mad": mad, "mse": mse, "mape": mape, "kappa": kappa}
+                wandb.log({
+                    'train_mad': mad,
+                    'train_mse': mse, 
+                    'train_mape': mape,
+                    'train_kappa': kappa
+                })
+                ret = best_stats
+        else:    
+            ret = self.computeAUROC(outGT.data.cpu().numpy(), outPRED.data.cpu().numpy(), 'train')
+            self.epochs_stats['loss train'].append(epoch_loss/i)
+            self.epochs_stats['loss align train'].append(epoch_loss_align/i)
+            wandb.log({
+                    'train_Loss': epoch_loss/i, 
+                    'train_AUC': ret['auroc_mean']
+                })
+        return ret
+    
     def train_epoch(self):
         print(f'starting train epoch {self.epoch}')
         epoch_loss = 0
@@ -202,9 +234,9 @@ class FusionTrainer(Trainer):
                 pred_labels = torch.max(outPRED, 1)[1].cpu().numpy()  # Convert logits to predicted labels
                 cf = metrics.confusion_matrix(y_true_bins, pred_labels)
                 kappa = metrics.cohen_kappa_score(y_true_bins, pred_labels, weights='linear')
-                mad = metrics.mean_absolute_error(outGT.cpu().numpy(), outPRED.max(1)[1].cpu().numpy())
-                mse = metrics.mean_squared_error(outGT.cpu().numpy(), outPRED.max(1)[1].cpu().numpy())
-                mape = mean_absolute_percentage_error(outGT.cpu().numpy(), outPRED.max(1)[1].cpu().numpy())
+                mad = metrics.mean_absolute_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
+                mse = metrics.mean_squared_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
+                mape = mean_absolute_percentage_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
     
                 best_stats = {"mad": mad, "mse": mse, "mape": mape, "kappa": kappa}
                 wandb.log({
