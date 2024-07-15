@@ -8,9 +8,12 @@ import torch.optim as optim
 from torch.autograd import Variable
 import sys; sys.path.append('..')
 from torch.optim.lr_scheduler import ReduceLROnPlateau
-from models.fusion import Fusion
-from models.ehr_models import LSTM
-from models.cxr_models import CXRModels
+from models.ehr_encoder import EHRTransformer
+from models.cxr_encoder import CXRTransformer
+from models.rr_encoder import RadiologyNotesEncoder
+from models.dn_encoder import DischargeNotesEncoder
+from models.classifier import MLPClassifier
+from models.customtransformer import CustomTransformerLayer
 from .trainer import Trainer
 import pandas as pd
 
@@ -19,6 +22,26 @@ import numpy as np
 from sklearn import metrics
 import wandb
 
+def relevancy_loss(y_fused_pred, y_true, r_scores, preds):
+    # Calculate BCE for the fused prediction
+    L_pred = F.binary_cross_entropy_with_logits(y_fused_pred, y_true)
+    
+    # Initialize total loss with L_pred
+    total_loss = L_pred
+    
+    # Calculate and add L_{r_i} for each modality
+    for modality in preds:
+        y_pred = preds[modality]
+        r_score = r_scores[modality]
+        
+        # BCE for the modality prediction
+        bce_loss = F.binary_cross_entropy_with_logits(y_pred, y_true)
+        
+        # L_{r_i} calculation
+        L_r_i = ((bce_loss *r_score).abs() - 1) + bce_loss)
+        total_loss += L_r_i
+    
+    return total_loss
 
 class FusionTrainer(Trainer):
     def __init__(self, 
@@ -29,68 +52,160 @@ class FusionTrainer(Trainer):
         ):
 
         super(FusionTrainer, self).__init__(args)
-        run = wandb.init(project=f'Medfuse_{self.args.fusion_type}', config=args)
+        run = wandb.init(project=f'DHF_{self.args.fusion_type}', config=args)
         self.epoch = 0 
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        
+        self.token_dim = 384
+        
+        self.token_vector = torch.nn.Parameter(torch.randn(self.token_dim).to(self.device))
+        token_vector_expanded = self.token_vector.unsqueeze(0).repeat(self.args.batch_size, 1)
 
         self.args = args
         self.train_dl = train_dl
         self.val_dl = val_dl
         self.test_dl = test_dl
         
+        self.ehr_encoder = EHRTransformer(
+            dim=384,
+            depth=4,
+            heads=4,
+            mlp_dim=768,
+            dropout=0.0,
+            dim_head=128
+        )
+        self.cxr_encoder = CXRTransformer(
+            model_name='vit_small_patch16_384',
+            image_size=384,
+            patch_size=16,
+            dim=384,
+            depth=4,
+            heads=4,
+            mlp_dim=768,
+            dropout=0.0,
+            emb_dropout=0.0,
+            dim_head=128
+        )
+        self.dn_encoder = DischargeNotesEncoder(
+            pretrained_model_name='allenai/longformer-base-4096',
+            output_dim=384
+        )
+        self.rn_encoder = RadiologyNotesEncoder(
+            pretrained_model_name='emilyalsentzer/Bio_ClinicalBERT',
+            output_dim=384
+        )
+        
+        self.ehr_r_classifier = MLPClassifier(input_dim=384, output_dim=1).to(self.device)
+        self.cxr_r_classifier = MLPClassifier(input_dim=384, output_dim=1).to(self.device)
+        self.rr_r_classifier = MLPClassifier(input_dim=384, output_dim=1).to(self.device)
+        self.dn_r_classifier = MLPClassifier(input_dim=384, output_dim=1).to(self.device)
+        
+        self.ehr_classifier = MLPClassifier(input_dim=384, output_dim=1).to(self.device)
+        self.cxr_classifier = MLPClassifier(input_dim=384, output_dim=1).to(self.device)
+        self.rr_classifier = MLPClassifier(input_dim=384, output_dim=1).to(self.device)
+        self.dn_classifier = MLPClassifier(input_dim=384, output_dim=1).to(self.device)
+        
+        self.final_classifier = MLPClassifier(input_dim=384, output_dim=1).to(self.device)
+        
+        # Initialize transformer layers
+        self.transformer_layer1 = CustomTransformerLayer(input_dim=384*2, model_dim=384, nhead=4, num_layers=1).to(self.device)
+        self.transformer_layer2 = CustomTransformerLayer(input_dim=384*2, model_dim=384, nhead=4, num_layers=1).to(self.device)
+        self.transformer_layer3 = CustomTransformerLayer(input_dim=384*2, model_dim=384, nhead=4, num_layers=1).to(self.device)
+        self.transformer_layer4 = CustomTransformerLayer(input_dim=384*2, model_dim=384, nhead=4, num_layers=1).to(self.device)
 
-        self.ehr_model = LSTM(args, input_dim=76, num_classes=args.num_classes, hidden_dim=args.dim, dropout=args.dropout, layers=args.layers).to(self.device)
-        self.cxr_model = CXRModels(self.args, self.device).to(self.device)
-
-
-        self.model = Fusion(args, self.ehr_model, self.cxr_model ).to(self.device)
-        self.init_fusion_method()
-
-        if self.args.task=="length-of-stay":
-            self.loss = nn.CrossEntropyLoss()
+        if self.args.mode == 'relevancy-based-hierarchical'::
+            self.loss = relevancy_loss
+            all_params = (
+            list(self.ehr_encoder.parameters()) +
+            list(self.cxr_encoder.parameters()) +
+            list(self.dn_encoder.parameters()) +
+            list(self.rn_encoder.parameters()) +
+            list(self.ehr_r_classifier.parameters()) +
+            list(self.cxr_r_classifier.parameters()) +
+            list(self.dn_r_classifier.parameters()) +
+            list(self.rr_r_classifier.parameters()) +
+            list(self.ehr_classifier.parameters()) +
+            list(self.cxr_classifier.parameters()) +
+            list(self.dn_classifier.parameters()) +
+            list(self.rr_classifier.parameters()) +
+            list(self.transformer_layer1.parameters()) +
+            list(self.transformer_layer2.parameters()) +
+            list(self.transformer_layer3.parameters()) +
+            list(self.transformer_layer4.parameters()) +
+            [self.token_vector]
+        )
         else:
             self.loss = nn.BCELoss()
+            all_params = (
+            list(self.ehr_encoder.parameters()) +
+            list(self.cxr_encoder.parameters()) +
+            list(self.dn_encoder.parameters()) +
+            list(self.rn_encoder.parameters()) +
+            list(self.transformer_layer1.parameters()) +
+            list(self.transformer_layer2.parameters()) +
+            list(self.transformer_layer3.parameters()) +
+            list(self.transformer_layer4.parameters()) +
+            [self.token_vector]
+        )
 
-        self.optimizer = optim.Adam(self.model.parameters(), args.lr, betas=(0.9, self.args.beta_1))
-        self.load_state()
-        print(self.ehr_model)
-        print(self.optimizer)
-        print(self.loss)
+        
+        self.optimizer = optim.Adam(all_params, lr=args.lr, betas=(0.9, self.args.beta_1))
         self.scheduler = ReduceLROnPlateau(self.optimizer, factor=0.5, patience=10, mode='min')
 
         self.best_auroc = 0
-        self.best_kappa = 0
         self.best_stats = None
-        # self.scheduler = optim.lr_scheduler.ExponentialLR(self.optimizer, 0.99) 
-        self.epochs_stats = {'loss train': [], 'loss val': [], 'auroc val': [], 'loss align train': [], 'loss align val': []}
     
-    def init_fusion_method(self):
+    def set_train_mode(self):
+        """Set all neural network components to training mode."""
+        self.ehr_encoder.train()
+        self.cxr_encoder.train()
+        self.dn_encoder.train()
+        self.rr_encoder.train()
 
-        '''
-        for early fusion
-        load pretrained encoders and 
-        freeze both encoders
-        ''' 
-        print("init fusion method")
-        if self.args.load_state_ehr is not None:
-            print("C'est vrai")
-            self.load_ehr_pheno(load_state=self.args.load_state_ehr)
-        if self.args.load_state_cxr is not None:
-            self.load_cxr_pheno(load_state=self.args.load_state_cxr)
-        
-        if self.args.load_state is not None:
-            print("jerry")
-            self.load_state()
+        self.ehr_r_classifier.train()
+        self.cxr_r_classifier.train()
+        self.dn_r_classifier.train()
+        self.rr_r_classifier.train()
+
+        self.ehr_classifier.train()
+        self.cxr_classifier.train()
+        self.dn_classifier.train()
+        self.rr_classifier.train()
+
+        self.transformer_layer1.train()
+        self.transformer_layer2.train()
+        self.transformer_layer3.train()
+        self.transformer_layer4.train()
+
+    def set_eval_mode(self):
+        """Set all neural network components to evaluation mode."""
+        self.ehr_encoder.eval()
+        self.cxr_encoder.eval()
+        self.dn_encoder.eval()
+        self.rr_encoder.eval()
+
+        self.ehr_r_classifier.eval()
+        self.cxr_r_classifier.eval()
+        self.dn_r_classifier.eval()
+        self.rr_r_classifier.eval()
+
+        self.ehr_classifier.eval()
+        self.cxr_classifier.eval()
+        self.dn_classifier.eval()
+        self.rr_classifier.eval()
+
+        self.transformer_layer1.eval()
+        self.transformer_layer2.eval()
+        self.transformer_layer3.eval()
+        self.transformer_layer4.eval()
     
     def train_epoch(self):
-        def train_epoch(self):
         print(f'starting train epoch {self.epoch}')
         epoch_loss = 0
         epoch_loss_align = 0
         outGT = torch.FloatTensor().to(self.device)
         outPRED = torch.FloatTensor().to(self.device)
         steps = len(self.train_dl)
-        token_vector = torch.nn.Parameter(torch.randn(self.token_dim).to(self.device))
         for i, (x, img, dn, rn, y_ehr, y_cxr, seq_lengths, pairs) in enumerate (self.train_dl):
             y = self.get_gt(y_ehr, y_cxr)
             x = torch.from_numpy(x).float()
@@ -98,411 +213,196 @@ class FusionTrainer(Trainer):
             y = y.to(self.device)
             img = img.to(self.device)
             
-            v_ehr = self.ehr_encoder(x)
-            v_cxr = self.cxr_encoder(img)
-            v_dn = self.dn_encoder(dn)
-            v_rn = self.rn_encoder(v_rn)
-            
-            y_ehr_pred = self.ehr_classifier(v_ehr)
-            y_cxr_pred = self.cxr_classifier(v_cxr)
-            y_dn_pred = self.dn_classifier(v_dn)
-            y_rn_pred = self.rn_classifier(v_rn)
-            
-            r_ehr = self.ehr_r_classifier(v_ehr)
-            r_cxr = self.cxr_r_classifier(v_cxr)
-            r_dn = self.dn_r_classifier(v_dn)
-            r_rn = self.rn_r_classifier(v_rn)
-            
-            
-            # Calculate the weakest modality based on the r scores
-            r_scores = {'ehr': r_ehr, 'cxr': r_cxr, 'dn': r_dn, 'rn': r_rn}
-            sorted_modalities = sorted(r_scores, key=r_scores.get)
-            
-            # Fetch the vectors for each modality in the sorted order
-            vectors = {
-            'ehr': v_ehr,
-            'cxr': v_cxr,
-            'dn': v_dn,
-            'rn': v_rn
-            }
-        
-            # Fuse the vectors in the sorted order using the fixed transformer layers
-            fused_vector = torch.cat((vectors[sorted_modalities[0]], token_vector), dim=1)
-            fused_vector = self.transformer_layer1(fused_vector)
-            
-            fused_vector = torch.cat((fused_vector, vectors[sorted_modalities[1]]), dim=1)
-            fused_vector = self.transformer_layer2(fused_vector)
-            
-            fused_vector = torch.cat((fused_vector, vectors[sorted_modalities[2]]), dim=1)
-            fused_vector = self.transformer_layer3(fused_vector)
-            
-            fused_vector = torch.cat((fused_vector, vectors[sorted_modalities[3]]), dim=1)
-            fused_vector = self.transformer_layer4(fused_vector)
-            
+            vectors = {}
+            r_scores = {}
+
+            if 'ehr' in self.args.modalities:
+                v_ehr = self.ehr_encoder(x)
+                vectors['ehr'] = v_ehr
+                r_ehr = self.ehr_r_classifier(v_ehr)
+                r_scores['ehr'] = r_ehr
+                y_ehr_pred = self.ehr_classifier(v_ehr)
+                preds['ehr'] = y_ehr_pred
+            if 'cxr' in self.args.modalities:
+                v_cxr = self.cxr_encoder(img)
+                vectors['cxr'] = v_cxr
+                r_cxr = self.cxr_r_classifier(v_cxr)
+                r_scores['cxr'] = r_cxr
+                y_cxr_pred = self.cxr_classifier(v_cxr)
+                preds['cxr'] = y_cxr_pred
+            if 'dn' in self.args.modalities:
+                v_dn = self.dn_encoder(dn)
+                vectors['dn'] = v_dn
+                r_dn = self.dn_r_classifier(v_dn)
+                r_scores['dn'] = r_dn
+                y_dn_pred = self.dn_classifier(v_dn)
+                preds['dn'] = y_dn_pred
+            if 'rr' in self.args.modalities:
+                v_rr = self.rr_encoder(rr)
+                vectors['rr'] = v_rr
+                r_rr = self.rr_r_classifier(v_rr)
+                r_scores['rr'] = r_rr
+                y_rr_pred = self.rr_classifier(v_rr)
+                preds['rr'] = y_rr_pred
+
+            if self.args.mode == 'relevancy-based-hierarchical':
+                modalities_list = self.args.modalities.split('-')
+                scores_tensor = torch.stack([torch.tensor(r_scores[mod]) for mod in modalities_list], dim=1)
+                sorted_scores, sorted_indices = torch.sort(scores_tensor, dim=1, descending=True)
+                vectors_tensor = torch.stack([v_ehr, v_cxr, v_dn, v_rr], dim=1)
+                first_priority = vectors_tensor[torch.arange(self.args.batch_size), sorted_indices[:, 0]]
+                #sorted_modalities = sorted(r_scores, key=r_scores.get)
+                fused_vector = torch.cat((first_priority, self.token_vector_expanded), dim=1)
+                
+            elif self.args.mode == 'predefined-hierarchical' and self.args.order is not None:
+                # Use predefined order
+                order_list = self.args.order.split('-')
+                sorted_modalities = [mod for mod in order_list if mod in r_scores]
+                fused_vector = torch.cat((vectors[sorted_modalities[0]], self.token_vector_expanded), dim=1)
+
+
+            # Dynamically use different transformer layers for each modality combination
+            for idx, modality in enumerate(sorted_modalities[1:], 1):
+                fused_vector = torch.cat((fused_vector, vectors[modality]), dim=1)
+                transformer_layer = getattr(self, f'transformer_layer{idx}')
+                fused_vector = transformer_layer(fused_vector)
+
             # Final classifier
             y_fused_pred = self.final_classifier(fused_vector)
             
-           
-            loss = self.loss(pred, y)
-            
-            epoch_loss += loss.item()
-            if self.args.align > 0.0:
-                loss = loss + self.args.align * output['align_loss']
-                epoch_loss_align = epoch_loss_align + self.args.align * output['align_loss'].item()
-
-            self.optimizer.zero_grad()
-            loss.backward()
-            self.optimizer.step()
-            outPRED = torch.cat((outPRED, pred), 0)
-            outGT = torch.cat((outGT, y), 0)
-
-            if i % 100 == 9:
-                eta = self.get_eta(self.epoch, i)
-                print(f" epoch [{self.epoch:04d} / {self.args.epochs:04d}] [{i:04}/{steps}] eta: {eta:<20}  lr: \t{self.optimizer.param_groups[0]['lr']:0.4E} loss: \t{epoch_loss/i:0.5f} loss align {epoch_loss_align/i:0.4f}")
-        
-        if self.args.task == "length-of-stay":
-            with torch.no_grad():
-                y_true_bins = [get_bin_custom(y_item.item(), CustomBins.nbins) for y_item in outGT.cpu().numpy()]
-                pred_labels = torch.max(outPRED, 1)[1].cpu().numpy()  # Convert logits to predicted labels
-                cf = metrics.confusion_matrix(y_true_bins, pred_labels)
-                kappa = metrics.cohen_kappa_score(y_true_bins, pred_labels, weights='linear')
-                mad = metrics.mean_absolute_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
-                mse = metrics.mean_squared_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
-                mape = mean_absolute_percentage_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
-    
-                best_stats = {"mad": mad, "mse": mse, "mape": mape, "kappa": kappa}
-                wandb.log({
-                    'train_mad': mad,
-                    'train_mse': mse, 
-                    'train_mape': mape,
-                    'train_kappa': kappa
-                })
-                ret = best_stats
-        else:    
-            ret = self.computeAUROC(outGT.data.cpu().numpy(), outPRED.data.cpu().numpy(), 'train')
-            self.epochs_stats['loss train'].append(epoch_loss/i)
-            self.epochs_stats['loss align train'].append(epoch_loss_align/i)
-            wandb.log({
-                    'train_Loss': epoch_loss/i, 
-                    'train_AUC': ret['auroc_mean']
-                })
-        return ret
-    
-    def train_epoch(self):
-        print(f'starting train epoch {self.epoch}')
-        epoch_loss = 0
-        epoch_loss_align = 0
-        outGT = torch.FloatTensor().to(self.device)
-        outPRED = torch.FloatTensor().to(self.device)
-        steps = len(self.train_dl)
-        for i, (x, img, y_ehr, y_cxr, seq_lengths, pairs) in enumerate (self.train_dl):
-            y = self.get_gt(y_ehr, y_cxr)
-            x = torch.from_numpy(x).float()
-            x = x.to(self.device)
-            y = y.to(self.device)
-            img = img.to(self.device)
-
-            output = self.model(x, seq_lengths, img, pairs)
-            
-            pred = output[self.args.fusion_type].squeeze()
-            
-            if self.args.task == "length-of-stay":
-                # Assuming the loss function is CrossEntropyLoss which needs class indices
-                y_true_bins = torch.tensor([get_bin_custom(y_item, CustomBins.nbins) for y_item in y.cpu().numpy()], dtype=torch.long).to(self.device)
-                loss = self.loss(pred, y_true_bins)
+            if self.args.mode == 'relevancy-based-hierarchical':
+                loss = self.loss(y_fused_pred, y, r_scores, preds)
             else:
-                loss = self.loss(pred, y)
-            
+                loss = self.loss(y_fused_pred, y)
             epoch_loss += loss.item()
-            if self.args.align > 0.0:
-                loss = loss + self.args.align * output['align_loss']
-                epoch_loss_align = epoch_loss_align + self.args.align * output['align_loss'].item()
-
-            self.optimizer.zero_grad()
             loss.backward()
             self.optimizer.step()
-            outPRED = torch.cat((outPRED, pred), 0)
+            self.optimizer.zero_grad()
+            
+            outPRED = torch.cat((outPRED, y_fused_pred), 0)
             outGT = torch.cat((outGT, y), 0)
 
             if i % 100 == 9:
                 eta = self.get_eta(self.epoch, i)
                 print(f" epoch [{self.epoch:04d} / {self.args.epochs:04d}] [{i:04}/{steps}] eta: {eta:<20}  lr: \t{self.optimizer.param_groups[0]['lr']:0.4E} loss: \t{epoch_loss/i:0.5f} loss align {epoch_loss_align/i:0.4f}")
         
-        if self.args.task == "length-of-stay":
-            with torch.no_grad():
-                y_true_bins = [get_bin_custom(y_item.item(), CustomBins.nbins) for y_item in outGT.cpu().numpy()]
-                pred_labels = torch.max(outPRED, 1)[1].cpu().numpy()  # Convert logits to predicted labels
-                cf = metrics.confusion_matrix(y_true_bins, pred_labels)
-                kappa = metrics.cohen_kappa_score(y_true_bins, pred_labels, weights='linear')
-                mad = metrics.mean_absolute_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
-                mse = metrics.mean_squared_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
-                mape = mean_absolute_percentage_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
-    
-                best_stats = {"mad": mad, "mse": mse, "mape": mape, "kappa": kappa}
-                wandb.log({
-                    'train_mad': mad,
-                    'train_mse': mse, 
-                    'train_mape': mape,
-                    'train_kappa': kappa
-                })
-                ret = best_stats
-        else:    
-            ret = self.computeAUROC(outGT.data.cpu().numpy(), outPRED.data.cpu().numpy(), 'train')
-            self.epochs_stats['loss train'].append(epoch_loss/i)
-            self.epochs_stats['loss align train'].append(epoch_loss_align/i)
-            wandb.log({
-                    'train_Loss': epoch_loss/i, 
-                    'train_AUC': ret['auroc_mean']
-                })
+
+        ret = self.computeAUROC(outGT.data.cpu().numpy(), outPRED.data.cpu().numpy(), 'train')
+        wandb.log({
+                'train_Loss': epoch_loss/i, 
+                'train_AUC': ret['auroc_mean']
+            })
         return ret
     
     def validate(self, dl):
         print(f'starting val epoch {self.epoch}')
-        #print(self.args.task)
         epoch_loss = 0
         epoch_loss_align = 0
-        # ehr_features = torch.FloatTensor()
-        # cxr_features = torch.FloatTensor()
-        outGT = torch.FloatTensor().to(self.device)
         outGT = torch.FloatTensor().to(self.device)
         outPRED = torch.FloatTensor().to(self.device)
-
+    
         with torch.no_grad():
-            for i, (x, img, y_ehr, y_cxr, seq_lengths, pairs) in enumerate (dl):
-                #print(y_ehr)
+            for i, (x, img, dn, rn, y_ehr, y_cxr, seq_lengths, pairs) in enumerate (self.train_dl):
                 y = self.get_gt(y_ehr, y_cxr)
-                #print(y_cxr)
-                # print("X:",x)
-                # print("Type:",x.dtype)
                 x = torch.from_numpy(x).float()
-                x = Variable(x.to(self.device), requires_grad=False)
-                y = Variable(y.to(self.device), requires_grad=False)
+                x = x.to(self.device)
+                y = y.to(self.device)
                 img = img.to(self.device)
-                output = self.model(x, seq_lengths, img, pairs)
                 
-                pred = output[self.args.fusion_type]
-
-                if self.args.fusion_type != 'uni_cxr':
-                    if len(pred.shape) > 1:
-                         pred = pred.squeeze()
-                if self.args.task == "in-hospital-mortality" or self.args.task == "readmission":
-                    #print("squeezing", pred.shape)
-                    if self.args.fusion_type == 'uni_cxr':
-                        if len(pred.shape) > 1:
-                             pred = pred.squeeze()
-                    #print("squeezing", pred.shape) 
-                if self.args.task == "decompensation":
-                    #print("squeezing", pred.shape)
-                    if self.args.fusion_type == 'uni_cxr':
-                        if len(pred.shape) > 1:
-                             pred = pred.squeeze()
-                    #print("squeezing", pred.shape) 
-                if self.args.task == "length-of-stay":
-                    #print(y)
-                    y_true_bins = torch.tensor([get_bin_custom(y_item, CustomBins.nbins) for y_item in y.cpu().numpy()], dtype=torch.long).to(self.device)
-                    loss = self.loss(pred, y_true_bins)
-                    #print(y_true_bins)
-                    #print(pred)
+                vectors = {}
+                r_scores = {}
+    
+                if 'ehr' in self.args.modalities:
+                    v_ehr = self.ehr_encoder(x)
+                    vectors['ehr'] = v_ehr
+                    r_ehr = self.ehr_r_classifier(v_ehr)
+                    r_scores['ehr'] = r_ehr
+                    y_ehr_pred = self.ehr_classifier(v_ehr)
+                    preds['ehr'] = y_ehr_pred
+                if 'cxr' in self.args.modalities:
+                    v_cxr = self.cxr_encoder(img)
+                    vectors['cxr'] = v_cxr
+                    r_cxr = self.cxr_r_classifier(v_cxr)
+                    r_scores['cxr'] = r_cxr
+                    y_cxr_pred = self.cxr_classifier(v_cxr)
+                    preds['cxr'] = y_cxr_pred
+                if 'dn' in self.args.modalities:
+                    v_dn = self.dn_encoder(dn)
+                    vectors['dn'] = v_dn
+                    r_dn = self.dn_r_classifier(v_dn)
+                    r_scores['dn'] = r_dn
+                    y_dn_pred = self.dn_classifier(v_dn)
+                    preds['dn'] = y_dn_pred
+                if 'rr' in self.args.modalities:
+                    v_rr = self.rr_encoder(rr)
+                    vectors['rr'] = v_rr
+                    r_rr = self.rr_r_classifier(v_rr)
+                    r_scores['rr'] = r_rr
+                    y_rr_pred = self.rr_classifier(v_rr)
+                    preds['rr'] = y_rr_pred
+    
+                if self.args.mode == 'relevancy-based-hierarchical':
+                    modalities_list = self.args.modalities.split('-')
+                    scores_tensor = torch.stack([torch.tensor(r_scores[mod]) for mod in modalities_list], dim=1)
+                    sorted_scores, sorted_indices = torch.sort(scores_tensor, dim=1, descending=True)
+                    vectors_tensor = torch.stack([v_ehr, v_cxr, v_dn, v_rr], dim=1)
+                    first_priority = vectors_tensor[torch.arange(self.args.batch_size), sorted_indices[:, 0]]
+                    #sorted_modalities = sorted(r_scores, key=r_scores.get)
+                    fused_vector = torch.cat((first_priority, self.token_vector_expanded), dim=1)
+                    
+                elif self.args.mode == 'predefined-hierarchical' and self.args.order is not None:
+                    # Use predefined order
+                    order_list = self.args.order.split('-')
+                    sorted_modalities = [mod for mod in order_list if mod in r_scores]
+                    fused_vector = torch.cat((vectors[sorted_modalities[0]], self.token_vector_expanded), dim=1)
+    
+    
+                # Dynamically use different transformer layers for each modality combination
+                for idx, modality in enumerate(sorted_modalities[1:], 1):
+                    fused_vector = torch.cat((fused_vector, vectors[modality]), dim=1)
+                    transformer_layer = getattr(self, f'transformer_layer{idx}')
+                    fused_vector = transformer_layer(fused_vector)
+    
+                # Final classifier
+                y_fused_pred = self.final_classifier(fused_vector)
+                
+                if self.args.mode == 'relevancy-based-hierarchical':
+                    loss = self.loss(y_fused_pred, y, r_scores, preds)
                 else:
-                    loss = self.loss(pred, y)
+                    loss = self.loss(y_fused_pred, y)
                 epoch_loss += loss.item()
-                if self.args.align > 0.0:
-                    epoch_loss_align +=  output['align_loss'].item()
-                outPRED = torch.cat((outPRED, pred), 0)
+                outPRED = torch.cat((outPRED, y_fused_pred), 0)
                 outGT = torch.cat((outGT, y), 0)
-                # if 'ehr_feats' in output:
-                #     ehr_features = torch.cat((ehr_features, output['ehr_feats'].data.cpu()), 0)
-                # if 'cxr_feats' in output:
-                #     cxr_features = torch.cat((cxr_features, output['cxr_feats'].data.cpu()), 0)
-                if self.args.labels_set == 'radiology':
-                    outGT_np = outGT.cpu().numpy()
-                    outGT_df = pd.DataFrame(outGT_np, columns=[f'GT_{i}' for i in range(outGT_np.shape[1])])
-                    outGT_df.to_csv(f'{self.args.save_dir}/outGT_epoch_{self.epoch}.csv', index=False)
-                    # y_true = np.array(outGT.data.cpu().numpy())
-                    # num_ones_per_column = np.sum(y_true == 1, axis=0)
-                    # for i, count in enumerate(num_ones_per_column):
-                    #     print(f"Column {i} has {count} 1's")
-        
-        self.scheduler.step(epoch_loss/len(self.val_dl))
-
-        print(f"val [{self.epoch:04d} / {self.args.epochs:04d}] validation loss: \t{epoch_loss/i:0.5f} \t{epoch_loss_align/i:0.5f}")
-        if self.args.task == "length-of-stay":
-            with torch.no_grad():
-                y_true_bins = [get_bin_custom(y_item.item(), CustomBins.nbins) for y_item in outGT.cpu().numpy()]
-                pred_labels = torch.max(outPRED, 1)[1].cpu().numpy()  # Convert logits to predicted labels
-                cf = metrics.confusion_matrix(y_true_bins, pred_labels)
-                df = pd.DataFrame({'y_truth': y_true_bins, 'y_pred': pred_labels})
-                (test_kappa, upper_kappa, lower_kappa), (test_mad, upper_mad, lower_mad) = get_model_performance_kappa_mad(df)
-                print("Kappa Confidence Interval:")
-                print(f"({upper_kappa}, {lower_kappa})")
-                print("AUROC Confidence Interval:")
-                print(f"({upper_mad}, {lower_mad})")
-                kappa = metrics.cohen_kappa_score(y_true_bins, pred_labels, weights='linear')
-                mad = metrics.mean_absolute_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
-                mse = metrics.mean_squared_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
-                mape = mean_absolute_percentage_error(outGT.cpu().numpy(), outPRED.max(1)[0].cpu().numpy())
-                
-                best_stats = {"mad": mad, "mse": mse, "mape": mape, "kappa": kappa}
-                wandb.log({
-                    'val_mad': mad,
-                    'val_mse': mse, 
-                    'val_mape': mape,
-                    'val_kappa': kappa
-                })
-            ret = best_stats
-        else:    
+    
+            print(f"val [{self.epoch:04d} / {self.args.epochs:04d}] validation loss: \t{epoch_loss/i:0.5f}")
+    
             ret = self.computeAUROC(outGT.data.cpu().numpy(), outPRED.data.cpu().numpy(), 'validation')
-            np.save(f'{self.args.save_dir}/pred.npy', outPRED.data.cpu().numpy()) 
+            np.save(f'{self.args.save_dir}/pred.npy', outPRED.data.cpu().numpy())
             np.save(f'{self.args.save_dir}/gt.npy', outGT.data.cpu().numpy())
             self.epochs_stats['auroc val'].append(ret['auroc_mean'])
-            self.epochs_stats['loss val'].append(epoch_loss/i)
-            self.epochs_stats['loss align val'].append(epoch_loss_align/i)
-        # print(f'true {outGT.data.cpu().numpy().sum()}/{outGT.data.cpu().numpy().shape}')
-        # print(f'true {outGT.data.cpu().numpy().sum()/outGT.data.cpu().numpy().shape[0]} ({outGT.data.cpu().numpy().sum()}/{outGT.data.cpu().numpy().shape[0]})')
+            self.epochs_stats['loss val'].append(epoch_loss / i)
             wandb.log({
-                    'val_Loss': epoch_loss/i, 
-                    'val_AUC': ret['auroc_mean']
-                })
-
+                'val_Loss': epoch_loss / i,
+                'val_AUC': ret['auroc_mean']
+            })
+    
         return ret
 
-    
-    def compute_late_fusion(self, y_true, uniout_cxr, uniout_ehr):
-        y_true = np.array(y_true)
-        predictions_cxr = np.array(uniout_cxr)
-        predictions_ehr = np.array(uniout_ehr)
-        best_weights = np.ones(y_true.shape[-1])
-        best_auroc = 0.0
-        weights = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
-
-        for class_idx in range(y_true.shape[-1]):
-            for weight in weights:
-                predictions = (predictions_ehr * best_weights) + (predictions_cxr * (1-best_weights))
-                predictions[:, class_idx] = (predictions_ehr[:, class_idx] * weight) + (predictions_cxr[:, class_idx] * 1-weight)
-                auc_scores = metrics.roc_auc_score(y_true, predictions, average=None)
-                auroc_mean = np.mean(np.array(auc_scores))
-                if auroc_mean > best_auroc:
-                    best_auroc = auroc_mean
-                    best_weights[class_idx] = weight
-                # predictions = weight * predictions_cxr[]
-
-
-        predictions = (predictions_ehr * best_weights) + (predictions_cxr * (1-best_weights))
-        print(best_weights)
-
-        if args.task in ['phenotyping', 'in-hospital-mortality', 'decompensation']:
-
-            auc_scores = metrics.roc_auc_score(y_true, predictions, average=None)
-            ave_auc_micro = metrics.roc_auc_score(y_true, predictions,
-                                                average="micro")
-            ave_auc_macro = metrics.roc_auc_score(y_true, predictions,
-                                                average="macro")
-            ave_auc_weighted = metrics.roc_auc_score(y_true, predictions,
-                                                    average="weighted")
-            
-            # print(np.mean(np.array(auc_scores)
-
-            # print
-            best_stats = {"auc_scores": auc_scores,
-                    "ave_auc_micro": ave_auc_micro,
-                    "ave_auc_macro": ave_auc_macro,
-                    "ave_auc_weighted": ave_auc_weighted,
-                    "auroc_mean": np.mean(np.array(auc_scores))
-                    }
-
-        elif args.task == 'length-of-stay':
-             predictions = np.maximum(predictions, 0).flatten()
-             y_true_bins = [get_bin_custom(x, CustomBins.nbins) for x in y_true]
-             prediction_bins = [get_bin_custom(x, CustomBins.nbins) for x in predictions]
-             cf = metrics.confusion_matrix(y_true_bins, prediction_bins)
-
-             kappa = metrics.cohen_kappa_score(y_true_bins, prediction_bins,
-                                      weights='linear')
-             mad = metrics.mean_absolute_error(y_true, predictions)
-             mse = metrics.mean_squared_error(y_true, predictions)
-             mape = mean_absolute_percentage_error(y_true, predictions)
-             best_stats = {"mad": mad,
-             "mse": mse,
-             "mape": mape,
-             "kappa": kappa}
-
-        else:
-            print("Task not implemented")
-
-        #self.print_and_write(best_stats , isbest=True, prefix='late fusion weighted average')
-        return best_stats 
-        
-    def eval_age(self):
-
-        print('validating ... ')
-           
-        patiens = pd.read_csv('data/physionet.org/files/mimic-iv-1.0/core/patients.csv')
-        subject_ids = np.array([int(item.split('_')[0]) for item in self.test_dl.dataset.ehr_files_paired])
-
-        selected = patiens[patiens.subject_id.isin(subject_ids)]
-        start = 18
-        copy_ehr = np.copy(self.test_dl.dataset.ehr_files_paired)
-        copy_cxr = np.copy(self.test_dl.dataset.cxr_files_paired)
-        self.model.eval()
-        step = 20
-        for i in range(20, 100, step):
-            subjects = selected.loc[((selected.anchor_age >= start) & (selected.anchor_age < i + step))].subject_id.values
-            indexes = [jj for (jj, subject) in enumerate(subject_ids) if  subject in subjects]
-            
-            
-            self.test_dl.dataset.ehr_files_paired = copy_ehr[indexes]
-            self.test_dl.dataset.cxr_files_paired = copy_cxr[indexes]
-
-            print(len(indexes))
-            ret = self.validate(self.test_dl)
-            print(f"{start}-{i + step} & {len(indexes)} & & & {ret['auroc_mean']:0.3f} & {ret['auprc_mean']:0.3f}")
-
-            #self.print_and_write(ret , isbest=True, prefix=f'{self.args.fusion_type} val', filename=f'results_test_{start}_{i + step}.txt')
-
-            # print(f"{start}-{i + step} & {len(indexes)} & & & {ret['auroc_mean']:0.3f} & {ret['auprc_mean']:0.3f}")
-            # print(f"{start}-{i + 10} & {len(indexes)} & & & {ret['auroc_mean']:0.3f} & {ret['auprc_mean']:0.3f}")
-            # self.print_and_write(ret , isbest=True, prefix=f'{self.args.fusion_type} age_{start}_{i + 10}_{len(indexes)}', filename='results_test.txt')
-            start = i + step
-    def test(self):
-        print('validating ... ')
-        self.epoch = 0
-        self.model.eval()
-        ret = self.validate(self.val_dl)
-        self.print_and_write(ret , isbest=True, prefix=f'{self.args.fusion_type} val', filename='results_val.txt')
-        self.model.eval()
-        ret = self.validate(self.test_dl)
-        self.print_and_write(ret , isbest=True, prefix=f'{self.args.fusion_type} test', filename='results_test.txt')
-        return
-
     def eval(self):
-        # self.eval_age()
+
         if self.args.fusion_type != 'late_avg':
             self.load_ehr_pheno(load_state=f'{self.args.save_dir}/best_{self.args.fusion_type}_{self.args.task}_{self.args.lr}_checkpoint.pth.tar')
             self.load_cxr_pheno(load_state=f'{self.args.save_dir}/best_{self.args.fusion_type}_{self.args.task}_{self.args.lr}_checkpoint.pth.tar')
             self.load_state(state_path=f'{self.args.save_dir}/best_{self.args.fusion_type}_{self.args.task}_{self.args.lr}_checkpoint.pth.tar')
         
-        # self.load_ehr_pheno(load_state=f'{self.args.save_dir}/best_{self.args.fusion_type}_{self.args.lr}_checkpoint.pth.tar')
-        # self.load_cxr_pheno(load_state=f'{self.args.save_dir}/best_{self.args.fusion_type}_{self.args.lr}_checkpoint.pth.tar')
-        # self.load_state(state_path=f'{self.args.save_dir}/best_{self.args.fusion_type}_{self.args.lr}_checkpoint.pth.tar')
-        
         self.epoch = 0
         self.model.eval()
-        # ret = self.validate(self.val_dl)
-        # self.print_and_write(ret , isbest=True, prefix=f'{self.args.fusion_type} val', filename='results_val.txt')
-        # self.model.eval()
+
         ret = self.validate(self.test_dl)
-        if self.args.task=="length-of-stay":
-            wandb.log({
-                    'test mad': ret['mad'], 
-                    'test mse': ret['mse'], 
-                    'test mape': ret['mape'],
-                    'test kappa': ret['kappa']
-                })
-        else:
-            wandb.log({
-                    'test_auprc': ret['auprc_mean'], 
-                    'test_AUC': ret['auroc_mean']
-                })
+        wandb.log({
+                'test_auprc': ret['auprc_mean'], 
+                'test_AUC': ret['auroc_mean']
+            })
             if self.args.task!="length-of-stay":
                 self.print_and_write(ret , isbest=True, prefix=f'{self.args.fusion_type} test', filename=f'results_{self.args.lr}_test.txt')
         return
@@ -510,40 +410,23 @@ class FusionTrainer(Trainer):
     def train(self):
         print(f'running for fusion_type {self.args.fusion_type}')
         for self.epoch in range(self.start_epoch, self.args.epochs):
-            self.model.eval()
+            self.set_eval_mode() 
             ret = self.validate(self.val_dl)
-            self.save_checkpoint(prefix='last')
-            
-            if self.args.task=="length-of-stay":
-                if self.best_kappa <= ret['kappa']:
-                    self.best_kappa = ret['kappa']
-                    self.best_stats = ret
-                    self.save_checkpoint()
-                    # print(f'saving best AUROC {ret["ave_auc_micro"]:0.4f} checkpoint')
-                    #self.print_and_write(ret, isbest=True)
-                    self.patience = 0
-                else:
-                    #self.print_and_write(ret, isbest=False)
-                    self.patience+=1
+            #self.save_checkpoint(prefix='last')
+    
+            if self.best_auroc < ret['auroc_mean']:
+                self.best_auroc = ret['auroc_mean']
+                self.best_stats = ret
+                self.save_checkpoint()
+                self.patience = 0
             else:
-                if self.best_auroc < ret['auroc_mean']:
-                    self.best_auroc = ret['auroc_mean']
-                    self.best_stats = ret
-                    self.save_checkpoint()
-                    # print(f'saving best AUROC {ret["ave_auc_micro"]:0.4f} checkpoint')
-                    #self.print_and_write(ret, isbest=True)
-                    self.patience = 0
-                else:
-                    #self.print_and_write(ret, isbest=False)
-                    self.patience+=1
-
-            self.model.train()
+                self.patience += 1
+    
+            self.set_train_mode() 
             self.train_epoch()
-            # self.plot_stats(key='loss', filename='loss.pdf')
-            # self.plot_stats(key='auroc', filename='auroc.pdf')
+            
             if self.patience >= self.args.patience:
                 break
-        #self.print_and_write(self.best_stats , isbest=True)
 
         
     
