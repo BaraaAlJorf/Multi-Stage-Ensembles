@@ -48,10 +48,12 @@ class MIMIC_CXR_EHR_RR_DN(Dataset):
         self.metadata_with_labels = metadata_with_labels
         self.discharge_notes_paired = self.metadata_with_labels['discharge_text'].values
         self.radiology_notes_paired = self.metadata_with_labels['radiology_text'].values
-        self.time_diff = self.metadata_with_labels.time_diff
-        self.lower = self.metadata_with_labels.lower
-        self.upper = self.metadata_with_labels.upper
-        self.cxr_files_paired = self.metadata_with_labels.dicom_id.values
+        if 'CXR' in args.modalities:
+            self.time_diff = self.metadata_with_labels.time_diff
+            self.cxr_files_paired = self.metadata_with_labels.dicom_id.values
+        # self.lower = self.metadata_with_labels.lower
+        # self.upper = self.metadata_with_labels.upper
+        
         self.ehr_files_paired = (self.metadata_with_labels['stay'].values)
         self.cxr_files_all = cxr_ds.filenames_loaded
         self.ehr_files_all = ehr_ds.names
@@ -73,8 +75,8 @@ class MIMIC_CXR_EHR_RR_DN(Dataset):
         
 
     def __getitem__(self, index):
-        lower = self.metadata_with_labels.iloc[index].lower
-        upper = self.metadata_with_labels.iloc[index].upper
+        # lower = self.metadata_with_labels.iloc[index].lower
+        # upper = self.metadata_with_labels.iloc[index].upper
         discharge_note = self.discharge_notes_paired[index]
         radiology_note = self.radiology_notes_paired[index] 
     
@@ -90,7 +92,7 @@ class MIMIC_CXR_EHR_RR_DN(Dataset):
     
         # Handle EHR data loading
         if 'EHR' in self.args.modalities:
-            ehr_data, labels_ehr = self.ehr_ds.__getitem__(ehr_df[index], lower, upper)
+            ehr_data, labels_ehr = self.ehr_ds.__getitem__(ehr_df[index])#, lower, upper)
         else:
             ehr_data, labels_ehr = np.zeros((1, 10)), np.zeros(self.args.num_classes)
     
@@ -135,6 +137,8 @@ def loadmetadata(args, discharge_notes, radiology_reports):
     elif 'EHR' in args.modalities:
         cxr_merged_icustays = icu_stay_metadata[columns]
         cxr_merged_icustays['StudyDateTime'] = None
+        cxr_merged_icustays.intime = pd.to_datetime(cxr_merged_icustays.intime)
+        cxr_merged_icustays.outtime = pd.to_datetime(cxr_merged_icustays.outtime)
     elif 'CXR' in args.modalities:
         cxr_merged_icustays = cxr_metadata
         cxr_merged_icustays['intime'] = None
@@ -203,11 +207,13 @@ def loadmetadata(args, discharge_notes, radiology_reports):
 
     if args.task == 'in-hospital-mortality':
         end_time = cxr_merged_icustays.intime + pd.DateOffset(hours=48)
+        #print("end_time:",end_time)
         if 'CXR' in args.modalities:
             cxr_merged_icustays_during = cxr_merged_icustays.loc[
                 ((cxr_merged_icustays.StudyDateTime >= cxr_merged_icustays.intime) & (cxr_merged_icustays.StudyDateTime <= end_time))]
+            #print(cxr_merged_icustays.StudyDateTime)
         if 'DN' in args.modalities:
-            print(cxr_merged_icustays_during.head())
+            #print(cxr_merged_icustays_during.head())
             cxr_merged_icustays_during = cxr_merged_icustays_during.loc[
                 ((cxr_merged_icustays_during['discharge_charttime'] >= cxr_merged_icustays_during.intime)&(cxr_merged_icustays_during['discharge_charttime'] <= cxr_merged_icustays_during.intime + pd.DateOffset(hours=48)))]
         if 'RR' in args.modalities:
@@ -220,33 +226,46 @@ def loadmetadata(args, discharge_notes, radiology_reports):
             cxr_merged_icustays_during = cxr_merged_icustays.loc[
             ((cxr_merged_icustays.StudyDateTime >= cxr_merged_icustays.intime) & (cxr_merged_icustays.StudyDateTime <= end_time))]
         if 'DN' in args.modalities:
-            print(cxr_merged_icustays_during.head())
+            #print(cxr_merged_icustays_during.head())
             cxr_merged_icustays_during = cxr_merged_icustays_during.loc[
                 ((cxr_merged_icustays_during['discharge_charttime'] >= cxr_merged_icustays_during.intime)&(cxr_merged_icustays_during['discharge_charttime'] <= cxr_merged_icustays_during.outtime))]
         if 'RR' in args.modalities:
             cxr_merged_icustays_during = cxr_merged_icustays_during.loc[
                 ((cxr_merged_icustays_during['radiology_charttime'] >= cxr_merged_icustays_during.intime)&(cxr_merged_icustays_during['radiology_charttime'] <= cxr_merged_icustays_during.outtime))]
 
-    cxr_merged_icustays_AP = cxr_merged_icustays_during[cxr_merged_icustays_during['ViewPosition'] == 'AP']
+    if 'CXR' in args.modalities:
+        cxr_merged_icustays_AP = cxr_merged_icustays_during[cxr_merged_icustays_during['ViewPosition'] == 'AP']
+    else:
+        cxr_merged_icustays_AP = cxr_merged_icustays_during
 
-    if args.retrieve_cxr == 'recent':
-        groups = cxr_merged_icustays_AP.groupby('stay_id')
-        groups_selected = []
-        for group in groups:
-            # Select the latest CXR for the ICU stay
-            selected = group[1].sort_values('StudyDateTime').tail(1).reset_index()
-            groups_selected.append(selected)
-        groups = pd.concat(groups_selected, ignore_index=True)
-        groups['lower'] = 0
-        groups['upper'] = groups.full_stay_time
-    elif args.retrieve_cxr == 'all':
-        print("All CXR")
-        groups = cxr_merged_icustays_AP.groupby('study_id').first()
-        groups = groups.reset_index()
-        groups = groups.groupby('study_id').first().sort_values(by=['stay_id', 'StudyDateTime'])
-        groups = groups.reset_index()
-        groups['lower'] = 0
-        groups['upper'] = groups.time_diff
+    # if args.retrieve_cxr == 'recent':
+    #     groups = cxr_merged_icustays_AP.groupby('stay_id')
+    #     groups_selected = []
+    #     for group in groups:
+    #         # Select the latest CXR for the ICU stay
+    #         selected = group[1].sort_values('StudyDateTime').tail(1).reset_index()
+    #         groups_selected.append(selected)
+    #     groups = pd.concat(groups_selected, ignore_index=True)
+    #     groups['lower'] = 0
+    #     groups['upper'] = groups.full_stay_time
+    #     print(groups['upper'])
+    # elif args.retrieve_cxr == 'all':
+    #     print("All CXR")
+    #     groups = cxr_merged_icustays_AP.groupby('study_id').first()
+    #     groups = groups.reset_index()
+    #     groups = groups.groupby('study_id').first().sort_values(by=['stay_id', 'StudyDateTime'])
+    #     groups = groups.reset_index()
+    #     groups['lower'] = 0
+    #     groups['upper'] = groups.time_diff
+    
+    groups = cxr_merged_icustays_AP.groupby('stay_id')
+
+    groups_selected = []
+    for group in groups:
+        # select the latest cxr for the icu stay
+        selected = group[1].sort_values('StudyDateTime').tail(1).reset_index()
+        groups_selected.append(selected)
+    groups = pd.concat(groups_selected, ignore_index=True)
 
     return groups
 
@@ -289,21 +308,30 @@ def printPrevalence(merged_file, args):
         print(merged_file['y_true'].value_counts())
     # import pdb; pdb.set_trace()
 
+    
 def my_collate(batch):
     x = [item[0] for item in batch]
     pairs = [False if item[1] is None else True for item in batch]
-    img = torch.stack([torch.zeros(3, 224, 224) if item[1] is None else item[1] for item in batch])
+    
+    # Change: Ensure that all elements passed to torch.stack are Tensors
+    img = torch.stack([torch.zeros(3, 384, 384) if item[1] is None else (item[1] if isinstance(item[1], torch.Tensor) else torch.tensor(item[1])) for item in batch])
+    
     x, seq_length = pad_zeros(x)
     discharge_note = [item[2] for item in batch]
     radiology_note = [item[3] for item in batch]
     targets_ehr = np.array([item[4] for item in batch])
-    targets_cxr = torch.stack([torch.zeros(14) if item[5] is None else item[5] for item in batch])
+    targets_cxr = torch.stack([torch.zeros(14) if item[5] is None else (item[5] if isinstance(item[5], torch.Tensor) else torch.tensor(item[5])) for item in batch])
+    
     return [x, img, discharge_note, radiology_note, targets_ehr, targets_cxr, seq_length, pairs]
 
 def pad_zeros(arr, min_length=None):
     dtype = arr[0].dtype
     seq_length = [x.shape[0] for x in arr]
     max_len = max(seq_length)
+    if max_len == 48:
+        min_length=None
+    else:
+        min_length=2442
     ret = [np.concatenate([x, np.zeros((max_len - x.shape[0],) + x.shape[1:], dtype=dtype)], axis=0)
            for x in arr]
     if (min_length is not None) and ret[0].shape[0] < min_length:

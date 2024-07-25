@@ -1,0 +1,56 @@
+Running unimodal pretraining for modality EHR
+0
+Starting val epoch 0
+val [0000 / 0020] validation loss: 	1.45590
+checkpoint
+Starting train epoch 0
+ epoch [0000 / 0020] [0099/267] eta: 0 Days 0:21:14        lr: 	1.0000E-06 loss: 	0.69631
+ epoch [0000 / 0020] [0199/267] eta: 0 Days 0:11:27        lr: 	1.0000E-06 loss: 	0.55756
+1
+Starting val epoch 1
+val [0001 / 0020] validation loss: 	0.43391
+checkpoint
+Starting train epoch 1
+ epoch [0001 / 0020] [0099/267] eta: 0 Days 0:9:48         lr: 	1.0000E-06 loss: 	0.41571
+ epoch [0001 / 0020] [0199/267] eta: 0 Days 0:7:58         lr: 	1.0000E-06 loss: 	0.41872
+2
+Starting val epoch 2
+val [0002 / 0020] validation loss: 	0.43296
+checkpoint
+Starting train epoch 2
+ epoch [0002 / 0020] [0099/267] eta: 0 Days 0:7:43         lr: 	1.0000E-06 loss: 	0.42513
+ epoch [0002 / 0020] [0199/267] eta: 0 Days 0:6:47         lr: 	1.0000E-06 loss: 	0.41435
+3
+Starting val epoch 3
+val [0003 / 0020] validation loss: 	0.43172
+checkpoint
+Starting train epoch 3
+ epoch [0003 / 0020] [0099/267] eta: 0 Days 0:6:42         lr: 	1.0000E-06 loss: 	0.42457
+ epoch [0003 / 0020] [0199/267] eta: 0 Days 0:6:4          lr: 	1.0000E-06 loss: 	0.42364
+4
+Starting val epoch 4
+val [0004 / 0020] validation loss: 	0.43089
+checkpoint
+Starting train epoch 4
+ epoch [0004 / 0020] [0099/267] eta: 0 Days 0:5:59         lr: 	1.0000E-06 loss: 	0.41457
+ epoch [0004 / 0020] [0199/267] eta: 0 Days 0:5:31         lr: 	1.0000E-06 loss: 	0.41063
+5
+Starting val epoch 5
+val [0005 / 0020] validation loss: 	0.43012
+checkpoint
+Starting train epoch 5
+ epoch [0005 / 0020] [0099/267] eta: 0 Days 0:5:26         lr: 	1.0000E-06 loss: 	0.41591
+ epoch [0005 / 0020] [0199/267] eta: 0 Days 0:5:3          lr: 	1.0000E-06 loss: 	0.42240
+6
+Starting val epoch 6
+val [0006 / 0020] validation loss: 	0.42881
+checkpoint
+Starting train epoch 6
+ epoch [0006 / 0020] [0099/267] eta: 0 Days 0:4:57         lr: 	1.0000E-06 loss: 	0.41131
+ epoch [0006 / 0020] [0199/267] eta: 0 Days 0:4:37         lr: 	1.0000E-06 loss: 	0.41349
+7
+Starting val epoch 7
+val [0007 / 0020] validation loss: 	0.42691
+checkpoint
+Starting train epoch 7
+ epoch [0007 / 0020] [0099/267] eta: 0 Days 0:4:30         lr: 	1.0000E-06 loss: 	0.43358

@@ -73,30 +73,15 @@ train_dl, val_dl, test_dl = load_cxr_ehr(args, ehr_train_ds, ehr_val_ds, cxr_tra
 
 print("data gone")
 
-# # Debug function to print DataLoader contents
-# def debug_data_loader(dl, name, num_batches=1):
-#     print(f"\nContents of {name}:")
-#     for i, batch in enumerate(dl):
-#         if i >= num_batches: break
-#         print(f"Batch {i + 1}:")
-#         x, img, targets_ehr, targets_cxr, seq_length, pairs = batch
-#         print(f"  X data: {x.shape}")
-#         print(f"  Image data: {img.shape}")
-#         print(f"  EHR targets: {targets_ehr.shape}")
-#         print(f"  CXR targets: {targets_cxr.shape}")
-#         print(f"  Sequence lengths: {seq_length}")
-#         print(f"  Pairs: {pairs}")
-
-# # Optionally print data loader contents for debugging
-# debug_data_loader(val_dl, 'Validation DataLoader')
-# debug_data_loader(test_dl, 'Test DataLoader')
-
 with open(f"{args.save_dir}/args.txt", 'w') as results_file:
     for arg in vars(args): 
         print(f"  {arg:<40}: {getattr(args, arg)}")
         results_file.write(f"  {arg:<40}: {getattr(args, arg)}\n")
 
-if args.fusion_type == 'mmtm':
+if args.H_mode =='unimodal'
+elif args.H_mode == 'early' or args.H_mode == 'joint' or args.H_mode == 'late'
+elif args.H_mode == 'relevancy-based-hierarchical' or args.H_mode == 'predefined-hierarchical'
+elif args.fusion_type == 'mmtm':
     trainer = MMTMTrainer(
         train_dl, 
         val_dl, 
@@ -108,13 +93,6 @@ elif args.fusion_type == 'daft':
         val_dl, 
         args,
         test_dl=test_dl)
-elif args.run_method == 'linear_eval':
-    trainer = FrozenTrainer(
-        train_dl, 
-        val_dl, 
-        args,
-        test_dl
-        )
 else:
     print("running")
     trainer = FusionTrainer(

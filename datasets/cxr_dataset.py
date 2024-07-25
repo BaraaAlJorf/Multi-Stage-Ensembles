@@ -61,26 +61,46 @@ class MIMICCXR(Dataset):
         return len(self.filenames_loaded)
 
 
+# def get_transforms(args):
+#     normalize = transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+#     train_transforms = []
+#     train_transforms.append(transforms.Resize(384))
+#     train_transforms.append(transforms.RandomHorizontalFlip())
+#     train_transforms.append(transforms.RandomAffine(degrees=45, scale=(.85, 1.15), shear=0, translate=(0.15, 0.15)))
+#     train_transforms.append(transforms.CenterCrop(384))
+#     train_transforms.append(transforms.ToTensor())
+#     train_transforms.append(normalize)      
+
+
+#     test_transforms = []
+#     test_transforms.append(transforms.Resize(args.resize))
+
+
+#     test_transforms.append(transforms.CenterCrop(args.crop))
+
+#     test_transforms.append(transforms.ToTensor())
+#     test_transforms.append(normalize)
+
+
+#     return train_transforms, test_transforms
+    
 def get_transforms(args):
     normalize = transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-    train_transforms = []
-    train_transforms.append(transforms.Resize(256))
-    train_transforms.append(transforms.RandomHorizontalFlip())
-    train_transforms.append(transforms.RandomAffine(degrees=45, scale=(.85, 1.15), shear=0, translate=(0.15, 0.15)))
-    train_transforms.append(transforms.CenterCrop(224))
-    train_transforms.append(transforms.ToTensor())
-    train_transforms.append(normalize)      
-
-
-    test_transforms = []
-    test_transforms.append(transforms.Resize(args.resize))
-
-
-    test_transforms.append(transforms.CenterCrop(args.crop))
-
-    test_transforms.append(transforms.ToTensor())
-    test_transforms.append(normalize)
-
+    
+    train_transforms = transforms.Compose([
+        transforms.Resize((384, 384)),  # Resize to 384x384
+        transforms.RandomHorizontalFlip(),
+        transforms.RandomAffine(degrees=45, scale=(.85, 1.15), shear=0, translate=(0.15, 0.15)),
+        transforms.ToTensor(),
+        normalize
+    ])
+    
+    test_transforms = transforms.Compose([
+        transforms.Resize((384, 384)),  # Resize to 384x384
+        transforms.CenterCrop(384),
+        transforms.ToTensor(),
+        normalize
+    ])
 
     return train_transforms, test_transforms
 
@@ -89,16 +109,30 @@ def get_cxr_datasets(args):
 
     data_dir = args.cxr_data_dir
     
-    # filepath = f'{args.cxr_data_dir}/paths.npy'
-    # if os.path.exists(filepath):
-    #     paths = np.load(filepath)
-    # else:
-    paths = glob.glob(f'{data_dir}/resized/**/*.jpg', recursive = True)
-    # np.save(filepath, paths)
+    paths = glob.glob(f'{data_dir}/resized/**/*.jpg', recursive=True)
     
-    dataset_train = MIMICCXR(paths, args, split='train', transform=transforms.Compose(train_transforms))
-    dataset_validate = MIMICCXR(paths, args, split='validate', transform=transforms.Compose(test_transforms),)
-    dataset_test = MIMICCXR(paths, args, split='test', transform=transforms.Compose(test_transforms),)
+    dataset_train = MIMICCXR(paths, args, split='train', transform=train_transforms)
+    dataset_validate = MIMICCXR(paths, args, split='validate', transform=test_transforms)
+    dataset_test = MIMICCXR(paths, args, split='test', transform=test_transforms)
 
     return dataset_train, dataset_validate, dataset_test
+
+
+# def get_cxr_datasets(args):
+#     train_transforms, test_transforms = get_transforms(args)
+
+#     data_dir = args.cxr_data_dir
+    
+#     # filepath = f'{args.cxr_data_dir}/paths.npy'
+#     # if os.path.exists(filepath):
+#     #     paths = np.load(filepath)
+#     # else:
+#     paths = glob.glob(f'{data_dir}/resized/**/*.jpg', recursive = True)
+#     # np.save(filepath, paths)
+    
+#     dataset_train = MIMICCXR(paths, args, split='train', transform=transforms.Compose(train_transforms))
+#     dataset_validate = MIMICCXR(paths, args, split='validate', transform=transforms.Compose(test_transforms),)
+#     dataset_test = MIMICCXR(paths, args, split='test', transform=transforms.Compose(test_transforms),)
+
+#     return dataset_train, dataset_validate, dataset_test
 

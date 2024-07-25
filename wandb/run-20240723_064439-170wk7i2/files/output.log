@@ -1,0 +1,100 @@
+Running unimodal pretraining for modality EHR
+0
+Starting val epoch 0
+val [0000 / 0020] validation loss: 	1.44235
+checkpoint
+Starting train epoch 0
+ epoch [0000 / 0020] [0099/267] eta: 0 Days 0:22:5         lr: 	1.0000E-03 loss: 	0.48052
+ epoch [0000 / 0020] [0199/267] eta: 0 Days 0:12:51        lr: 	1.0000E-03 loss: 	0.45300
+1
+Starting val epoch 1
+val [0001 / 0020] validation loss: 	0.43621
+Starting train epoch 1
+ epoch [0001 / 0020] [0099/267] eta: 0 Days 0:10:35        lr: 	1.0000E-03 loss: 	0.42095
+ epoch [0001 / 0020] [0199/267] eta: 0 Days 0:8:30         lr: 	1.0000E-03 loss: 	0.42516
+2
+Starting val epoch 2
+val [0002 / 0020] validation loss: 	0.44651
+Starting train epoch 2
+ epoch [0002 / 0020] [0099/267] eta: 0 Days 0:7:56         lr: 	1.0000E-03 loss: 	0.43130
+ epoch [0002 / 0020] [0199/267] eta: 0 Days 0:7:4          lr: 	1.0000E-03 loss: 	0.42172
+3
+Starting val epoch 3
+val [0003 / 0020] validation loss: 	0.43578
+Starting train epoch 3
+ epoch [0003 / 0020] [0099/267] eta: 0 Days 0:6:56         lr: 	1.0000E-03 loss: 	0.42895
+ epoch [0003 / 0020] [0199/267] eta: 0 Days 0:6:15         lr: 	1.0000E-03 loss: 	0.43517
+4
+Starting val epoch 4
+val [0004 / 0020] validation loss: 	0.43548
+Starting train epoch 4
+ epoch [0004 / 0020] [0099/267] eta: 0 Days 0:6:8          lr: 	1.0000E-03 loss: 	0.42363
+ epoch [0004 / 0020] [0199/267] eta: 0 Days 0:5:38         lr: 	1.0000E-03 loss: 	0.41970
+5
+Starting val epoch 5
+val [0005 / 0020] validation loss: 	0.43691
+Starting train epoch 5
+ epoch [0005 / 0020] [0099/267] eta: 0 Days 0:5:34         lr: 	1.0000E-03 loss: 	0.43143
+ epoch [0005 / 0020] [0199/267] eta: 0 Days 0:5:16         lr: 	1.0000E-03 loss: 	0.43482
+6
+Starting val epoch 6
+val [0006 / 0020] validation loss: 	0.48428
+Starting train epoch 6
+ epoch [0006 / 0020] [0099/267] eta: 0 Days 0:5:8          lr: 	1.0000E-03 loss: 	0.42103
+ epoch [0006 / 0020] [0199/267] eta: 0 Days 0:4:48         lr: 	1.0000E-03 loss: 	0.42581
+7
+Starting val epoch 7
+val [0007 / 0020] validation loss: 	0.43880
+Starting train epoch 7
+ epoch [0007 / 0020] [0099/267] eta: 0 Days 0:4:40         lr: 	1.0000E-03 loss: 	0.44736
+ epoch [0007 / 0020] [0199/267] eta: 0 Days 0:4:22         lr: 	1.0000E-03 loss: 	0.42810
+8
+Starting val epoch 8
+val [0008 / 0020] validation loss: 	0.43589
+Starting train epoch 8
+ epoch [0008 / 0020] [0099/267] eta: 0 Days 0:4:11         lr: 	1.0000E-03 loss: 	0.40672
+ epoch [0008 / 0020] [0199/267] eta: 0 Days 0:3:57         lr: 	1.0000E-03 loss: 	0.42253
+9
+Starting val epoch 9
+val [0009 / 0020] validation loss: 	0.44590
+Starting train epoch 9
+ epoch [0009 / 0020] [0099/267] eta: 0 Days 0:3:49         lr: 	1.0000E-03 loss: 	0.45610
+ epoch [0009 / 0020] [0199/267] eta: 0 Days 0:3:38         lr: 	1.0000E-03 loss: 	0.44195
+10
+Starting val epoch 10
+val [0010 / 0020] validation loss: 	0.43769
+Starting train epoch 10
+ epoch [0010 / 0020] [0099/267] eta: 0 Days 0:3:28         lr: 	1.0000E-03 loss: 	0.41947
+ epoch [0010 / 0020] [0199/267] eta: 0 Days 0:3:14         lr: 	1.0000E-03 loss: 	0.41488
+11
+Starting val epoch 11
+val [0011 / 0020] validation loss: 	0.44568
+Starting train epoch 11
+ epoch [0011 / 0020] [0099/267] eta: 0 Days 0:3:4          lr: 	1.0000E-03 loss: 	0.43666
+ epoch [0011 / 0020] [0199/267] eta: 0 Days 0:2:51         lr: 	1.0000E-03 loss: 	0.42439
+12
+Starting val epoch 12
+val [0012 / 0020] validation loss: 	0.43973
+Starting train epoch 12
+ epoch [0012 / 0020] [0099/267] eta: 0 Days 0:2:40         lr: 	1.0000E-03 loss: 	0.44995
+ epoch [0012 / 0020] [0199/267] eta: 0 Days 0:2:29         lr: 	1.0000E-03 loss: 	0.43007
+13
+Starting val epoch 13
+val [0013 / 0020] validation loss: 	0.43702
+Starting train epoch 13
+ epoch [0013 / 0020] [0099/267] eta: 0 Days 0:2:17         lr: 	1.0000E-03 loss: 	0.41991
+ epoch [0013 / 0020] [0199/267] eta: 0 Days 0:2:8          lr: 	1.0000E-03 loss: 	0.41711
+14
+Starting val epoch 14
+val [0014 / 0020] validation loss: 	0.43609
+Starting train epoch 14
+ epoch [0014 / 0020] [0099/267] eta: 0 Days 0:1:57         lr: 	1.0000E-03 loss: 	0.41711
+ epoch [0014 / 0020] [0199/267] eta: 0 Days 0:1:47         lr: 	1.0000E-03 loss: 	0.41400
+15
+Starting val epoch 15
+val [0015 / 0020] validation loss: 	0.43561
+Namespace(H_mode='predefined-hierarchical', align=0.0, batch_size=16, beta_1=0.9, crop=224, cxr_data_dir='/scratch/fs999/shamoutlab/data/physionet.org/files/mimic-cxr-jpg/2.0.0', daft_activation='linear', data_pairs='paired_ehr_cxr', data_ratio=1.0, depth=1, dim=256, dropout=0.0, ehr_data_dir='/scratch/fs999/shamoutlab/data/mimic-iv-extracted', epochs=20, eval=False, fusion='joint', fusion_type='uni_ehr', imputation='previous', labels_set='pheno', layer_after=4, layers=1, load_state=None, load_state_cxr=None, load_state_ehr=None, lr=0.0001, missing_token=None, mmtm_ratio=4, modalities='EHR-CXR-RR', mode='train', network=None, normalizer_state=None, num_classes=1, order='EHR-CXR-RR', patience=15, pretrained=False, pretraining='EHR', rec_dropout=0.0, resize=384, resume=False, retrieve_cxr='recent', run_method='fine_tune', save_dir='/scratch/se1525/mml-ssl/checkpoints/phenotyping/models', task='in-hospital-mortality', timestep=1.0, vision_backbone='resnet34', vision_num_classes=14)
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/train_listfile.csv
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/train
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/train
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/test

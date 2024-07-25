@@ -53,35 +53,37 @@ class EHRdataset(Dataset):
         # self._data = [(line_[0], float(line_[1]), line_[2], float(line_[3])  ) for line_ in self._data]
         # self.names = [x[0] for x in self.data_map]
         # print(self.names[0:10])
-    # def _read_timeseries(self, ts_filename, time_bound=None):
-    #     ret = []
-    #     with open(os.path.join(self._dataset_dir, ts_filename), "r") as tsfile:
-    #         header = tsfile.readline().strip().split(',')
-    #         assert header[0] == "Hours"
-    #         for line in tsfile:
-    #             mas = line.strip().split(',')
-    #             if time_bound is not None:
-    #                 t = float(mas[0])
-    #                 if t > time_bound + 1e-6:
-    #                     break
-    #             ret.append(np.array(mas))
-    #     return (np.stack(ret), header)
-    def _read_timeseries(self, ts_filename, lower_bound, upper_bound):
+    def _read_timeseries(self, ts_filename, time_bound=None):
         ret = []
         with open(os.path.join(self._dataset_dir, ts_filename), "r") as tsfile:
             header = tsfile.readline().strip().split(',')
             assert header[0] == "Hours"
             for line in tsfile:
                 mas = line.strip().split(',')
-                t = float(mas[0])
-                if t < lower_bound:
-                    continue
-                elif (t> lower_bound) & (t <upper_bound) :
-                    ret.append(np.array(mas))
-                elif t > upper_bound:
-                    break
+                if time_bound is not None:
+                    t = float(mas[0])
+                    if t > time_bound + 1e-6:
+                        break
+                ret.append(np.array(mas))
+        return (np.stack(ret), header)
+    # def _read_timeseries(self, ts_filename, lower_bound, upper_bound):
+    #     ret = []
+    #     with open(os.path.join(self._dataset_dir, ts_filename), "r") as tsfile:
+    #         header = tsfile.readline().strip().split(',')
+    #         assert header[0] == "Hours"
+    #         for line in tsfile:
+    #             mas = line.strip().split(',')
+    #             t = float(mas[0])
+    #             #print("upper_bound:",upper_bound)
+    #             if t < lower_bound:
+    #                 continue
+    #             elif (t> lower_bound) & (t <upper_bound) :
+    #                 ret.append(np.array(mas))
+    #             elif t > upper_bound:
+    #                 break
         try:
             #print(np.stack(ret))
+            print(f"Length of time series in _read_timeseries: {len(ret)}")  # Debug statement
             return (np.stack(ret), header)
         except ValueError:
             #print("exception in read_timeseries")
@@ -92,44 +94,45 @@ class EHRdataset(Dataset):
             #print(ts_filename, lower_bound, upper_bound)
             return (np.stack(ret), header)
         
-    # def read_by_file_name(self, index, time, time_bound=None):
-    #     #print("index", index)
-    #     if self.args.task=='length-of-stay' or self.args.task=='decompensation':
-    #         t = self.data_map[(index,time)]['time'] if time_bound is None else time_bound
-    #         y = self.data_map[(index,time)]['labels']
-    #         stay_id = self.data_map[(index,time)]['stay_id']
-    #         (X, header) = self._read_timeseries(index, time_bound=time_bound)
-    #     else:
-    #         #print("elsing")
-    #         t = self.data_map[index]['time'] if time_bound is None else time_bound
-    #         y = self.data_map[index]['labels']
-    #         stay_id = self.data_map[index]['stay_id']
-    #         (X, header) = self._read_timeseries(index, time_bound=time_bound)
-    #     return {"X": X,
-    #             "t": t,
-    #             "y": y,
-    #             'stay_id': stay_id,
-    #             "header": header,
-    #             "name": index}
-    
-    
-    def read_by_file_name(self, index, time, lower_bound, upper_bound):
+    def read_by_file_name(self, index, time, time_bound=None):
+        #print("index", index)
         if self.args.task=='length-of-stay' or self.args.task=='decompensation':
-            t = self.data_map[(index,time)]['time']
+            t = self.data_map[(index,time)]['time'] if time_bound is None else time_bound
             y = self.data_map[(index,time)]['labels']
             stay_id = self.data_map[(index,time)]['stay_id']
-            (X, header) = self._read_timeseries(index, lower_bound=lower_bound, upper_bound=time)
+            (X, header) = self._read_timeseries(index, time_bound=time_bound)
         else:
-            t = self.data_map[index]['time']
+            #print("elsing")
+            t = self.data_map[index]['time'] if time_bound is None else time_bound
             y = self.data_map[index]['labels']
             stay_id = self.data_map[index]['stay_id']
-            (X, header) = self._read_timeseries(index, lower_bound=lower_bound, upper_bound=upper_bound)
+            (X, header) = self._read_timeseries(index, time_bound=time_bound)
         return {"X": X,
                 "t": t,
                 "y": y,
                 'stay_id': stay_id,
                 "header": header,
                 "name": index}
+    
+    
+    # def read_by_file_name(self, index, time, lower_bound, upper_bound):
+    #     if self.args.task=='length-of-stay' or self.args.task=='decompensation':
+    #         t = self.data_map[(index,time)]['time']
+    #         y = self.data_map[(index,time)]['labels']
+    #         stay_id = self.data_map[(index,time)]['stay_id']
+    #         (X, header) = self._read_timeseries(index, lower_bound=lower_bound, upper_bound=time)
+    #     else:
+    #         #print("this upper:",upper_bound)
+    #         t = self.data_map[index]['time']
+    #         y = self.data_map[index]['labels']
+    #         stay_id = self.data_map[index]['stay_id']
+    #         (X, header) = self._read_timeseries(index, lower_bound=lower_bound, upper_bound=upper_bound)
+    #     return {"X": X,
+    #             "t": t,
+    #             "y": y,
+    #             'stay_id': stay_id,
+    #             "header": header,
+    #             "name": index}
     
     def get_decomp_los(self, index, time_bound=None):
         # name = self._data[index][0]
@@ -143,45 +146,21 @@ class EHRdataset(Dataset):
         # return data, ys
         # data, ys =
         return self.__getitem__(index, time_bound)
-    # def __getitem__(self, tuplee,  time_bound=None):
-    #     if self.args.task=='length-of-stay' or self.args.task=='decompensation':
-    #         time = tuplee[1]
-    #         index = tuplee[0]
-    #     else:
-    #         #print("normal")
-    #         index = tuplee
-    #         if isinstance(index, int):
-    #             index = self.names[index]
-    #         time = None
-    #     ret = self.read_by_file_name(index, time, time_bound)
-    #     data = ret["X"]
-    #     ts = ret["t"] if ret['t'] > 0.0 else self._period_length
-    #     ys = ret["y"]
-    #     # print("this is ys" , ys)
-    #     names = ret["name"]
-    #     data = self.discretizer.transform(data, end=ts)[0]
-    #     if (self.normalizer is not None):
-    #         data = self.normalizer.transform(data)
-    #     if 'length-of-stay' in self._dataset_dir:
-    #         ys = np.array(ys, dtype=np.float32) if len(ys) > 1 else np.array(ys, dtype=np.float32)[0]
-    #     else:
-    #         ys = np.array(ys, dtype=np.int32) if len(ys) > 1 else np.array(ys, dtype=np.int32)[0]
-    #     return data, ys
-    
-    def __getitem__(self, item_args, lower, upper):
+    def __getitem__(self, tuplee,  time_bound=None):
         if self.args.task=='length-of-stay' or self.args.task=='decompensation':
-            time = item_args[1]
-            index = item_args[0]
+            time = tuplee[1]
+            index = tuplee[0]
         else:
-            index = item_args
+            #print("normal")
+            index = tuplee
             if isinstance(index, int):
                 index = self.names[index]
             time = None
-        ret = self.read_by_file_name(index, time, lower, upper)
+        ret = self.read_by_file_name(index, time, time_bound)
         data = ret["X"]
-        ts = data.shape[0]
-        # print("Times included", ts) #ret["t"] if ret['t'] > 0.0 else self._period_length
+        ts = ret["t"] if ret['t'] > 0.0 else self._period_length
         ys = ret["y"]
+        # print("this is ys" , ys)
         names = ret["name"]
         data = self.discretizer.transform(data, end=ts)[0]
         if (self.normalizer is not None):
@@ -191,6 +170,32 @@ class EHRdataset(Dataset):
         else:
             ys = np.array(ys, dtype=np.int32) if len(ys) > 1 else np.array(ys, dtype=np.int32)[0]
         return data, ys
+    
+    # def __getitem__(self, item_args, lower, upper):
+    #     if self.args.task=='length-of-stay' or self.args.task=='decompensation':
+    #         time = item_args[1]
+    #         index = item_args[0]
+    #     else:
+    #         index = item_args
+    #         if isinstance(index, int):
+    #             index = self.names[index]
+    #         time = None
+    #     #print("just upper:", upper)
+    #     ret = self.read_by_file_name(index, time, lower, upper)
+    #     data = ret["X"]
+    #     ts = data.shape[0]
+    #     # print("Times included", ts) #ret["t"] if ret['t'] > 0.0 else self._period_length
+    #     print(f"Shape of data in __getitem__: {data.shape}")
+    #     ys = ret["y"]
+    #     names = ret["name"]
+    #     data = self.discretizer.transform(data, end=ts)[0]
+    #     if (self.normalizer is not None):
+    #         data = self.normalizer.transform(data)
+    #     if 'length-of-stay' in self._dataset_dir:
+    #         ys = np.array(ys, dtype=np.float32) if len(ys) > 1 else np.array(ys, dtype=np.float32)[0]
+    #     else:
+    #         ys = np.array(ys, dtype=np.int32) if len(ys) > 1 else np.array(ys, dtype=np.int32)[0]
+    #     return data, ys
         
     def __len__(self):
         return len(self.names)

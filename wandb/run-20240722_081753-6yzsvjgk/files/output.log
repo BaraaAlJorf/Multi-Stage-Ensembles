@@ -1,0 +1,28 @@
+Some weights of the model checkpoint at allenai/longformer-base-4096 were not used when initializing LongformerModel: ['lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing LongformerModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing LongformerModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at emilyalsentzer/Bio_ClinicalBERT were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+running for fusion_type uni_ehr
+0
+starting val epoch 0
+val [0000 / 0002] validation loss: 	0.53270
+checkpoint
+starting train epoch 0
+ epoch [0000 / 0002] [0009/1069] eta: 0 Days 6:27:52        lr: 	8.0000E-01 loss: 	208.36615 loss align 0.0000
+ epoch [0000 / 0002] [0109/1069] eta: 0 Days 0:40:18        lr: 	8.0000E-01 loss: 	46.06245 loss align 0.0000
+ epoch [0000 / 0002] [0209/1069] eta: 0 Days 0:23:19        lr: 	8.0000E-01 loss: 	38.77345 loss align 0.0000
+ epoch [0000 / 0002] [0309/1069] eta: 0 Days 0:17:3         lr: 	8.0000E-01 loss: 	37.69192 loss align 0.0000
+ epoch [0000 / 0002] [0409/1069] eta: 0 Days 0:13:45        lr: 	8.0000E-01 loss: 	34.88138 loss align 0.0000
+ epoch [0000 / 0002] [0509/1069] eta: 0 Days 0:11:33        lr: 	8.0000E-01 loss: 	32.33865 loss align 0.0000
+ epoch [0000 / 0002] [0609/1069] eta: 0 Days 0:9:57         lr: 	8.0000E-01 loss: 	29.95532 loss align 0.0000
+ epoch [0000 / 0002] [0709/1069] eta: 0 Days 0:8:42         lr: 	8.0000E-01 loss: 	28.97998 loss align 0.0000
+ epoch [0000 / 0002] [0809/1069] eta: 0 Days 0:7:41         lr: 	8.0000E-01 loss: 	31.11331 loss align 0.0000
+ epoch [0000 / 0002] [0909/1069] eta: 0 Days 0:6:47         lr: 	8.0000E-01 loss: 	31.20921 loss align 0.0000
+ epoch [0000 / 0002] [1009/1069] eta: 0 Days 0:6:1          lr: 	8.0000E-01 loss: 	31.44387 loss align 0.0000
+Namespace(H_mode='predefined-hierarchical', align=0.0, batch_size=4, beta_1=0.9, crop=224, cxr_data_dir='/scratch/fs999/shamoutlab/data/physionet.org/files/mimic-cxr-jpg/2.0.0', daft_activation='linear', data_pairs='paired_ehr_cxr', data_ratio=1.0, depth=1, dim=256, dropout=0.0, ehr_data_dir='/scratch/fs999/shamoutlab/data/mimic-iv-extracted', epochs=2, eval=False, fusion='joint', fusion_type='uni_ehr', imputation='previous', labels_set='pheno', layer_after=4, layers=1, load_state=None, load_state_cxr=None, load_state_ehr=None, lr=0.001, missing_token=None, mmtm_ratio=4, modalities='EHR-CXR-RR', mode='train', network=None, normalizer_state=None, num_classes=1, order='EHR-CXR-RR', patience=15, pretrained=False, rec_dropout=0.0, resize=256, resume=False, retrieve_cxr='recent', run_method='fine_tune', save_dir='/scratch/se1525/mml-ssl/checkpoints/phenotyping/models', task='in-hospital-mortality', timestep=1.0, vision_backbone='resnet34', vision_num_classes=14)
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/train_listfile.csv
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/train
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/train
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/test

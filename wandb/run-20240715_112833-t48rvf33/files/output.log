@@ -1,0 +1,14 @@
+Some weights of the model checkpoint at allenai/longformer-base-4096 were not used when initializing LongformerModel: ['lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing LongformerModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing LongformerModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at emilyalsentzer/Bio_ClinicalBERT were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+running for fusion_type uni_ehr
+starting val epoch 1
+['EHR', 'CXR', 'RR']
+Namespace(H_mode='predefined-hierarchical', align=0.0, batch_size=2, beta_1=0.9, crop=224, cxr_data_dir='/scratch/fs999/shamoutlab/data/physionet.org/files/mimic-cxr-jpg/2.0.0', daft_activation='linear', data_pairs='paired_ehr_cxr', data_ratio=1.0, depth=1, dim=256, dropout=0.0, ehr_data_dir='/scratch/fs999/shamoutlab/data/mimic-iv-extracted', epochs=2, eval=False, fusion='joint', fusion_type='uni_ehr', imputation='previous', labels_set='pheno', layer_after=4, layers=1, load_state=None, load_state_cxr=None, load_state_ehr=None, lr=0.8, missing_token=None, mmtm_ratio=4, modalities='ehr-cxr-rr', mode='train', network=None, normalizer_state=None, num_classes=1, order='ehr-cxr-rr', patience=15, pretrained=False, rec_dropout=0.0, resize=256, resume=False, retrieve_cxr='recent', run_method='fine_tune', save_dir='/scratch/se1525/mml-ssl/checkpoints/phenotyping/models', task='in-hospital-mortality', timestep=1.0, vision_backbone='resnet34', vision_num_classes=14)
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/train_listfile.csv
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/train
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/train
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/test

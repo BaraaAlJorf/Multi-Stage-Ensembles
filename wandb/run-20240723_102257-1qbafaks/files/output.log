@@ -1,0 +1,27 @@
+Some weights of the model checkpoint at emilyalsentzer/Bio_ClinicalBERT were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Running unimodal pretraining for modality RR
+0
+Starting val epoch 0
+val [0000 / 0020] validation loss: 	0.66052
+checkpoint
+Starting train epoch 0
+ epoch [0000 / 0020] [0099/1017] eta: 0 Days 6:8:2          lr: 	1.0000E-06 loss: 	0.50339
+ epoch [0000 / 0020] [0199/1017] eta: 0 Days 4:38:21        lr: 	1.0000E-06 loss: 	0.45371
+ epoch [0000 / 0020] [0299/1017] eta: 0 Days 4:8:41         lr: 	1.0000E-06 loss: 	0.43204
+ epoch [0000 / 0020] [0399/1017] eta: 0 Days 3:53:15        lr: 	1.0000E-06 loss: 	0.41229
+ epoch [0000 / 0020] [0499/1017] eta: 0 Days 3:44:12        lr: 	1.0000E-06 loss: 	0.40582
+ epoch [0000 / 0020] [0599/1017] eta: 0 Days 3:37:45        lr: 	1.0000E-06 loss: 	0.40095
+ epoch [0000 / 0020] [0699/1017] eta: 0 Days 3:32:18        lr: 	1.0000E-06 loss: 	0.40211
+ epoch [0000 / 0020] [0799/1017] eta: 0 Days 3:28:23        lr: 	1.0000E-06 loss: 	0.39941
+ epoch [0000 / 0020] [0899/1017] eta: 0 Days 3:25:27        lr: 	1.0000E-06 loss: 	0.39819
+ epoch [0000 / 0020] [0999/1017] eta: 0 Days 3:22:9         lr: 	1.0000E-06 loss: 	0.39928
+1
+Starting val epoch 1
+val [0001 / 0020] validation loss: 	0.37720
+checkpoint
+Starting train epoch 1
+ epoch [0001 / 0020] [0099/1017] eta: 0 Days 3:33:44        lr: 	1.0000E-06 loss: 	0.36754
+ epoch [0001 / 0020] [0199/1017] eta: 0 Days 3:30:11        lr: 	1.0000E-06 loss: 	0.36761
+ epoch [0001 / 0020] [0299/1017] eta: 0 Days 3:27:6         lr: 	1.0000E-06 loss: 	0.37512

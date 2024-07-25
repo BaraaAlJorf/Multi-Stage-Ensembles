@@ -1,0 +1,37 @@
+Running unimodal pretraining for modality EHR
+0
+Starting val epoch 0
+val [0000 / 0005] validation loss: 	1.44235
+checkpoint
+Starting train epoch 0
+ epoch [0000 / 0005] [0099/267] eta: 0 Days 0:5:3          lr: 	1.0000E-01 loss: 	1.83676
+ epoch [0000 / 0005] [0199/267] eta: 0 Days 0:2:45         lr: 	1.0000E-01 loss: 	1.18033
+1
+Starting val epoch 1
+val [0001 / 0005] validation loss: 	0.46778
+Starting train epoch 1
+ epoch [0001 / 0005] [0099/267] eta: 0 Days 0:2:2          lr: 	1.0000E-01 loss: 	0.44983
+ epoch [0001 / 0005] [0199/267] eta: 0 Days 0:1:34         lr: 	1.0000E-01 loss: 	0.46825
+2
+Starting val epoch 2
+val [0002 / 0005] validation loss: 	0.44473
+Starting train epoch 2
+ epoch [0002 / 0005] [0099/267] eta: 0 Days 0:1:15         lr: 	1.0000E-01 loss: 	0.46614
+ epoch [0002 / 0005] [0199/267] eta: 0 Days 0:0:59         lr: 	1.0000E-01 loss: 	0.47914
+3
+Starting val epoch 3
+val [0003 / 0005] validation loss: 	0.80785
+Starting train epoch 3
+ epoch [0003 / 0005] [0099/267] eta: 0 Days 0:0:43         lr: 	1.0000E-01 loss: 	0.49672
+ epoch [0003 / 0005] [0199/267] eta: 0 Days 0:0:31         lr: 	1.0000E-01 loss: 	0.47900
+4
+Starting val epoch 4
+val [0004 / 0005] validation loss: 	0.56976
+Starting train epoch 4
+ epoch [0004 / 0005] [0099/267] eta: 0 Days 0:0:15         lr: 	1.0000E-01 loss: 	0.50088
+ epoch [0004 / 0005] [0199/267] eta: 0 Days 0:0:6          lr: 	1.0000E-01 loss: 	0.47178
+Namespace(H_mode='predefined-hierarchical', align=0.0, batch_size=16, beta_1=0.9, crop=224, cxr_data_dir='/scratch/fs999/shamoutlab/data/physionet.org/files/mimic-cxr-jpg/2.0.0', daft_activation='linear', data_pairs='paired_ehr_cxr', data_ratio=1.0, depth=1, dim=256, dropout=0.0, ehr_data_dir='/scratch/fs999/shamoutlab/data/mimic-iv-extracted', epochs=5, eval=False, fusion='joint', fusion_type='uni_ehr', imputation='previous', labels_set='pheno', layer_after=4, layers=1, load_state=None, load_state_cxr=None, load_state_ehr=None, lr=0.001, missing_token=None, mmtm_ratio=4, modalities='EHR-CXR-RR', mode='train', network=None, normalizer_state=None, num_classes=1, order='EHR-CXR-RR', patience=15, pretrained=False, pretraining='CXR', rec_dropout=0.0, resize=256, resume=False, retrieve_cxr='recent', run_method='fine_tune', save_dir='/scratch/se1525/mml-ssl/checkpoints/phenotyping/models', task='in-hospital-mortality', timestep=1.0, vision_backbone='resnet34', vision_num_classes=14)
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/train_listfile.csv
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/train
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/train
+/scratch/fs999/shamoutlab/data/mimic-iv-extracted/in-hospital-mortality/test

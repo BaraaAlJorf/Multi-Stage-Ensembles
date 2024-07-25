@@ -1,0 +1,122 @@
+2024-07-23 07:04:18,986 INFO    StreamThr :1181943 [internal.py:wandb_internal():89] W&B internal server running at pid: 1181943, started at: 2024-07-23 07:04:18.985693
+2024-07-23 07:04:18,988 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: status
+2024-07-23 07:04:19,008 INFO    WriterThread:1181943 [datastore.py:open_for_write():85] open: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/run-03g1a5qu.wandb
+2024-07-23 07:04:19,023 DEBUG   SenderThread:1181943 [sender.py:send():375] send: header
+2024-07-23 07:04:19,306 DEBUG   SenderThread:1181943 [sender.py:send():375] send: run
+2024-07-23 07:04:19,911 INFO    SenderThread:1181943 [dir_watcher.py:__init__():219] watching files in: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files
+2024-07-23 07:04:19,911 INFO    SenderThread:1181943 [sender.py:_start_run_threads():1127] run started: 03g1a5qu with start time 1721703858.985016
+2024-07-23 07:04:19,911 DEBUG   SenderThread:1181943 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 07:04:19,912 INFO    SenderThread:1181943 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 07:04:19,914 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: check_version
+2024-07-23 07:04:19,914 DEBUG   SenderThread:1181943 [sender.py:send_request():402] send_request: check_version
+2024-07-23 07:04:19,986 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: run_start
+2024-07-23 07:04:20,005 DEBUG   HandlerThread:1181943 [system_info.py:__init__():31] System info init
+2024-07-23 07:04:20,005 DEBUG   HandlerThread:1181943 [system_info.py:__init__():46] System info init done
+2024-07-23 07:04:20,005 INFO    HandlerThread:1181943 [system_monitor.py:start():181] Starting system monitor
+2024-07-23 07:04:20,005 INFO    SystemMonitor:1181943 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2024-07-23 07:04:20,006 INFO    HandlerThread:1181943 [system_monitor.py:probe():201] Collecting system info
+2024-07-23 07:04:20,006 INFO    SystemMonitor:1181943 [interfaces.py:start():190] Started cpu monitoring
+2024-07-23 07:04:20,007 INFO    SystemMonitor:1181943 [interfaces.py:start():190] Started disk monitoring
+2024-07-23 07:04:20,008 INFO    SystemMonitor:1181943 [interfaces.py:start():190] Started gpu monitoring
+2024-07-23 07:04:20,008 INFO    SystemMonitor:1181943 [interfaces.py:start():190] Started memory monitoring
+2024-07-23 07:04:20,009 INFO    SystemMonitor:1181943 [interfaces.py:start():190] Started network monitoring
+2024-07-23 07:04:20,029 DEBUG   HandlerThread:1181943 [system_info.py:probe():195] Probing system
+2024-07-23 07:04:20,031 DEBUG   HandlerThread:1181943 [system_info.py:_probe_git():180] Probing git
+2024-07-23 07:04:20,057 DEBUG   HandlerThread:1181943 [system_info.py:_probe_git():188] Probing git done
+2024-07-23 07:04:20,057 DEBUG   HandlerThread:1181943 [system_info.py:probe():240] Probing system done
+2024-07-23 07:04:20,058 DEBUG   HandlerThread:1181943 [system_monitor.py:probe():210] {'os': 'Linux-4.18.0-513.5.1.el8_9.x86_64-x86_64-with-centos-8.9-Green_Obsidian', 'python': '3.6.12', 'heartbeatAt': '2024-07-23T03:04:20.029830', 'startedAt': '2024-07-23T03:04:18.958352', 'docker': None, 'cuda': None, 'args': None, 'state': 'running', 'program': '<python with no main file>', 'git': {'remote': 'https://BaraaAlJorf:@github.com/BaraaAlJorf/DHF.git', 'commit': '7e7da1622ef508c39d4f38743eecd19072e36dfc'}, 'email': None, 'root': '/scratch/baj321/MedFuse', 'host': 'dn006', 'username': 'baj321', 'executable': '/home/baj321/.conda/envs/medfuse/bin/python', 'cpu_count': 40, 'cpu_count_logical': 40, 'cpu_freq': {'current': 2400.00005, 'min': 1000.0, 'max': 2400.0}, 'cpu_freq_per_core': [{'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.07, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}], 'disk': {'total': 10.0, 'used': 5.04998779296875}, 'gpu': 'Tesla V100-PCIE-32GB', 'gpu_count': 1, 'gpu_devices': [{'name': 'Tesla V100-PCIE-32GB', 'memory_total': 34359738368}], 'memory': {'total': 377.0584945678711}}
+2024-07-23 07:04:20,058 INFO    HandlerThread:1181943 [system_monitor.py:probe():211] Finished collecting system info
+2024-07-23 07:04:20,058 INFO    HandlerThread:1181943 [system_monitor.py:probe():214] Publishing system info
+2024-07-23 07:04:20,058 DEBUG   HandlerThread:1181943 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2024-07-23 07:04:20,059 DEBUG   HandlerThread:1181943 [system_info.py:_save_pip():67] Saving pip packages done
+2024-07-23 07:04:20,059 DEBUG   HandlerThread:1181943 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2024-07-23 07:04:20,914 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/requirements.txt
+2024-07-23 07:04:20,915 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/wandb-summary.json
+2024-07-23 07:04:20,915 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/conda-environment.yaml
+2024-07-23 07:04:23,272 DEBUG   HandlerThread:1181943 [system_info.py:_save_conda():86] Saving conda packages done
+2024-07-23 07:04:23,274 INFO    HandlerThread:1181943 [system_monitor.py:probe():216] Finished publishing system info
+2024-07-23 07:04:23,934 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/conda-environment.yaml
+2024-07-23 07:04:23,934 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/wandb-metadata.json
+2024-07-23 07:04:24,507 DEBUG   SenderThread:1181943 [sender.py:send():375] send: files
+2024-07-23 07:04:24,508 INFO    SenderThread:1181943 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2024-07-23 07:04:24,508 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 07:04:24,526 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 07:04:24,526 DEBUG   SenderThread:1181943 [sender.py:send():375] send: telemetry
+2024-07-23 07:04:24,527 DEBUG   SenderThread:1181943 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 07:04:25,338 INFO    wandb-upload_0:1181943 [upload_job.py:push():137] Uploaded file /tmpdata/tmpf03y8psuwandb/ak5ou3gy-wandb-metadata.json
+2024-07-23 07:04:29,160 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: pause
+2024-07-23 07:04:29,160 INFO    HandlerThread:1181943 [handler.py:handle_request_pause():719] stopping system metrics thread or process
+2024-07-23 07:04:29,160 INFO    HandlerThread:1181943 [system_monitor.py:finish():190] Stopping system monitor
+2024-07-23 07:04:29,161 DEBUG   SystemMonitor:1181943 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2024-07-23 07:04:29,161 INFO    HandlerThread:1181943 [interfaces.py:finish():202] Joined cpu monitor
+2024-07-23 07:04:29,161 DEBUG   SystemMonitor:1181943 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2024-07-23 07:04:29,162 INFO    HandlerThread:1181943 [interfaces.py:finish():202] Joined disk monitor
+2024-07-23 07:04:29,162 DEBUG   SystemMonitor:1181943 [system_monitor.py:_start():170] Publishing last batch of metrics
+2024-07-23 07:04:29,278 INFO    HandlerThread:1181943 [interfaces.py:finish():202] Joined gpu monitor
+2024-07-23 07:04:29,279 INFO    HandlerThread:1181943 [interfaces.py:finish():202] Joined memory monitor
+2024-07-23 07:04:29,279 INFO    HandlerThread:1181943 [interfaces.py:finish():202] Joined network monitor
+2024-07-23 07:04:29,279 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: resume
+2024-07-23 07:04:29,279 INFO    HandlerThread:1181943 [handler.py:handle_request_resume():710] starting system metrics thread or process
+2024-07-23 07:04:29,280 DEBUG   SenderThread:1181943 [sender.py:send():375] send: stats
+2024-07-23 07:04:29,280 INFO    HandlerThread:1181943 [system_monitor.py:start():181] Starting system monitor
+2024-07-23 07:04:29,282 INFO    SystemMonitor:1181943 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2024-07-23 07:04:29,284 INFO    SystemMonitor:1181943 [interfaces.py:start():190] Started cpu monitoring
+2024-07-23 07:04:29,284 INFO    SystemMonitor:1181943 [interfaces.py:start():190] Started disk monitoring
+2024-07-23 07:04:29,285 INFO    SystemMonitor:1181943 [interfaces.py:start():190] Started gpu monitoring
+2024-07-23 07:04:29,286 INFO    SystemMonitor:1181943 [interfaces.py:start():190] Started memory monitoring
+2024-07-23 07:04:29,287 INFO    SystemMonitor:1181943 [interfaces.py:start():190] Started network monitoring
+2024-07-23 07:04:29,940 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:04:30,287 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 07:04:31,942 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:04:33,943 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:04:34,512 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 07:04:34,513 DEBUG   SenderThread:1181943 [sender.py:send():375] send: history
+2024-07-23 07:04:34,513 DEBUG   SenderThread:1181943 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 07:04:34,515 INFO    SenderThread:1181943 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 07:04:34,945 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/wandb-summary.json
+2024-07-23 07:04:35,566 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 07:04:35,946 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:04:39,524 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 07:04:39,525 DEBUG   SenderThread:1181943 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 07:04:41,422 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 07:04:41,951 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:04:43,953 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:04:46,823 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 07:04:48,869 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 07:04:48,870 DEBUG   SenderThread:1181943 [sender.py:send():375] send: history
+2024-07-23 07:04:48,870 DEBUG   SenderThread:1181943 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 07:04:48,873 INFO    SenderThread:1181943 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 07:04:48,957 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/wandb-summary.json
+2024-07-23 07:04:49,958 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:04:52,764 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 07:04:53,962 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/config.yaml
+2024-07-23 07:04:53,962 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:04:54,178 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 07:04:54,179 DEBUG   SenderThread:1181943 [sender.py:send():375] send: history
+2024-07-23 07:04:54,179 DEBUG   SenderThread:1181943 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 07:04:54,180 INFO    SenderThread:1181943 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 07:04:54,718 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 07:04:54,718 DEBUG   SenderThread:1181943 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 07:04:54,963 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/wandb-summary.json
+2024-07-23 07:04:55,964 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:04:59,017 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 07:05:01,969 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:05:03,971 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:05:04,930 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 07:05:08,004 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 07:05:08,005 DEBUG   SenderThread:1181943 [sender.py:send():375] send: history
+2024-07-23 07:05:08,005 DEBUG   SenderThread:1181943 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 07:05:08,009 INFO    SenderThread:1181943 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 07:05:08,975 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/wandb-summary.json
+2024-07-23 07:05:09,836 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 07:05:09,836 DEBUG   SenderThread:1181943 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 07:05:09,976 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:05:10,162 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 07:05:11,978 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log
+2024-07-23 07:05:13,326 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 07:05:13,326 DEBUG   SenderThread:1181943 [sender.py:send():375] send: history
+2024-07-23 07:05:13,327 DEBUG   SenderThread:1181943 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 07:05:13,328 INFO    SenderThread:1181943 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 07:05:13,980 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/wandb-summary.json
+2024-07-23 07:05:15,492 DEBUG   HandlerThread:1181943 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 07:05:15,982 INFO    Thread-12 :1181943 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_070418-03g1a5qu/files/output.log

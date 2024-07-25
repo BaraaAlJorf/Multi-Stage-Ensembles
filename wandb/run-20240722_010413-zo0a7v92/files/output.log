@@ -1,0 +1,39 @@
+Some weights of the model checkpoint at allenai/longformer-base-4096 were not used when initializing LongformerModel: ['lm_head.dense.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing LongformerModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing LongformerModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at emilyalsentzer/Bio_ClinicalBERT were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+running for fusion_type uni_ehr
+0
+starting val epoch 0
+val [0000 / 0002] validation loss: 	0.53270
+checkpoint
+starting train epoch 0
+ epoch [0000 / 0002] [0009/1069] eta: 0 Days 8:20:54        lr: 	8.0000E-01 loss: 	208.36613 loss align 0.0000
+ epoch [0000 / 0002] [0109/1069] eta: 0 Days 0:51:23        lr: 	8.0000E-01 loss: 	46.06239 loss align 0.0000
+ epoch [0000 / 0002] [0209/1069] eta: 0 Days 0:29:28        lr: 	8.0000E-01 loss: 	37.16415 loss align 0.0000
+ epoch [0000 / 0002] [0309/1069] eta: 0 Days 0:21:24        lr: 	8.0000E-01 loss: 	35.70976 loss align 0.0000
+ epoch [0000 / 0002] [0409/1069] eta: 0 Days 0:17:10        lr: 	8.0000E-01 loss: 	31.26964 loss align 0.0000
+ epoch [0000 / 0002] [0509/1069] eta: 0 Days 0:14:21        lr: 	8.0000E-01 loss: 	35.26085 loss align 0.0000
+ epoch [0000 / 0002] [0609/1069] eta: 0 Days 0:12:19        lr: 	8.0000E-01 loss: 	35.38742 loss align 0.0000
+ epoch [0000 / 0002] [0709/1069] eta: 0 Days 0:10:45        lr: 	8.0000E-01 loss: 	35.76136 loss align 0.0000
+ epoch [0000 / 0002] [0809/1069] eta: 0 Days 0:9:27         lr: 	8.0000E-01 loss: 	35.03125 loss align 0.0000
+ epoch [0000 / 0002] [0909/1069] eta: 0 Days 0:8:21         lr: 	8.0000E-01 loss: 	36.19803 loss align 0.0000
+ epoch [0000 / 0002] [1009/1069] eta: 0 Days 0:7:17         lr: 	8.0000E-01 loss: 	36.79382 loss align 0.0000
+1
+starting val epoch 1
+val [0001 / 0002] validation loss: 	5.61089
+checkpoint
+starting train epoch 1
+ epoch [0001 / 0002] [0009/1069] eta: 0 Days 0:8:31         lr: 	8.0000E-01 loss: 	18.68850 loss align 0.0000
+ epoch [0001 / 0002] [0109/1069] eta: 0 Days 0:7:24         lr: 	8.0000E-01 loss: 	33.94676 loss align 0.0000
+ epoch [0001 / 0002] [0209/1069] eta: 0 Days 0:6:24         lr: 	8.0000E-01 loss: 	40.75636 loss align 0.0000
+ epoch [0001 / 0002] [0309/1069] eta: 0 Days 0:5:29         lr: 	8.0000E-01 loss: 	39.08170 loss align 0.0000
+ epoch [0001 / 0002] [0409/1069] eta: 0 Days 0:4:35         lr: 	8.0000E-01 loss: 	36.21260 loss align 0.0000
+ epoch [0001 / 0002] [0509/1069] eta: 0 Days 0:3:46         lr: 	8.0000E-01 loss: 	38.41050 loss align 0.0000
+ epoch [0001 / 0002] [0609/1069] eta: 0 Days 0:3:0          lr: 	8.0000E-01 loss: 	36.84811 loss align 0.0000
+ epoch [0001 / 0002] [0709/1069] eta: 0 Days 0:2:18         lr: 	8.0000E-01 loss: 	37.50268 loss align 0.0000
+ epoch [0001 / 0002] [0809/1069] eta: 0 Days 0:1:37         lr: 	8.0000E-01 loss: 	35.85213 loss align 0.0000
+ epoch [0001 / 0002] [0909/1069] eta: 0 Days 0:0:59         lr: 	8.0000E-01 loss: 	36.42036 loss align 0.0000
+ epoch [0001 / 0002] [1009/1069] eta: 0 Days 0:0:21         lr: 	8.0000E-01 loss: 	36.71463 loss align 0.0000

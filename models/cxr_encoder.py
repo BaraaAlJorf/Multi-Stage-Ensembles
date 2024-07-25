@@ -98,8 +98,10 @@ class CXRTransformer(nn.Module):
         patch_height, patch_width = pair(patch_size)
 
         assert image_height % patch_height == 0 and image_width % patch_width == 0, 'Image dimensions must be divisible by the patch size.'
+        
+        num_patches = (image_height // patch_height) * (image_width // patch_width) + 1 
 
-        self.pos_embedding = nn.Parameter(torch.randn(1, (image_height // patch_height) * (image_width // patch_width) + 1, dim))
+        self.pos_embedding = nn.Parameter(torch.randn(1, num_patches + 1, dim))
         self.cls_token = nn.Parameter(torch.randn(1, 1, dim))
         self.dropout = nn.Dropout(emb_dropout)
 
@@ -117,7 +119,7 @@ class CXRTransformer(nn.Module):
         x += self.pos_embedding[:, :(n + 1)]
         x = self.dropout(x)
 
-        x = self.transformer(x)
+        v_cxr= self.transformer(x)
 
-        v_cxr = self.to_latent(x[:, 0])
-        return v_cxr
+        cls = self.to_latent(v_cxr[:, 0])
+        return v_cxr, cls

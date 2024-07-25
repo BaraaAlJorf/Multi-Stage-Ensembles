@@ -1,0 +1,1003 @@
+2024-07-23 12:01:20,472 INFO    StreamThr :1218580 [internal.py:wandb_internal():89] W&B internal server running at pid: 1218580, started at: 2024-07-23 12:01:20.471550
+2024-07-23 12:01:20,474 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status
+2024-07-23 12:01:20,493 INFO    WriterThread:1218580 [datastore.py:open_for_write():85] open: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/run-ltxsl9m4.wandb
+2024-07-23 12:01:20,496 DEBUG   SenderThread:1218580 [sender.py:send():375] send: header
+2024-07-23 12:01:20,773 DEBUG   SenderThread:1218580 [sender.py:send():375] send: run
+2024-07-23 12:01:21,377 INFO    SenderThread:1218580 [dir_watcher.py:__init__():219] watching files in: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files
+2024-07-23 12:01:21,377 INFO    SenderThread:1218580 [sender.py:_start_run_threads():1127] run started: ltxsl9m4 with start time 1721721680.470876
+2024-07-23 12:01:21,377 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:01:21,378 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:01:21,380 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: check_version
+2024-07-23 12:01:21,380 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: check_version
+2024-07-23 12:01:21,635 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: run_start
+2024-07-23 12:01:21,654 DEBUG   HandlerThread:1218580 [system_info.py:__init__():31] System info init
+2024-07-23 12:01:21,654 DEBUG   HandlerThread:1218580 [system_info.py:__init__():46] System info init done
+2024-07-23 12:01:21,654 INFO    HandlerThread:1218580 [system_monitor.py:start():181] Starting system monitor
+2024-07-23 12:01:21,655 INFO    SystemMonitor:1218580 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2024-07-23 12:01:21,655 INFO    HandlerThread:1218580 [system_monitor.py:probe():201] Collecting system info
+2024-07-23 12:01:21,655 INFO    SystemMonitor:1218580 [interfaces.py:start():190] Started cpu monitoring
+2024-07-23 12:01:21,656 INFO    SystemMonitor:1218580 [interfaces.py:start():190] Started disk monitoring
+2024-07-23 12:01:21,657 INFO    SystemMonitor:1218580 [interfaces.py:start():190] Started gpu monitoring
+2024-07-23 12:01:21,657 INFO    SystemMonitor:1218580 [interfaces.py:start():190] Started memory monitoring
+2024-07-23 12:01:21,659 INFO    SystemMonitor:1218580 [interfaces.py:start():190] Started network monitoring
+2024-07-23 12:01:21,690 DEBUG   HandlerThread:1218580 [system_info.py:probe():195] Probing system
+2024-07-23 12:01:21,692 DEBUG   HandlerThread:1218580 [system_info.py:_probe_git():180] Probing git
+2024-07-23 12:01:21,717 DEBUG   HandlerThread:1218580 [system_info.py:_probe_git():188] Probing git done
+2024-07-23 12:01:21,718 DEBUG   HandlerThread:1218580 [system_info.py:probe():240] Probing system done
+2024-07-23 12:01:21,718 DEBUG   HandlerThread:1218580 [system_monitor.py:probe():210] {'os': 'Linux-4.18.0-513.5.1.el8_9.x86_64-x86_64-with-centos-8.9-Green_Obsidian', 'python': '3.6.12', 'heartbeatAt': '2024-07-23T08:01:21.690742', 'startedAt': '2024-07-23T08:01:20.438936', 'docker': None, 'cuda': None, 'args': None, 'state': 'running', 'program': '<python with no main file>', 'git': {'remote': 'https://BaraaAlJorf:@github.com/BaraaAlJorf/DHF.git', 'commit': '7e7da1622ef508c39d4f38743eecd19072e36dfc'}, 'email': None, 'root': '/scratch/baj321/MedFuse', 'host': 'dn006', 'username': 'baj321', 'executable': '/home/baj321/.conda/envs/medfuse/bin/python', 'cpu_count': 40, 'cpu_count_logical': 40, 'cpu_freq': {'current': 2400.0003, 'min': 1000.0, 'max': 2400.0}, 'cpu_freq_per_core': [{'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}, {'current': 2400.0, 'min': 1000.0, 'max': 2400.0}], 'disk': {'total': 10.0, 'used': 5.04998779296875}, 'gpu': 'Tesla V100-PCIE-32GB', 'gpu_count': 1, 'gpu_devices': [{'name': 'Tesla V100-PCIE-32GB', 'memory_total': 34359738368}], 'memory': {'total': 377.0584945678711}}
+2024-07-23 12:01:21,718 INFO    HandlerThread:1218580 [system_monitor.py:probe():211] Finished collecting system info
+2024-07-23 12:01:21,718 INFO    HandlerThread:1218580 [system_monitor.py:probe():214] Publishing system info
+2024-07-23 12:01:21,718 DEBUG   HandlerThread:1218580 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2024-07-23 12:01:21,720 DEBUG   HandlerThread:1218580 [system_info.py:_save_pip():67] Saving pip packages done
+2024-07-23 12:01:21,720 DEBUG   HandlerThread:1218580 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2024-07-23 12:01:22,380 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/conda-environment.yaml
+2024-07-23 12:01:22,381 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/requirements.txt
+2024-07-23 12:01:22,381 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:01:24,969 DEBUG   HandlerThread:1218580 [system_info.py:_save_conda():86] Saving conda packages done
+2024-07-23 12:01:24,971 INFO    HandlerThread:1218580 [system_monitor.py:probe():216] Finished publishing system info
+2024-07-23 12:01:25,393 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/conda-environment.yaml
+2024-07-23 12:01:25,398 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-metadata.json
+2024-07-23 12:01:26,221 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:01:26,222 DEBUG   SenderThread:1218580 [sender.py:send():375] send: files
+2024-07-23 12:01:26,223 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2024-07-23 12:01:26,238 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:01:26,238 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:01:26,514 DEBUG   SenderThread:1218580 [sender.py:send():375] send: telemetry
+2024-07-23 12:01:27,062 INFO    wandb-upload_0:1218580 [upload_job.py:push():137] Uploaded file /tmpdata/tmpx60ul_k3wandb/pb1i8kwz-wandb-metadata.json
+2024-07-23 12:01:31,515 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:01:34,401 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:01:36,402 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:01:37,002 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:01:40,405 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:01:41,238 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:01:41,238 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:01:42,161 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: pause
+2024-07-23 12:01:42,161 INFO    HandlerThread:1218580 [handler.py:handle_request_pause():719] stopping system metrics thread or process
+2024-07-23 12:01:42,161 INFO    HandlerThread:1218580 [system_monitor.py:finish():190] Stopping system monitor
+2024-07-23 12:01:42,161 DEBUG   SystemMonitor:1218580 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2024-07-23 12:01:42,161 DEBUG   SystemMonitor:1218580 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2024-07-23 12:01:42,162 DEBUG   SystemMonitor:1218580 [system_monitor.py:_start():170] Publishing last batch of metrics
+2024-07-23 12:01:42,162 INFO    HandlerThread:1218580 [interfaces.py:finish():202] Joined cpu monitor
+2024-07-23 12:01:42,163 INFO    HandlerThread:1218580 [interfaces.py:finish():202] Joined disk monitor
+2024-07-23 12:01:42,282 INFO    HandlerThread:1218580 [interfaces.py:finish():202] Joined gpu monitor
+2024-07-23 12:01:42,283 INFO    HandlerThread:1218580 [interfaces.py:finish():202] Joined memory monitor
+2024-07-23 12:01:42,283 INFO    HandlerThread:1218580 [interfaces.py:finish():202] Joined network monitor
+2024-07-23 12:01:42,284 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: resume
+2024-07-23 12:01:42,284 INFO    HandlerThread:1218580 [handler.py:handle_request_resume():710] starting system metrics thread or process
+2024-07-23 12:01:42,284 INFO    HandlerThread:1218580 [system_monitor.py:start():181] Starting system monitor
+2024-07-23 12:01:42,284 INFO    SystemMonitor:1218580 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2024-07-23 12:01:42,284 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:01:42,286 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:01:42,289 INFO    SystemMonitor:1218580 [interfaces.py:start():190] Started cpu monitoring
+2024-07-23 12:01:42,291 INFO    SystemMonitor:1218580 [interfaces.py:start():190] Started disk monitoring
+2024-07-23 12:01:42,291 INFO    SystemMonitor:1218580 [interfaces.py:start():190] Started gpu monitoring
+2024-07-23 12:01:42,295 INFO    SystemMonitor:1218580 [interfaces.py:start():190] Started memory monitoring
+2024-07-23 12:01:42,295 INFO    SystemMonitor:1218580 [interfaces.py:start():190] Started network monitoring
+2024-07-23 12:01:44,409 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:01:47,289 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:01:52,295 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:01:53,417 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/config.yaml
+2024-07-23 12:01:56,239 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:01:56,239 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:01:58,527 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:02:03,528 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:02:08,528 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:02:11,238 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:02:11,239 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:02:14,515 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:02:19,517 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:02:24,518 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:02:26,238 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:02:26,239 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:02:30,508 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:02:35,509 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:02:40,509 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:02:41,271 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:02:41,271 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:02:42,295 DEBUG   SystemMonitor:1218580 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2024-07-23 12:02:42,297 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:02:46,298 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:02:51,299 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:02:56,281 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:02:56,282 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:02:56,620 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:03:02,473 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:03:02,553 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:03:06,054 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:03:06,055 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:03:06,055 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:03:06,058 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:03:06,476 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:03:08,058 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:03:10,480 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:03:11,264 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:03:11,265 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:03:12,298 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:03:13,299 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:03:18,300 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:03:20,489 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:03:23,558 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:03:26,254 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:03:26,254 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:03:29,544 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:03:34,544 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:03:39,545 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:03:41,254 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:03:41,254 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:03:42,299 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:03:45,300 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:03:50,301 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:03:55,301 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:03:56,254 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:03:56,254 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:04:00,584 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:04:05,585 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:04:10,585 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:04:11,254 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:04:11,254 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:04:12,300 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:04:16,301 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:04:21,302 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:04:26,254 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:04:26,254 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:04:26,514 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:04:31,514 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:04:36,515 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:04:41,254 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:04:41,254 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:04:41,532 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:04:42,301 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:04:46,562 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:04:46,688 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:04:51,689 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:04:56,254 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:04:56,255 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:04:57,566 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:05:02,566 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:05:07,567 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:05:11,254 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:05:11,254 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:05:12,302 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:05:13,303 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:05:18,304 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:05:23,305 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:05:26,254 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:05:26,255 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:05:28,544 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:05:33,544 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:05:38,545 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:05:41,254 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:05:41,255 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:05:42,303 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:05:44,304 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:05:49,304 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:05:54,305 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:05:56,254 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:05:56,255 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:05:59,543 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:06:04,544 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:06:09,707 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:06:10,633 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:06:11,305 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:06:11,306 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:06:12,304 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:06:15,305 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:06:20,306 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:06:25,306 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:06:26,255 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:06:26,256 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:06:30,597 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:06:35,597 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:06:40,598 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:06:41,319 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:06:41,319 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:06:42,305 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:06:46,306 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:06:51,306 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:06:56,275 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:06:56,276 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:06:56,574 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:07:00,912 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:07:00,913 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:07:00,913 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:07:00,914 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:07:01,671 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:07:02,160 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:07:02,672 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:07:07,161 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:07:11,278 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:07:11,278 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:07:12,306 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:07:12,309 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:07:17,307 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:07:22,308 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:07:26,328 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:07:26,328 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:07:27,666 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:07:32,667 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:07:37,667 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:07:41,280 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:07:41,281 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:07:42,307 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:07:43,308 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:07:48,308 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:07:53,309 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:07:56,281 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:07:56,281 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:07:58,551 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:08:03,552 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:08:08,553 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:08:11,281 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:08:11,281 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:08:12,308 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:08:14,309 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:08:19,310 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:08:22,741 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:08:24,845 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:08:25,359 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:08:25,360 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:08:25,360 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:08:25,361 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:08:25,744 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:08:26,284 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:08:26,284 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:08:30,623 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:08:30,748 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:08:35,639 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:08:40,640 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:08:41,285 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:08:41,285 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:08:42,309 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:08:42,759 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:08:46,310 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:08:51,311 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:08:56,284 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:08:56,284 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:08:56,532 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:09:01,533 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:09:06,533 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:09:11,284 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:09:11,285 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:09:11,575 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:09:12,312 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:09:17,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:09:22,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:09:26,284 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:09:26,285 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:09:27,555 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:09:32,556 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:09:37,557 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:09:41,284 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:09:41,285 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:09:42,311 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:09:43,312 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:09:48,312 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:09:53,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:09:56,284 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:09:56,285 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:09:58,561 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:10:03,562 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:10:07,837 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:10:08,912 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:10:11,285 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:10:11,285 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:10:12,312 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:10:14,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:10:19,314 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:10:24,314 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:10:26,351 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:10:26,352 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:10:29,667 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:10:34,667 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:10:39,668 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:10:41,290 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:10:41,290 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:10:42,315 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:10:45,316 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:10:50,317 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:10:55,317 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:10:56,290 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:10:56,290 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:11:00,611 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:11:05,612 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:11:10,612 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:11:11,290 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:11:11,290 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:11:12,314 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:11:16,315 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:11:21,316 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:11:26,290 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:11:26,290 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:11:26,617 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:11:32,483 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:11:33,920 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:11:37,483 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:11:41,290 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:11:41,291 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:11:42,315 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:11:43,316 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:11:48,317 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:11:53,317 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:11:56,291 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:11:56,291 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:11:58,634 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:12:03,635 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:12:08,635 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:12:11,290 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:12:11,291 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:12:12,316 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:12:14,317 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:12:19,317 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:12:23,268 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:12:23,269 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:12:23,270 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:12:23,271 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:12:23,961 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:12:24,519 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:12:25,962 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:12:26,291 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:12:26,292 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:12:29,551 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:12:34,552 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:12:39,552 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:12:41,291 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:12:41,291 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:12:42,317 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:12:45,318 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:12:50,319 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:12:55,319 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:12:56,320 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:12:56,321 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:13:00,628 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:13:05,628 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:13:10,629 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:13:11,296 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:13:11,296 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:13:12,318 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:13:16,319 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:13:21,320 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:13:26,320 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:13:26,346 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:13:26,347 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:13:31,690 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:13:36,691 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:13:41,316 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:13:41,316 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:13:42,319 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:13:42,321 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:13:44,030 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:13:47,116 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:13:47,117 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:13:47,117 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:13:47,118 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:13:48,034 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:13:48,119 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:13:53,784 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:13:54,039 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:13:56,307 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:13:56,307 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:13:59,638 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:14:05,249 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:14:06,050 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:14:10,250 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:14:11,306 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:14:11,307 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:14:12,320 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:14:15,321 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:14:20,322 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:14:25,322 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:14:26,307 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:14:26,307 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:14:30,647 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:14:35,647 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:14:40,648 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:14:41,307 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:14:41,307 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:14:42,321 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:14:46,322 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:14:51,323 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:14:56,307 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:14:56,307 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:14:56,554 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:15:01,555 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:15:06,555 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:15:11,307 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:15:11,308 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:15:11,644 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:15:12,322 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:15:17,323 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:15:22,324 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:15:26,307 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:15:26,308 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:15:27,576 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:15:32,125 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:15:32,787 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:15:37,788 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:15:41,307 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:15:41,308 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:15:42,323 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:15:43,324 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:15:48,324 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:15:53,325 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:15:56,307 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:15:56,308 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:15:58,640 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:16:03,641 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:16:08,641 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:16:11,307 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:16:11,308 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:16:12,324 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:16:14,325 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:16:19,325 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:16:24,326 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:16:26,351 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:16:26,351 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:16:29,664 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:16:34,664 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:16:39,665 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:16:41,312 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:16:41,313 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:16:42,325 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:16:45,326 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:16:50,326 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:16:55,606 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:16:56,199 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:16:56,312 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:16:56,313 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:17:01,606 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:17:06,606 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:17:11,312 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:17:11,313 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:17:11,616 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:17:12,326 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:17:17,327 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:17:22,327 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:17:26,312 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:17:26,313 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:17:27,628 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:17:32,628 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:17:37,629 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:17:41,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:17:41,314 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:17:42,328 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:17:43,329 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:17:45,127 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:17:45,128 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:17:45,128 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:17:45,129 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:17:45,237 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:17:48,240 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:17:48,379 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:17:53,380 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:17:56,314 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:17:56,314 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:17:58,563 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:18:03,564 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:18:08,565 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:18:11,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:18:11,313 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:18:12,328 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:18:14,329 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:18:19,329 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:18:24,330 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:18:26,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:18:26,313 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:18:29,646 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:18:34,646 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:18:39,647 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:18:41,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:18:41,313 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:18:42,331 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:18:45,332 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:18:50,332 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:18:55,333 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:18:56,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:18:56,313 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:19:00,651 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:19:06,125 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:19:06,309 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:19:09,592 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:19:09,592 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:19:09,593 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:19:09,594 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:19:10,313 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:19:11,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:19:11,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:19:11,314 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:19:12,330 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:19:16,322 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:19:17,276 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:19:22,276 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:19:26,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:19:26,314 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:19:27,646 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:19:28,334 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:19:32,646 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:19:37,647 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:19:41,314 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:19:41,314 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:19:42,331 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:19:43,332 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:19:48,332 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:19:53,333 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:19:56,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:19:56,314 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:19:58,614 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:20:03,614 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:20:08,615 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:20:11,313 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:20:11,314 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:20:12,332 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:20:14,333 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:20:19,333 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:20:24,334 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:20:26,314 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:20:26,314 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:20:29,600 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:20:34,600 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:20:39,601 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:20:41,314 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:20:41,314 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:20:42,333 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:20:45,334 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:20:51,029 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:20:52,409 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:20:56,030 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:20:56,314 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:20:56,314 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:21:01,575 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:21:06,576 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:21:11,314 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:21:11,314 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:21:11,662 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:21:12,334 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:21:17,335 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:21:22,335 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:21:26,314 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:21:26,314 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:21:27,606 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:21:32,607 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:21:37,607 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:21:41,344 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:21:41,344 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:21:42,335 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:21:43,336 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:21:48,336 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:21:53,337 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:21:56,319 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:21:56,320 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:21:58,552 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:22:03,552 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:22:08,553 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:22:11,319 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:22:11,320 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:22:12,336 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:22:14,337 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:22:18,483 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:22:20,125 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:22:25,126 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:22:26,319 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:22:26,320 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:22:30,614 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:22:35,614 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:22:40,615 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:22:41,319 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:22:41,320 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:22:42,337 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:22:46,337 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:22:51,338 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:22:56,319 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:22:56,319 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:22:56,576 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:23:01,577 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:23:06,577 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:23:07,316 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:23:07,317 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:23:07,317 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:23:07,319 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:23:07,522 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:23:08,523 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:23:11,320 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:23:11,321 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:23:11,591 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:23:12,338 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:23:17,339 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:23:22,339 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:23:26,319 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:23:26,320 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:23:27,613 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:23:32,614 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:23:37,614 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:23:41,320 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:23:41,320 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:23:42,339 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:23:43,339 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:23:48,340 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:23:53,341 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:23:56,407 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:23:56,407 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:23:58,739 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:24:03,740 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:24:08,740 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:24:11,325 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:24:11,325 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:24:12,340 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:24:14,341 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:24:19,341 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:24:24,342 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:24:26,325 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:24:26,325 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:24:28,594 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:24:30,175 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:24:31,648 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:24:31,648 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:24:31,648 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:24:31,650 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:24:32,598 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:24:35,650 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:24:38,603 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:24:41,321 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:24:41,326 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:24:41,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:24:42,341 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:24:46,342 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:24:50,614 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:24:51,449 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:24:56,325 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:24:56,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:24:56,590 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:25:01,590 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:25:06,591 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:25:11,325 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:25:11,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:25:11,656 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:25:12,342 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:25:17,343 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:25:22,343 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:25:26,325 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:25:26,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:25:27,649 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:25:32,649 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:25:37,650 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:25:41,325 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:25:41,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:25:42,343 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:25:43,343 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:25:48,344 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:25:53,344 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:25:56,325 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:25:56,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:25:58,587 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:26:03,587 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:26:08,588 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:26:11,326 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:26:11,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:26:12,344 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:26:14,344 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:26:14,687 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:26:19,345 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:26:24,345 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:26:26,325 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:26:26,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:26:29,585 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:26:34,586 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:26:39,586 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:26:41,326 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:26:41,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:26:42,345 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:26:45,346 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:26:50,346 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:26:55,347 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:26:56,326 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:26:56,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:27:00,658 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:27:05,659 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:27:10,659 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:27:11,326 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:27:11,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:27:12,346 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:27:16,347 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:27:21,347 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:27:26,326 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:27:26,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:27:26,647 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:27:31,647 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:27:36,648 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:27:38,760 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:27:41,326 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:27:41,326 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:27:42,347 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:27:42,349 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:27:47,348 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:27:52,348 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:27:56,326 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:27:56,327 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:27:57,636 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:28:02,637 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:28:07,637 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:28:11,359 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:28:11,360 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:28:12,347 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:28:13,348 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:28:18,349 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:28:23,349 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:28:26,331 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:28:26,332 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:28:28,603 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:28:31,088 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:28:31,089 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:28:31,089 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:28:31,090 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:28:31,802 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:28:32,803 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:28:34,337 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:28:39,337 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:28:41,337 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:28:41,338 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:28:42,349 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:28:44,349 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:28:49,350 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:28:54,351 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:28:56,400 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:28:56,400 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:28:59,671 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:29:04,671 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:29:09,672 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:29:11,341 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:29:11,342 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:29:12,350 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:29:15,351 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:29:20,351 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:29:25,352 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:29:26,415 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:29:26,416 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:29:30,731 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:29:35,731 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:29:40,738 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:29:41,377 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:29:41,377 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:29:42,350 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:29:46,351 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:29:52,037 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:29:52,868 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:29:54,495 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:29:54,496 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:29:54,496 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:29:54,513 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:29:54,870 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:29:56,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:29:56,355 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:29:57,694 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:30:02,878 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:30:03,178 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:30:08,178 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:30:11,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:30:11,355 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:30:12,352 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:30:12,886 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:30:13,352 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:30:18,353 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:30:23,353 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:30:26,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:30:26,355 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:30:28,672 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:30:33,673 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:30:38,673 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:30:41,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:30:41,355 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:30:42,352 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:30:44,353 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:30:49,354 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:30:54,354 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:30:56,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:30:56,356 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:30:59,747 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:31:04,747 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:31:09,748 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:31:11,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:31:11,356 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:31:12,353 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:31:15,354 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:31:20,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:31:25,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:31:26,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:31:26,356 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:31:30,690 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:31:35,690 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:31:38,959 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:31:41,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:31:41,356 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:31:41,656 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:31:42,354 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:31:47,356 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:31:52,356 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:31:56,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:31:56,356 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:31:57,634 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:32:02,635 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:32:07,635 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:32:11,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:32:11,356 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:32:12,355 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:32:13,356 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:32:18,357 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:32:23,357 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:32:26,355 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:32:26,356 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:32:28,667 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:32:33,668 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:32:38,668 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:32:41,356 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:32:41,356 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:32:42,356 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:32:44,357 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:32:49,358 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:32:54,358 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:32:56,356 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:32:56,356 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:32:59,688 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:33:03,031 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:33:05,678 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:33:10,678 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:33:11,373 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:33:11,374 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:33:12,357 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:33:16,358 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:33:21,359 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:33:26,359 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:33:26,361 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:33:26,362 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:33:31,644 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:33:36,644 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:33:41,361 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:33:41,362 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:33:42,358 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:33:42,361 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:33:47,359 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:33:52,360 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:33:53,924 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:33:53,925 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:33:53,925 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:33:53,926 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:33:54,073 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:33:55,074 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:33:56,363 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:33:56,363 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:33:57,705 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:34:02,705 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:34:07,706 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:34:11,367 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:34:11,368 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:34:12,361 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:34:13,362 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:34:18,362 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:34:23,363 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:34:26,367 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:34:26,367 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:34:28,667 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:34:33,668 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:34:38,668 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:34:41,367 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:34:41,368 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:34:42,360 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:34:44,361 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:34:49,362 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:34:54,362 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:34:56,367 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:34:56,367 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:34:59,608 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:35:04,609 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:35:09,609 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:35:11,367 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:35:11,367 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:35:12,363 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:35:14,680 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:35:15,142 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:35:17,183 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-23 12:35:17,183 DEBUG   SenderThread:1218580 [sender.py:send():375] send: history
+2024-07-23 12:35:17,183 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: summary_record
+2024-07-23 12:35:17,185 INFO    SenderThread:1218580 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-23 12:35:18,145 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/wandb-summary.json
+2024-07-23 12:35:20,185 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:35:25,152 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:35:25,877 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:35:26,368 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:35:26,368 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:35:31,663 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:35:35,161 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:35:37,339 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:35:41,401 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:35:41,402 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:35:42,362 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:35:42,365 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:35:47,363 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:35:52,364 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:35:56,372 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:35:56,373 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:35:57,718 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:36:02,718 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:36:07,719 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:36:11,372 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:36:11,373 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:36:12,363 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:36:13,364 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:36:18,364 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:36:23,365 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:36:26,373 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:36:26,373 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:36:28,652 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:36:33,652 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:36:38,652 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:36:41,422 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:36:41,422 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:36:42,364 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:36:44,365 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:36:49,365 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:36:54,366 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:36:56,378 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:36:56,378 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:37:00,293 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:37:01,239 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:37:05,294 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:37:10,294 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:37:11,378 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:37:11,379 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:37:12,365 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:37:15,366 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:37:20,367 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:37:25,367 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:37:26,378 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:37:26,378 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:37:30,635 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:37:35,635 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:37:40,636 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:37:41,378 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:37:41,379 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:37:42,366 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:37:46,367 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:37:51,368 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:37:56,368 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:37:56,378 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:37:56,379 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:38:01,725 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:38:06,725 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:38:11,378 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:38:11,379 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:38:12,367 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:38:12,370 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:38:17,368 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:38:22,369 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:38:25,314 INFO    Thread-12 :1218580 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240723_120120-ltxsl9m4/files/output.log
+2024-07-23 12:38:26,378 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:38:26,379 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:38:27,718 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:38:32,719 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:38:37,719 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:38:41,378 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:38:41,379 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:38:42,368 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:38:43,369 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:38:48,369 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:38:53,370 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:38:56,379 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:38:56,379 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:38:58,646 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:39:03,646 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:39:08,647 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:39:11,379 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-23 12:39:11,379 DEBUG   SenderThread:1218580 [sender.py:send_request():402] send_request: stop_status
+2024-07-23 12:39:12,369 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:39:14,370 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:39:16,502 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: pause
+2024-07-23 12:39:16,502 INFO    HandlerThread:1218580 [handler.py:handle_request_pause():719] stopping system metrics thread or process
+2024-07-23 12:39:16,502 INFO    HandlerThread:1218580 [system_monitor.py:finish():190] Stopping system monitor
+2024-07-23 12:39:16,502 DEBUG   SystemMonitor:1218580 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2024-07-23 12:39:16,502 INFO    HandlerThread:1218580 [interfaces.py:finish():202] Joined cpu monitor
+2024-07-23 12:39:16,502 DEBUG   SystemMonitor:1218580 [system_monitor.py:_start():170] Publishing last batch of metrics
+2024-07-23 12:39:16,503 INFO    HandlerThread:1218580 [interfaces.py:finish():202] Joined disk monitor
+2024-07-23 12:39:16,616 INFO    HandlerThread:1218580 [interfaces.py:finish():202] Joined gpu monitor
+2024-07-23 12:39:16,616 INFO    HandlerThread:1218580 [interfaces.py:finish():202] Joined memory monitor
+2024-07-23 12:39:16,616 INFO    HandlerThread:1218580 [interfaces.py:finish():202] Joined network monitor
+2024-07-23 12:39:16,617 DEBUG   SenderThread:1218580 [sender.py:send():375] send: stats
+2024-07-23 12:39:19,618 DEBUG   HandlerThread:1218580 [handler.py:handle_request():144] handle_request: status_report
+2024-07-23 12:39:21,950 INFO    MainThread:1218580 [internal.py:handle_exit():76] Internal process exited

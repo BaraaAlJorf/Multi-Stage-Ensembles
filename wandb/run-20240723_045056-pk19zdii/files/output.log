@@ -1,0 +1,32 @@
+Running unimodal pretraining for modality EHR
+0
+Starting val epoch 0
+val [0000 / 0005] validation loss: 	1.44235
+checkpoint
+Starting train epoch 0
+ epoch [0000 / 0005] [0099/267] eta: 0 Days 0:4:21         lr: 	1.0000E-06 loss: 	1.39943
+ epoch [0000 / 0005] [0199/267] eta: 0 Days 0:2:25         lr: 	1.0000E-06 loss: 	1.38111
+1
+Starting val epoch 1
+val [0001 / 0005] validation loss: 	1.38816
+Starting train epoch 1
+ epoch [0001 / 0005] [0099/267] eta: 0 Days 0:1:54         lr: 	1.0000E-06 loss: 	1.35146
+ epoch [0001 / 0005] [0199/267] eta: 0 Days 0:1:27         lr: 	1.0000E-06 loss: 	1.33094
+2
+Starting val epoch 2
+val [0002 / 0005] validation loss: 	1.33523
+Starting train epoch 2
+ epoch [0002 / 0005] [0099/267] eta: 0 Days 0:1:10         lr: 	1.0000E-06 loss: 	1.29124
+ epoch [0002 / 0005] [0199/267] eta: 0 Days 0:0:55         lr: 	1.0000E-06 loss: 	1.28074
+3
+Starting val epoch 3
+val [0003 / 0005] validation loss: 	1.28346
+Starting train epoch 3
+ epoch [0003 / 0005] [0099/267] eta: 0 Days 0:0:40         lr: 	1.0000E-06 loss: 	1.24172
+ epoch [0003 / 0005] [0199/267] eta: 0 Days 0:0:29         lr: 	1.0000E-06 loss: 	1.22452
+4
+Starting val epoch 4
+val [0004 / 0005] validation loss: 	1.23299
+Starting train epoch 4
+ epoch [0004 / 0005] [0099/267] eta: 0 Days 0:0:14         lr: 	1.0000E-06 loss: 	1.19815
+ epoch [0004 / 0005] [0199/267] eta: 0 Days 0:0:5          lr: 	1.0000E-06 loss: 	1.18398

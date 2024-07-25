@@ -1,0 +1,181 @@
+wandb_version: 1
+
+modalities:
+  desc: null
+  value: EHR-CXR-RR
+pretraining:
+  desc: null
+  value: RR
+H_mode:
+  desc: null
+  value: joint
+order:
+  desc: null
+  value: RR-CXR-EHR
+layer_after:
+  desc: null
+  value: 4
+layers:
+  desc: null
+  value: 1
+vision_num_classes:
+  desc: null
+  value: 14
+retrieve_cxr:
+  desc: null
+  value: recent
+resize:
+  desc: null
+  value: 384
+crop:
+  desc: null
+  value: 224
+vision_backbone:
+  desc: null
+  value: resnet34
+pretrained:
+  desc: null
+  value: false
+eval:
+  desc: null
+  value: false
+network:
+  desc: null
+  value: null
+fusion_type:
+  desc: null
+  value: uni_ehr
+run_method:
+  desc: null
+  value: fine_tune
+task:
+  desc: null
+  value: in-hospital-mortality
+labels_set:
+  desc: null
+  value: pheno
+data_ratio:
+  desc: null
+  value: 1.0
+mmtm_ratio:
+  desc: null
+  value: 4
+daft_activation:
+  desc: null
+  value: linear
+fusion:
+  desc: null
+  value: joint
+dim:
+  desc: null
+  value: 256
+depth:
+  desc: null
+  value: 1
+epochs:
+  desc: null
+  value: 20
+load_state:
+  desc: null
+  value: null
+load_state_cxr:
+  desc: null
+  value: null
+load_state_ehr:
+  desc: null
+  value: null
+mode:
+  desc: null
+  value: train
+batch_size:
+  desc: null
+  value: 16
+resume:
+  desc: null
+  value: false
+dropout:
+  desc: null
+  value: 0.0
+num_classes:
+  desc: null
+  value: 1
+patience:
+  desc: null
+  value: 15
+rec_dropout:
+  desc: null
+  value: 0.0
+timestep:
+  desc: null
+  value: 1.0
+imputation:
+  desc: null
+  value: previous
+lr:
+  desc: null
+  value: 1.0e-05
+align:
+  desc: null
+  value: 0.0
+data_pairs:
+  desc: null
+  value: paired_ehr_cxr
+missing_token:
+  desc: null
+  value: null
+beta_1:
+  desc: null
+  value: 0.9
+normalizer_state:
+  desc: null
+  value: null
+ehr_data_dir:
+  desc: null
+  value: /scratch/fs999/shamoutlab/data/mimic-iv-extracted
+cxr_data_dir:
+  desc: null
+  value: /scratch/fs999/shamoutlab/data/physionet.org/files/mimic-cxr-jpg/2.0.0
+save_dir:
+  desc: null
+  value: /scratch/baj321/mml-ssl/checkpoints/
+_wandb:
+  desc: null
+  value:
+    python_version: 3.6.12
+    cli_version: 0.15.2
+    framework: huggingface
+    huggingface_version: 4.18.0
+    is_jupyter_run: true
+    is_kaggle_kernel: false
+    start_time: 1721778456.051792
+    t:
+      1:
+      - 1
+      - 5
+      - 11
+      - 41
+      - 49
+      - 51
+      - 53
+      - 55
+      - 63
+      2:
+      - 1
+      - 5
+      - 11
+      - 41
+      - 49
+      - 51
+      - 53
+      - 55
+      - 63
+      3:
+      - 2
+      - 16
+      - 23
+      4: 3.6.12
+      5: 0.15.2
+      6: 4.18.0
+      8:
+      - 1
+      - 5

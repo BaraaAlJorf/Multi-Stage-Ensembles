@@ -1,0 +1,20 @@
+Some weights of the model checkpoint at allenai/longformer-base-4096 were not used when initializing LongformerModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.bias']
+- This IS expected if you are initializing LongformerModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing LongformerModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at emilyalsentzer/Bio_ClinicalBERT were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+running for fusion_type uni_ehr
+0
+starting val epoch 0
+val [0000 / 0020] validation loss: 	1.14514
+checkpoint
+starting train epoch 0
+ epoch [0000 / 0020] [0009/267] eta: 0 Days 17:47:44       lr: 	1.0000E-06 loss: 	1.18757 loss align 0.0000
+ epoch [0000 / 0020] [0109/267] eta: 0 Days 2:43:16        lr: 	1.0000E-06 loss: 	0.63112 loss align 0.0000
+ epoch [0000 / 0020] [0209/267] eta: 0 Days 1:58:40        lr: 	1.0000E-06 loss: 	0.53033 loss align 0.0000
+1
+starting val epoch 1
+val [0001 / 0020] validation loss: 	0.41996
+checkpoint
+starting train epoch 1

@@ -4,6 +4,9 @@ def args_parser():
     parser = argparse.ArgumentParser(description='arguments')
 
     parser.add_argument('--modalities', default="EHR-CXR-RR-DN", type=str, help='specify the desired data modalities')
+    parser.add_argument('--pretraining', default="EHR", type=str, help='which modality do you want to pretrain')
+    parser.add_argument('--H_mode', default="medfuse", type=str, help='predefined-hierarchical or relevancy-based-hierarchical')
+    parser.add_argument('--order', default="EHR-CXR-RR", type=str, help='specify the order of the modalities if predefined')
     parser.add_argument('--layer_after', default=4, type=int, help='apply mmtm module after fourth layer -1 indicates mmtm after every layer')
     parser.add_argument('--layers', default=1, type=int, help='number of lstm stacked modules')
     parser.add_argument('--vision_num_classes', default=14, type=int, help='number of classes')

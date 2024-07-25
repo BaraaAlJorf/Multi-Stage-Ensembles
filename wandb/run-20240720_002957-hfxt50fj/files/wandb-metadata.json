@@ -1,0 +1,444 @@
+{
+    "os": "Linux-4.18.0-513.5.1.el8_9.x86_64-x86_64-with-centos-8.9-Green_Obsidian",
+    "python": "3.6.12",
+    "heartbeatAt": "2024-07-19T20:29:58.344596",
+    "startedAt": "2024-07-19T20:29:57.290941",
+    "docker": null,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://BaraaAlJorf:@github.com/BaraaAlJorf/DHF.git",
+        "commit": "7e7da1622ef508c39d4f38743eecd19072e36dfc"
+    },
+    "email": null,
+    "root": "/scratch/baj321/MedFuse",
+    "host": "dn012",
+    "username": "baj321",
+    "executable": "/home/baj321/.conda/envs/medfuse/bin/python",
+    "cpu_count": 40,
+    "cpu_count_logical": 80,
+    "cpu_freq": {
+        "current": 2426.6784,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2527.329,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2552.521,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2547.809,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3099.999,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2529.69,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3099.999,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "total": 10.0,
+        "used": 5.049980163574219
+    },
+    "gpu": "Tesla V100-PCIE-32GB",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "Tesla V100-PCIE-32GB",
+            "memory_total": 34359738368
+        }
+    ],
+    "memory": {
+        "total": 314.02055740356445
+    }
+}
