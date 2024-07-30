@@ -16,7 +16,7 @@ from models.classifier import MLPClassifier
 from models.customtransformer import CustomTransformerLayer
 from .trainer import Trainer
 import pandas as pd
-
+import os
 
 import numpy as np
 from sklearn import metrics
@@ -29,7 +29,7 @@ class UnimodalTrainer(Trainer):
                  args,
                  test_dl):
         super(UnimodalTrainer, self).__init__(args)
-        run = wandb.init(project=f'Unimodal_{self.args.pretraining}', config=args)
+        run = wandb.init(project=f'Unimodal_{self.args.pretraining}_{self.args.task}', config=args)
         self.epoch = 0 
         self.start_epoch = 0
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -95,13 +95,18 @@ class UnimodalTrainer(Trainer):
         self.best_stats = None
 
     def save_unimodal_checkpoint(self):
+        # Define the checkpoint directory path
+        checkpoint_dir = f'{self.args.save_dir}/{self.args.task}/{self.args.H_mode}'
+        
+        # Create the directory and all intermediate-level directories if they don't exist
+        os.makedirs(checkpoint_dir, exist_ok=True)
         checkpoint = {
             'epoch': self.epoch,
             'encoder_state_dict': self.encoder.state_dict(),
             'classifier_state_dict': self.classifier.state_dict(),
             'optimizer_state_dict': self.optimizer.state_dict(),
         }
-        torch.save(checkpoint, f'{self.args.save_dir}/best_checkpoint_unimodal_{self.args.lr}_{self.args.task}_{self.args.pretraining}.pth.tar')
+        torch.save(checkpoint, f'{self.args.save_dir}/{self.args.task}/{self.args.H_mode}/best_checkpoint_unimodal_{self.args.lr}_{self.args.task}_{self.args.pretraining}.pth.tar')
 
     def load_unimodal_checkpoint(self, checkpoint_path):
         checkpoint = torch.load(checkpoint_path)
@@ -217,12 +222,13 @@ class UnimodalTrainer(Trainer):
         return ret
 
     def eval(self):
-        self.load_unimodal_checkpoint(f'{self.args.save_dir}/best_checkpoint_unimodal_{self.args.lr}_{self.args.task}_{self.args.pretraining}.pth.tar')
+        self.load_unimodal_checkpoint(f'{self.args.save_dir}/{self.args.task}/{self.args.H_mode}/best_checkpoint_unimodal_{self.args.lr}_{self.args.task}_{self.args.pretraining}.pth.tar')
         
         self.epoch = 0
         self.set_eval_mode() 
 
         ret = self.validate(self.test_dl)
+        self.print_and_write(ret , isbest=True, prefix=f'{self.args.fusion_type} test', filename=f'results_{self.args.lr}_test.txt')
         wandb.log({
             'test_auprc': ret['auprc_mean'], 
             'test_AUC': ret['auroc_mean']

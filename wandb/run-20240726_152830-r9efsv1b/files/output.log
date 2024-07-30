@@ -1,0 +1,74 @@
+Some weights of the model checkpoint at allenai/longformer-base-4096 were not used when initializing LongformerModel: ['lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing LongformerModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing LongformerModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+==> training
+Running unimodal pretraining for modality DN
+0
+Starting val epoch 0
+val [0000 / 0050] validation loss: 	0.71067
+checkpoint
+Starting train epoch 0
+ epoch [0000 / 0050] [0099/1572] eta: 2 Days 6:17:26        lr: 	1.0000E-06 loss: 	0.66714
+ epoch [0000 / 0050] [0199/1572] eta: 1 Days 14:43:11       lr: 	1.0000E-06 loss: 	0.60491
+ epoch [0000 / 0050] [0299/1572] eta: 1 Days 9:31:52        lr: 	1.0000E-06 loss: 	0.57256
+ epoch [0000 / 0050] [0399/1572] eta: 1 Days 7:0:31         lr: 	1.0000E-06 loss: 	0.55542
+ epoch [0000 / 0050] [0499/1572] eta: 1 Days 5:22:8         lr: 	1.0000E-06 loss: 	0.54007
+ epoch [0000 / 0050] [0599/1572] eta: 1 Days 4:18:13        lr: 	1.0000E-06 loss: 	0.52963
+ epoch [0000 / 0050] [0699/1572] eta: 1 Days 3:32:3         lr: 	1.0000E-06 loss: 	0.52339
+ epoch [0000 / 0050] [0799/1572] eta: 1 Days 2:56:23        lr: 	1.0000E-06 loss: 	0.51723
+ epoch [0000 / 0050] [0899/1572] eta: 1 Days 2:29:55        lr: 	1.0000E-06 loss: 	0.51235
+ epoch [0000 / 0050] [0999/1572] eta: 1 Days 2:7:37         lr: 	1.0000E-06 loss: 	0.50928
+ epoch [0000 / 0050] [1099/1572] eta: 1 Days 1:49:17        lr: 	1.0000E-06 loss: 	0.50733
+ epoch [0000 / 0050] [1199/1572] eta: 1 Days 1:32:37        lr: 	1.0000E-06 loss: 	0.50429
+ epoch [0000 / 0050] [1299/1572] eta: 1 Days 1:19:1         lr: 	1.0000E-06 loss: 	0.50204
+ epoch [0000 / 0050] [1399/1572] eta: 1 Days 1:7:21         lr: 	1.0000E-06 loss: 	0.50028
+ epoch [0000 / 0050] [1499/1572] eta: 1 Days 0:57:36        lr: 	1.0000E-06 loss: 	0.49868
+1
+Starting val epoch 1
+val [0001 / 0050] validation loss: 	0.46741
+checkpoint
+Starting train epoch 1
+ epoch [0001 / 0050] [0099/1572] eta: 1 Days 4:7:17         lr: 	1.0000E-06 loss: 	0.48239
+ epoch [0001 / 0050] [0199/1572] eta: 1 Days 3:47:47        lr: 	1.0000E-06 loss: 	0.47975
+ epoch [0001 / 0050] [0299/1572] eta: 1 Days 3:28:49        lr: 	1.0000E-06 loss: 	0.47622
+ epoch [0001 / 0050] [0399/1572] eta: 1 Days 3:11:54        lr: 	1.0000E-06 loss: 	0.47353
+ epoch [0001 / 0050] [0499/1572] eta: 1 Days 2:57:1         lr: 	1.0000E-06 loss: 	0.47315
+ epoch [0001 / 0050] [0599/1572] eta: 1 Days 2:42:51        lr: 	1.0000E-06 loss: 	0.47242
+ epoch [0001 / 0050] [0699/1572] eta: 1 Days 2:30:34        lr: 	1.0000E-06 loss: 	0.47237
+ epoch [0001 / 0050] [0799/1572] eta: 1 Days 2:18:28        lr: 	1.0000E-06 loss: 	0.47314
+ epoch [0001 / 0050] [0899/1572] eta: 1 Days 2:7:45         lr: 	1.0000E-06 loss: 	0.47274
+ epoch [0001 / 0050] [0999/1572] eta: 1 Days 1:57:21        lr: 	1.0000E-06 loss: 	0.47165
+ epoch [0001 / 0050] [1099/1572] eta: 1 Days 1:47:21        lr: 	1.0000E-06 loss: 	0.47128
+ epoch [0001 / 0050] [1199/1572] eta: 1 Days 1:38:21        lr: 	1.0000E-06 loss: 	0.47019
+ epoch [0001 / 0050] [1299/1572] eta: 1 Days 1:29:35        lr: 	1.0000E-06 loss: 	0.46941
+ epoch [0001 / 0050] [1399/1572] eta: 1 Days 1:21:23        lr: 	1.0000E-06 loss: 	0.46839
+ epoch [0001 / 0050] [1499/1572] eta: 1 Days 1:13:15        lr: 	1.0000E-06 loss: 	0.46843
+2
+Starting val epoch 2
+val [0002 / 0050] validation loss: 	0.45699
+checkpoint
+Starting train epoch 2
+ epoch [0002 / 0050] [0099/1572] eta: 1 Days 2:44:5         lr: 	1.0000E-06 loss: 	0.46543
+ epoch [0002 / 0050] [0199/1572] eta: 1 Days 2:34:8         lr: 	1.0000E-06 loss: 	0.46119
+ epoch [0002 / 0050] [0299/1572] eta: 1 Days 2:24:38        lr: 	1.0000E-06 loss: 	0.46080
+ epoch [0002 / 0050] [0399/1572] eta: 1 Days 2:15:33        lr: 	1.0000E-06 loss: 	0.46031
+ epoch [0002 / 0050] [0499/1572] eta: 1 Days 2:7:11         lr: 	1.0000E-06 loss: 	0.46071
+ epoch [0002 / 0050] [0599/1572] eta: 1 Days 1:58:47        lr: 	1.0000E-06 loss: 	0.46044
+ epoch [0002 / 0050] [0699/1572] eta: 1 Days 1:50:50        lr: 	1.0000E-06 loss: 	0.45939
+ epoch [0002 / 0050] [0799/1572] eta: 1 Days 1:43:11        lr: 	1.0000E-06 loss: 	0.45942
+ epoch [0002 / 0050] [0899/1572] eta: 1 Days 1:35:50        lr: 	1.0000E-06 loss: 	0.45883
+ epoch [0002 / 0050] [0999/1572] eta: 1 Days 1:28:39        lr: 	1.0000E-06 loss: 	0.45776
+ epoch [0002 / 0050] [1099/1572] eta: 1 Days 1:21:38        lr: 	1.0000E-06 loss: 	0.45774
+ epoch [0002 / 0050] [1199/1572] eta: 1 Days 1:14:58        lr: 	1.0000E-06 loss: 	0.45738
+ epoch [0002 / 0050] [1299/1572] eta: 1 Days 1:8:51         lr: 	1.0000E-06 loss: 	0.45719
+ epoch [0002 / 0050] [1399/1572] eta: 1 Days 1:2:47         lr: 	1.0000E-06 loss: 	0.45652
+ epoch [0002 / 0050] [1499/1572] eta: 1 Days 0:56:40        lr: 	1.0000E-06 loss: 	0.45610
+3
+Starting val epoch 3
+val [0003 / 0050] validation loss: 	0.44852
+checkpoint
+Starting train epoch 3
+ epoch [0003 / 0050] [0099/1572] eta: 1 Days 1:55:17        lr: 	1.0000E-06 loss: 	0.45318
+ epoch [0003 / 0050] [0199/1572] eta: 1 Days 1:48:25        lr: 	1.0000E-06 loss: 	0.44902
+ epoch [0003 / 0050] [0299/1572] eta: 1 Days 1:41:44        lr: 	1.0000E-06 loss: 	0.45332
+ epoch [0003 / 0050] [0399/1572] eta: 1 Days 1:35:23        lr: 	1.0000E-06 loss: 	0.45404

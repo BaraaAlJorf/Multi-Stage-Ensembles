@@ -13,6 +13,7 @@ from models.classifier import MLPClassifier
 from models.customtransformer import CustomTransformerLayer
 from .trainer import Trainer
 import pandas as pd
+import os
 
 import numpy as np
 from sklearn import metrics
@@ -27,7 +28,7 @@ class StagedFusionTrainer(Trainer):
         ):
 
         super(StagedFusionTrainer, self).__init__(args)
-        run = wandb.init(project=f'Fusion_{self.args.H_mode}', config=args)
+        run = wandb.init(project=f'Fusion_{self.args.H_mode}_{self.args.task}', config=args)
         self.epoch = 0 
         self.start_epoch = 0
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -79,6 +80,26 @@ class StagedFusionTrainer(Trainer):
         self.transformer_layer2 = CustomTransformerLayer(input_dim=384, model_dim=384, nhead=4, num_layers=1).to(self.device)
         self.transformer_layer3 = CustomTransformerLayer(input_dim=384, model_dim=384, nhead=4, num_layers=1).to(self.device)
         self.transformer_layer4 = CustomTransformerLayer(input_dim=384, model_dim=384, nhead=4, num_layers=1).to(self.device)
+        
+        if self.args.load_ehr:
+            checkpoint = torch.load(self.args.load_ehr)
+            self.ehr_encoder.load_state_dict(checkpoint['encoder_state_dict'])
+            print("ehr loaded")
+            
+        if self.args.load_cxr:
+            checkpoint = torch.load(self.args.load_cxr)
+            self.cxr_encoder.load_state_dict(checkpoint['encoder_state_dict'])
+            print("cxr loaded")
+        
+        if self.args.load_dn:
+            checkpoint = torch.load(self.args.load_dn)
+            self.dn_encoder.load_state_dict(checkpoint['encoder_state_dict'])
+            print("dn loaded")
+        
+        if self.args.load_rr:
+            checkpoint = torch.load(self.args.load_rr)
+            self.rr_encoder.load_state_dict(checkpoint['encoder_state_dict'])
+            print("rr loaded")
 
         if self.args.H_mode == 'early':
             for param in self.ehr_encoder.parameters():
@@ -133,24 +154,15 @@ class StagedFusionTrainer(Trainer):
         self.best_auroc = 0
         self.best_stats = None
         
-        if self.args.load_ehr:
-            checkpoint = torch.load(self.args.load_ehr)
-            self.ehr_encoder.load_state_dict(checkpoint['encoder_state_dict'])
-            
-        if self.args.load_cxr:
-            checkpoint = torch.load(self.args.load_cxr)
-            self.cxr_encoder.load_state_dict(checkpoint['encoder_state_dict'])
         
-        if self.args.load_dn:
-            checkpoint = torch.load(self.args.load_dn)
-            self.dn_encoder.load_state_dict(checkpoint['encoder_state_dict'])
-        
-        if self.args.load_rr:
-            checkpoint = torch.load(self.args.load_rr)
-            self.rr_encoder.load_state_dict(checkpoint['encoder_state_dict'])
 
         
     def save_fusion_checkpoint(self):
+        # Define the checkpoint directory path
+        checkpoint_dir = f'{self.args.save_dir}/{self.args.task}/{self.args.H_mode}'
+        
+        # Create the directory and all intermediate-level directories if they don't exist
+        os.makedirs(checkpoint_dir, exist_ok=True)
         checkpoint = {
             'epoch': self.epoch,
             'ehr_encoder_state_dict': self.ehr_encoder.state_dict(),
@@ -171,7 +183,7 @@ class StagedFusionTrainer(Trainer):
                 'dn_classifier_state_dict': self.dn_classifier.state_dict(),
                 'rr_classifier_state_dict': self.rr_classifier.state_dict(),
             })
-        torch.save(checkpoint, f'{self.args.save_dir}/best_checkpoint_{self.args.lr}_{self.args.task}_{self.args.H_mode}.pth.tar')
+        torch.save(checkpoint, f'{self.args.save_dir}/{self.args.task}/{self.args.H_mode}/best_checkpoint_{self.args.lr}_{self.args.task}_{self.args.H_mode}_{self.args.order}.pth.tar')
 
     def load_fusion_checkpoint(self, checkpoint_path):
         checkpoint = torch.load(checkpoint_path)
@@ -373,12 +385,13 @@ class StagedFusionTrainer(Trainer):
         return ret
 
     def eval(self):
-        self.load_fusion_checkpoint(f'{self.args.save_dir}/best_checkpoint_{self.args.lr}_{self.args.task}_{self.args.H_mode}.pth.tar')
+        self.load_fusion_checkpoint(f'{self.args.save_dir}/{self.args.task}/{self.args.H_mode}/best_checkpoint_{self.args.lr}_{self.args.task}_{self.args.H_mode}_{self.args.order}.pth.tar')
         
         self.epoch = 0
         self.set_eval_mode() 
 
         ret = self.validate(self.test_dl)
+        self.print_and_write(ret , isbest=True, prefix=f'{self.args.fusion_type} test', filename=f'results_{self.args.lr}_test.txt')
         wandb.log({
                 'test_auprc': ret['auprc_mean'], 
                 'test_AUC': ret['auroc_mean']

@@ -1,0 +1,420 @@
+Some weights of the model checkpoint at allenai/longformer-base-4096 were not used when initializing LongformerModel: ['lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias']
+- This IS expected if you are initializing LongformerModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing LongformerModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at emilyalsentzer/Bio_ClinicalBERT were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+ehr loaded
+cxr loaded
+rr loaded
+==> training
+running for fusion_type early
+0
+starting val epoch 0
+val [0000 / 0050] validation loss: 	0.76769
+checkpoint
+starting train epoch 0
+ epoch [0000 / 0050] [0009/267] eta: 0 Days 16:24:40       lr: 	1.0000E-08 loss: 	0.82938
+ epoch [0000 / 0050] [0109/267] eta: 0 Days 2:13:26        lr: 	1.0000E-08 loss: 	0.75331
+ epoch [0000 / 0050] [0209/267] eta: 0 Days 1:32:27        lr: 	1.0000E-08 loss: 	0.74756
+1
+starting val epoch 1
+val [0001 / 0050] validation loss: 	0.75851
+checkpoint
+starting train epoch 1
+ epoch [0001 / 0050] [0009/267] eta: 0 Days 1:36:46        lr: 	1.0000E-08 loss: 	0.81867
+ epoch [0001 / 0050] [0109/267] eta: 0 Days 1:23:33        lr: 	1.0000E-08 loss: 	0.74456
+ epoch [0001 / 0050] [0209/267] eta: 0 Days 1:15:26        lr: 	1.0000E-08 loss: 	0.73874
+2
+starting val epoch 2
+val [0002 / 0050] validation loss: 	0.74946
+checkpoint
+starting train epoch 2
+ epoch [0002 / 0050] [0009/267] eta: 0 Days 1:19:42        lr: 	1.0000E-08 loss: 	0.80126
+ epoch [0002 / 0050] [0109/267] eta: 0 Days 1:13:57        lr: 	1.0000E-08 loss: 	0.73406
+ epoch [0002 / 0050] [0209/267] eta: 0 Days 1:9:38         lr: 	1.0000E-08 loss: 	0.72929
+3
+starting val epoch 3
+val [0003 / 0050] validation loss: 	0.74060
+checkpoint
+starting train epoch 3
+ epoch [0003 / 0050] [0009/267] eta: 0 Days 1:12:27        lr: 	1.0000E-08 loss: 	0.79990
+ epoch [0003 / 0050] [0109/267] eta: 0 Days 1:8:53         lr: 	1.0000E-08 loss: 	0.72796
+ epoch [0003 / 0050] [0209/267] eta: 0 Days 1:6:16         lr: 	1.0000E-08 loss: 	0.72064
+4
+starting val epoch 4
+val [0004 / 0050] validation loss: 	0.73190
+checkpoint
+starting train epoch 4
+ epoch [0004 / 0050] [0009/267] eta: 0 Days 1:8:20         lr: 	1.0000E-08 loss: 	0.78339
+ epoch [0004 / 0050] [0109/267] eta: 0 Days 1:6:1          lr: 	1.0000E-08 loss: 	0.71653
+ epoch [0004 / 0050] [0209/267] eta: 0 Days 1:3:56         lr: 	1.0000E-08 loss: 	0.71299
+5
+starting val epoch 5
+val [0005 / 0050] validation loss: 	0.72337
+checkpoint
+starting train epoch 5
+ epoch [0005 / 0050] [0009/267] eta: 0 Days 1:5:31         lr: 	1.0000E-08 loss: 	0.78003
+ epoch [0005 / 0050] [0109/267] eta: 0 Days 1:3:38         lr: 	1.0000E-08 loss: 	0.70737
+ epoch [0005 / 0050] [0209/267] eta: 0 Days 1:1:50         lr: 	1.0000E-08 loss: 	0.70424
+6
+starting val epoch 6
+val [0006 / 0050] validation loss: 	0.71493
+checkpoint
+starting train epoch 6
+ epoch [0006 / 0050] [0009/267] eta: 0 Days 1:3:5          lr: 	1.0000E-08 loss: 	0.76434
+ epoch [0006 / 0050] [0109/267] eta: 0 Days 1:1:24         lr: 	1.0000E-08 loss: 	0.70097
+ epoch [0006 / 0050] [0209/267] eta: 0 Days 0:59:52        lr: 	1.0000E-08 loss: 	0.69666
+7
+starting val epoch 7
+val [0007 / 0050] validation loss: 	0.70672
+checkpoint
+starting train epoch 7
+ epoch [0007 / 0050] [0009/267] eta: 0 Days 1:0:51         lr: 	1.0000E-08 loss: 	0.76511
+ epoch [0007 / 0050] [0109/267] eta: 0 Days 0:59:23        lr: 	1.0000E-08 loss: 	0.69040
+ epoch [0007 / 0050] [0209/267] eta: 0 Days 0:57:55        lr: 	1.0000E-08 loss: 	0.68647
+8
+starting val epoch 8
+val [0008 / 0050] validation loss: 	0.69865
+checkpoint
+starting train epoch 8
+ epoch [0008 / 0050] [0009/267] eta: 0 Days 0:58:58        lr: 	1.0000E-08 loss: 	0.76050
+ epoch [0008 / 0050] [0109/267] eta: 0 Days 0:57:39        lr: 	1.0000E-08 loss: 	0.68685
+ epoch [0008 / 0050] [0209/267] eta: 0 Days 0:56:23        lr: 	1.0000E-08 loss: 	0.68178
+9
+starting val epoch 9
+val [0009 / 0050] validation loss: 	0.69080
+checkpoint
+starting train epoch 9
+ epoch [0009 / 0050] [0009/267] eta: 0 Days 0:57:5         lr: 	1.0000E-08 loss: 	0.73255
+ epoch [0009 / 0050] [0109/267] eta: 0 Days 0:55:52        lr: 	1.0000E-08 loss: 	0.67462
+ epoch [0009 / 0050] [0209/267] eta: 0 Days 0:54:43        lr: 	1.0000E-08 loss: 	0.67043
+10
+starting val epoch 10
+val [0010 / 0050] validation loss: 	0.68302
+checkpoint
+starting train epoch 10
+ epoch [0010 / 0050] [0009/267] eta: 0 Days 0:55:18        lr: 	1.0000E-08 loss: 	0.73317
+ epoch [0010 / 0050] [0109/267] eta: 0 Days 0:54:14        lr: 	1.0000E-08 loss: 	0.67118
+ epoch [0010 / 0050] [0209/267] eta: 0 Days 0:53:13        lr: 	1.0000E-08 loss: 	0.66544
+11
+starting val epoch 11
+val [0011 / 0050] validation loss: 	0.67539
+checkpoint
+starting train epoch 11
+ epoch [0011 / 0050] [0009/267] eta: 0 Days 0:53:41        lr: 	1.0000E-08 loss: 	0.73104
+ epoch [0011 / 0050] [0109/267] eta: 0 Days 0:52:40        lr: 	1.0000E-08 loss: 	0.66027
+ epoch [0011 / 0050] [0209/267] eta: 0 Days 0:51:43        lr: 	1.0000E-08 loss: 	0.65681
+12
+starting val epoch 12
+val [0012 / 0050] validation loss: 	0.66797
+checkpoint
+starting train epoch 12
+ epoch [0012 / 0050] [0009/267] eta: 0 Days 0:52:7         lr: 	1.0000E-08 loss: 	0.72334
+ epoch [0012 / 0050] [0109/267] eta: 0 Days 0:51:11        lr: 	1.0000E-08 loss: 	0.65634
+ epoch [0012 / 0050] [0209/267] eta: 0 Days 0:50:12        lr: 	1.0000E-08 loss: 	0.65124
+13
+starting val epoch 13
+val [0013 / 0050] validation loss: 	0.66064
+checkpoint
+starting train epoch 13
+ epoch [0013 / 0050] [0009/267] eta: 0 Days 0:50:32        lr: 	1.0000E-08 loss: 	0.71605
+ epoch [0013 / 0050] [0109/267] eta: 0 Days 0:49:38        lr: 	1.0000E-08 loss: 	0.64795
+ epoch [0013 / 0050] [0209/267] eta: 0 Days 0:48:44        lr: 	1.0000E-08 loss: 	0.64362
+14
+starting val epoch 14
+val [0014 / 0050] validation loss: 	0.65350
+checkpoint
+starting train epoch 14
+ epoch [0014 / 0050] [0009/267] eta: 0 Days 0:49:1         lr: 	1.0000E-08 loss: 	0.69864
+ epoch [0014 / 0050] [0109/267] eta: 0 Days 0:48:9         lr: 	1.0000E-08 loss: 	0.64204
+ epoch [0014 / 0050] [0209/267] eta: 0 Days 0:47:19        lr: 	1.0000E-08 loss: 	0.63604
+15
+starting val epoch 15
+val [0015 / 0050] validation loss: 	0.64655
+checkpoint
+starting train epoch 15
+ epoch [0015 / 0050] [0009/267] eta: 0 Days 0:47:30        lr: 	1.0000E-08 loss: 	0.69345
+ epoch [0015 / 0050] [0109/267] eta: 0 Days 0:46:41        lr: 	1.0000E-08 loss: 	0.63260
+ epoch [0015 / 0050] [0209/267] eta: 0 Days 0:45:53        lr: 	1.0000E-08 loss: 	0.62719
+16
+starting val epoch 16
+val [0016 / 0050] validation loss: 	0.63969
+checkpoint
+starting train epoch 16
+ epoch [0016 / 0050] [0009/267] eta: 0 Days 0:46:4         lr: 	1.0000E-08 loss: 	0.68236
+ epoch [0016 / 0050] [0109/267] eta: 0 Days 0:45:16        lr: 	1.0000E-08 loss: 	0.62589
+ epoch [0016 / 0050] [0209/267] eta: 0 Days 0:44:30        lr: 	1.0000E-08 loss: 	0.62311
+17
+starting val epoch 17
+val [0017 / 0050] validation loss: 	0.63296
+checkpoint
+starting train epoch 17
+ epoch [0017 / 0050] [0009/267] eta: 0 Days 0:44:40        lr: 	1.0000E-08 loss: 	0.69283
+ epoch [0017 / 0050] [0109/267] eta: 0 Days 0:43:53        lr: 	1.0000E-08 loss: 	0.61803
+ epoch [0017 / 0050] [0209/267] eta: 0 Days 0:43:8         lr: 	1.0000E-08 loss: 	0.61692
+18
+starting val epoch 18
+val [0018 / 0050] validation loss: 	0.62644
+checkpoint
+starting train epoch 18
+ epoch [0018 / 0050] [0009/267] eta: 0 Days 0:43:14        lr: 	1.0000E-08 loss: 	0.69446
+ epoch [0018 / 0050] [0109/267] eta: 0 Days 0:42:30        lr: 	1.0000E-08 loss: 	0.60967
+ epoch [0018 / 0050] [0209/267] eta: 0 Days 0:41:47        lr: 	1.0000E-08 loss: 	0.60897
+19
+starting val epoch 19
+val [0019 / 0050] validation loss: 	0.62000
+checkpoint
+starting train epoch 19
+ epoch [0019 / 0050] [0009/267] eta: 0 Days 0:41:52        lr: 	1.0000E-08 loss: 	0.64489
+ epoch [0019 / 0050] [0109/267] eta: 0 Days 0:41:8         lr: 	1.0000E-08 loss: 	0.60778
+ epoch [0019 / 0050] [0209/267] eta: 0 Days 0:40:25        lr: 	1.0000E-08 loss: 	0.60302
+20
+starting val epoch 20
+val [0020 / 0050] validation loss: 	0.61376
+checkpoint
+starting train epoch 20
+ epoch [0020 / 0050] [0009/267] eta: 0 Days 0:40:27        lr: 	1.0000E-08 loss: 	0.66580
+ epoch [0020 / 0050] [0109/267] eta: 0 Days 0:39:44        lr: 	1.0000E-08 loss: 	0.59973
+ epoch [0020 / 0050] [0209/267] eta: 0 Days 0:39:2         lr: 	1.0000E-08 loss: 	0.59713
+21
+starting val epoch 21
+val [0021 / 0050] validation loss: 	0.60764
+checkpoint
+starting train epoch 21
+ epoch [0021 / 0050] [0009/267] eta: 0 Days 0:39:3         lr: 	1.0000E-08 loss: 	0.66110
+ epoch [0021 / 0050] [0109/267] eta: 0 Days 0:38:21        lr: 	1.0000E-08 loss: 	0.59924
+ epoch [0021 / 0050] [0209/267] eta: 0 Days 0:37:40        lr: 	1.0000E-08 loss: 	0.59098
+22
+starting val epoch 22
+val [0022 / 0050] validation loss: 	0.60166
+checkpoint
+starting train epoch 22
+ epoch [0022 / 0050] [0009/267] eta: 0 Days 0:37:38        lr: 	1.0000E-08 loss: 	0.64282
+ epoch [0022 / 0050] [0109/267] eta: 0 Days 0:36:58        lr: 	1.0000E-08 loss: 	0.59083
+ epoch [0022 / 0050] [0209/267] eta: 0 Days 0:36:18        lr: 	1.0000E-08 loss: 	0.58669
+23
+starting val epoch 23
+val [0023 / 0050] validation loss: 	0.59581
+checkpoint
+starting train epoch 23
+ epoch [0023 / 0050] [0009/267] eta: 0 Days 0:36:14        lr: 	1.0000E-08 loss: 	0.64340
+ epoch [0023 / 0050] [0109/267] eta: 0 Days 0:35:35        lr: 	1.0000E-08 loss: 	0.58540
+ epoch [0023 / 0050] [0209/267] eta: 0 Days 0:34:56        lr: 	1.0000E-08 loss: 	0.58136
+24
+starting val epoch 24
+val [0024 / 0050] validation loss: 	0.59020
+checkpoint
+starting train epoch 24
+ epoch [0024 / 0050] [0009/267] eta: 0 Days 0:34:51        lr: 	1.0000E-08 loss: 	0.62535
+ epoch [0024 / 0050] [0109/267] eta: 0 Days 0:34:12        lr: 	1.0000E-08 loss: 	0.57229
+ epoch [0024 / 0050] [0209/267] eta: 0 Days 0:33:33        lr: 	1.0000E-08 loss: 	0.57546
+25
+starting val epoch 25
+val [0025 / 0050] validation loss: 	0.58470
+checkpoint
+starting train epoch 25
+ epoch [0025 / 0050] [0009/267] eta: 0 Days 0:33:29        lr: 	1.0000E-08 loss: 	0.61162
+ epoch [0025 / 0050] [0109/267] eta: 0 Days 0:32:51        lr: 	1.0000E-08 loss: 	0.57483
+ epoch [0025 / 0050] [0209/267] eta: 0 Days 0:32:13        lr: 	1.0000E-08 loss: 	0.56943
+26
+starting val epoch 26
+val [0026 / 0050] validation loss: 	0.57935
+checkpoint
+starting train epoch 26
+ epoch [0026 / 0050] [0009/267] eta: 0 Days 0:32:7         lr: 	1.0000E-08 loss: 	0.62636
+ epoch [0026 / 0050] [0109/267] eta: 0 Days 0:31:29        lr: 	1.0000E-08 loss: 	0.56626
+ epoch [0026 / 0050] [0209/267] eta: 0 Days 0:30:52        lr: 	1.0000E-08 loss: 	0.56535
+27
+starting val epoch 27
+val [0027 / 0050] validation loss: 	0.57403
+checkpoint
+starting train epoch 27
+ epoch [0027 / 0050] [0009/267] eta: 0 Days 0:30:44        lr: 	1.0000E-08 loss: 	0.58501
+ epoch [0027 / 0050] [0109/267] eta: 0 Days 0:30:7         lr: 	1.0000E-08 loss: 	0.55912
+ epoch [0027 / 0050] [0209/267] eta: 0 Days 0:29:31        lr: 	1.0000E-08 loss: 	0.55574
+28
+starting val epoch 28
+val [0028 / 0050] validation loss: 	0.56893
+checkpoint
+starting train epoch 28
+ epoch [0028 / 0050] [0009/267] eta: 0 Days 0:29:22        lr: 	1.0000E-08 loss: 	0.60794
+ epoch [0028 / 0050] [0109/267] eta: 0 Days 0:28:47        lr: 	1.0000E-08 loss: 	0.55702
+ epoch [0028 / 0050] [0209/267] eta: 0 Days 0:28:11        lr: 	1.0000E-08 loss: 	0.55538
+29
+starting val epoch 29
+val [0029 / 0050] validation loss: 	0.56388
+checkpoint
+starting train epoch 29
+ epoch [0029 / 0050] [0009/267] eta: 0 Days 0:28:2         lr: 	1.0000E-08 loss: 	0.60334
+ epoch [0029 / 0050] [0109/267] eta: 0 Days 0:27:26        lr: 	1.0000E-08 loss: 	0.55415
+ epoch [0029 / 0050] [0209/267] eta: 0 Days 0:26:50        lr: 	1.0000E-08 loss: 	0.54946
+30
+starting val epoch 30
+val [0030 / 0050] validation loss: 	0.55902
+checkpoint
+starting train epoch 30
+ epoch [0030 / 0050] [0009/267] eta: 0 Days 0:26:40        lr: 	1.0000E-08 loss: 	0.62446
+ epoch [0030 / 0050] [0109/267] eta: 0 Days 0:26:6         lr: 	1.0000E-08 loss: 	0.54934
+ epoch [0030 / 0050] [0209/267] eta: 0 Days 0:25:30        lr: 	1.0000E-08 loss: 	0.54468
+31
+starting val epoch 31
+val [0031 / 0050] validation loss: 	0.55433
+checkpoint
+starting train epoch 31
+ epoch [0031 / 0050] [0009/267] eta: 0 Days 0:25:19        lr: 	1.0000E-08 loss: 	0.63508
+ epoch [0031 / 0050] [0109/267] eta: 0 Days 0:24:44        lr: 	1.0000E-08 loss: 	0.53972
+ epoch [0031 / 0050] [0209/267] eta: 0 Days 0:24:10        lr: 	1.0000E-08 loss: 	0.54084
+32
+starting val epoch 32
+val [0032 / 0050] validation loss: 	0.54974
+checkpoint
+starting train epoch 32
+ epoch [0032 / 0050] [0009/267] eta: 0 Days 0:23:58        lr: 	1.0000E-08 loss: 	0.61295
+ epoch [0032 / 0050] [0109/267] eta: 0 Days 0:23:24        lr: 	1.0000E-08 loss: 	0.54800
+ epoch [0032 / 0050] [0209/267] eta: 0 Days 0:22:50        lr: 	1.0000E-08 loss: 	0.53816
+33
+starting val epoch 33
+val [0033 / 0050] validation loss: 	0.54529
+checkpoint
+starting train epoch 33
+ epoch [0033 / 0050] [0009/267] eta: 0 Days 0:22:38        lr: 	1.0000E-08 loss: 	0.57544
+ epoch [0033 / 0050] [0109/267] eta: 0 Days 0:22:4         lr: 	1.0000E-08 loss: 	0.53192
+ epoch [0033 / 0050] [0209/267] eta: 0 Days 0:21:30        lr: 	1.0000E-08 loss: 	0.52673
+34
+starting val epoch 34
+val [0034 / 0050] validation loss: 	0.54100
+checkpoint
+starting train epoch 34
+ epoch [0034 / 0050] [0009/267] eta: 0 Days 0:21:17        lr: 	1.0000E-08 loss: 	0.55158
+ epoch [0034 / 0050] [0109/267] eta: 0 Days 0:20:43        lr: 	1.0000E-08 loss: 	0.52775
+ epoch [0034 / 0050] [0209/267] eta: 0 Days 0:20:10        lr: 	1.0000E-08 loss: 	0.52623
+35
+starting val epoch 35
+val [0035 / 0050] validation loss: 	0.53682
+checkpoint
+starting train epoch 35
+ epoch [0035 / 0050] [0009/267] eta: 0 Days 0:19:56        lr: 	1.0000E-08 loss: 	0.56332
+ epoch [0035 / 0050] [0109/267] eta: 0 Days 0:19:24        lr: 	1.0000E-08 loss: 	0.52660
+ epoch [0035 / 0050] [0209/267] eta: 0 Days 0:18:51        lr: 	1.0000E-08 loss: 	0.52217
+36
+starting val epoch 36
+val [0036 / 0050] validation loss: 	0.53272
+checkpoint
+starting train epoch 36
+ epoch [0036 / 0050] [0009/267] eta: 0 Days 0:18:36        lr: 	1.0000E-08 loss: 	0.57271
+ epoch [0036 / 0050] [0109/267] eta: 0 Days 0:18:3         lr: 	1.0000E-08 loss: 	0.52096
+ epoch [0036 / 0050] [0209/267] eta: 0 Days 0:17:31        lr: 	1.0000E-08 loss: 	0.51709
+37
+starting val epoch 37
+val [0037 / 0050] validation loss: 	0.52876
+checkpoint
+starting train epoch 37
+ epoch [0037 / 0050] [0009/267] eta: 0 Days 0:17:16        lr: 	1.0000E-08 loss: 	0.58005
+ epoch [0037 / 0050] [0109/267] eta: 0 Days 0:16:43        lr: 	1.0000E-08 loss: 	0.51814
+ epoch [0037 / 0050] [0209/267] eta: 0 Days 0:16:11        lr: 	1.0000E-08 loss: 	0.51729
+38
+starting val epoch 38
+val [0038 / 0050] validation loss: 	0.52493
+checkpoint
+starting train epoch 38
+ epoch [0038 / 0050] [0009/267] eta: 0 Days 0:15:56        lr: 	1.0000E-08 loss: 	0.58288
+ epoch [0038 / 0050] [0109/267] eta: 0 Days 0:15:24        lr: 	1.0000E-08 loss: 	0.51385
+ epoch [0038 / 0050] [0209/267] eta: 0 Days 0:14:52        lr: 	1.0000E-08 loss: 	0.50977
+39
+starting val epoch 39
+val [0039 / 0050] validation loss: 	0.52113
+checkpoint
+starting train epoch 39
+ epoch [0039 / 0050] [0009/267] eta: 0 Days 0:14:36        lr: 	1.0000E-08 loss: 	0.57052
+ epoch [0039 / 0050] [0109/267] eta: 0 Days 0:14:4         lr: 	1.0000E-08 loss: 	0.51096
+ epoch [0039 / 0050] [0209/267] eta: 0 Days 0:13:32        lr: 	1.0000E-08 loss: 	0.50596
+40
+starting val epoch 40
+val [0040 / 0050] validation loss: 	0.51753
+checkpoint
+starting train epoch 40
+ epoch [0040 / 0050] [0009/267] eta: 0 Days 0:13:16        lr: 	1.0000E-08 loss: 	0.55830
+ epoch [0040 / 0050] [0109/267] eta: 0 Days 0:12:44        lr: 	1.0000E-08 loss: 	0.50667
+ epoch [0040 / 0050] [0209/267] eta: 0 Days 0:12:12        lr: 	1.0000E-08 loss: 	0.50795
+41
+starting val epoch 41
+val [0041 / 0050] validation loss: 	0.51404
+checkpoint
+starting train epoch 41
+ epoch [0041 / 0050] [0009/267] eta: 0 Days 0:11:56        lr: 	1.0000E-08 loss: 	0.55069
+ epoch [0041 / 0050] [0109/267] eta: 0 Days 0:11:24        lr: 	1.0000E-08 loss: 	0.50160
+ epoch [0041 / 0050] [0209/267] eta: 0 Days 0:10:53        lr: 	1.0000E-08 loss: 	0.49989
+42
+starting val epoch 42
+val [0042 / 0050] validation loss: 	0.51067
+checkpoint
+starting train epoch 42
+ epoch [0042 / 0050] [0009/267] eta: 0 Days 0:10:35        lr: 	1.0000E-08 loss: 	0.53422
+ epoch [0042 / 0050] [0109/267] eta: 0 Days 0:10:4         lr: 	1.0000E-08 loss: 	0.49530
+ epoch [0042 / 0050] [0209/267] eta: 0 Days 0:9:33         lr: 	1.0000E-08 loss: 	0.49101
+43
+starting val epoch 43
+val [0043 / 0050] validation loss: 	0.50735
+checkpoint
+starting train epoch 43
+ epoch [0043 / 0050] [0009/267] eta: 0 Days 0:9:16         lr: 	1.0000E-08 loss: 	0.49972
+ epoch [0043 / 0050] [0109/267] eta: 0 Days 0:8:44         lr: 	1.0000E-08 loss: 	0.48963
+ epoch [0043 / 0050] [0209/267] eta: 0 Days 0:8:13         lr: 	1.0000E-08 loss: 	0.49437
+44
+starting val epoch 44
+val [0044 / 0050] validation loss: 	0.50420
+checkpoint
+starting train epoch 44
+ epoch [0044 / 0050] [0009/267] eta: 0 Days 0:7:56         lr: 	1.0000E-08 loss: 	0.50597
+ epoch [0044 / 0050] [0109/267] eta: 0 Days 0:7:25         lr: 	1.0000E-08 loss: 	0.49139
+ epoch [0044 / 0050] [0209/267] eta: 0 Days 0:6:54         lr: 	1.0000E-08 loss: 	0.49032
+45
+starting val epoch 45
+val [0045 / 0050] validation loss: 	0.50118
+checkpoint
+starting train epoch 45
+ epoch [0045 / 0050] [0009/267] eta: 0 Days 0:6:36         lr: 	1.0000E-08 loss: 	0.58087
+ epoch [0045 / 0050] [0109/267] eta: 0 Days 0:6:5          lr: 	1.0000E-08 loss: 	0.49983
+ epoch [0045 / 0050] [0209/267] eta: 0 Days 0:5:34         lr: 	1.0000E-08 loss: 	0.48813
+46
+starting val epoch 46
+val [0046 / 0050] validation loss: 	0.49821
+checkpoint
+starting train epoch 46
+ epoch [0046 / 0050] [0009/267] eta: 0 Days 0:5:16         lr: 	1.0000E-08 loss: 	0.48117
+ epoch [0046 / 0050] [0109/267] eta: 0 Days 0:4:45         lr: 	1.0000E-08 loss: 	0.48575
+ epoch [0046 / 0050] [0209/267] eta: 0 Days 0:4:15         lr: 	1.0000E-08 loss: 	0.48325
+47
+starting val epoch 47
+val [0047 / 0050] validation loss: 	0.49537
+checkpoint
+starting train epoch 47
+ epoch [0047 / 0050] [0009/267] eta: 0 Days 0:3:56         lr: 	1.0000E-08 loss: 	0.52516
+ epoch [0047 / 0050] [0109/267] eta: 0 Days 0:3:25         lr: 	1.0000E-08 loss: 	0.48315
+ epoch [0047 / 0050] [0209/267] eta: 0 Days 0:2:55         lr: 	1.0000E-08 loss: 	0.48015
+48
+starting val epoch 48
+val [0048 / 0050] validation loss: 	0.49260
+checkpoint
+starting train epoch 48
+ epoch [0048 / 0050] [0009/267] eta: 0 Days 0:2:36         lr: 	1.0000E-08 loss: 	0.58849
+ epoch [0048 / 0050] [0109/267] eta: 0 Days 0:2:6          lr: 	1.0000E-08 loss: 	0.48627
+ epoch [0048 / 0050] [0209/267] eta: 0 Days 0:1:36         lr: 	1.0000E-08 loss: 	0.47764
+49
+starting val epoch 49
+val [0049 / 0050] validation loss: 	0.48993
+checkpoint
+starting train epoch 49
+ epoch [0049 / 0050] [0009/267] eta: 0 Days 0:1:16         lr: 	1.0000E-08 loss: 	0.48564
+ epoch [0049 / 0050] [0109/267] eta: 0 Days 0:0:46         lr: 	1.0000E-08 loss: 	0.47970
+ epoch [0049 / 0050] [0209/267] eta: 0 Days 0:0:16         lr: 	1.0000E-08 loss: 	0.47187
+starting val epoch 0
+val [0000 / 0050] validation loss: 	0.48054
+Acute and unspecified renal failure                                                        & 0.442(0.489, 0.394) & 0.143 (0.175, 0.116)
+fused_ehr test  0   best mean auc :0.442 mean auprc 0.143
+                    CI AUROC (0.394, 0.489) CI AUPRC (0.116, 0.175)
+                     AUROC accute 0.442 mixed 0.442 chronic 0.442
+                     AUROC accute CI (0.394, 0.489) mixed (0.394 , 0.489) chronic (0.394, 0.489)
+                     AUPRC accute  0.143 mixed 0.143 chronic 0.143
+                     AUPRC accute CI  (0.116, 0.175) mixed (0.116,  0.175) chronic (0.116, 0.175)

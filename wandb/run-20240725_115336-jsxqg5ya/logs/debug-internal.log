@@ -1,0 +1,131 @@
+2024-07-25 11:53:36,406 INFO    StreamThr :1420279 [internal.py:wandb_internal():89] W&B internal server running at pid: 1420279, started at: 2024-07-25 11:53:36.404911
+2024-07-25 11:53:36,407 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status
+2024-07-25 11:53:36,408 INFO    WriterThread:1420279 [datastore.py:open_for_write():85] open: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/run-jsxqg5ya.wandb
+2024-07-25 11:53:36,412 DEBUG   SenderThread:1420279 [sender.py:send():375] send: header
+2024-07-25 11:53:36,649 DEBUG   SenderThread:1420279 [sender.py:send():375] send: run
+2024-07-25 11:53:37,306 INFO    SenderThread:1420279 [dir_watcher.py:__init__():219] watching files in: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files
+2024-07-25 11:53:37,306 INFO    SenderThread:1420279 [sender.py:_start_run_threads():1127] run started: jsxqg5ya with start time 1721894016.403936
+2024-07-25 11:53:37,306 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: summary_record
+2024-07-25 11:53:37,307 INFO    SenderThread:1420279 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-25 11:53:37,308 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: check_version
+2024-07-25 11:53:37,308 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: check_version
+2024-07-25 11:53:37,372 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: run_start
+2024-07-25 11:53:37,391 DEBUG   HandlerThread:1420279 [system_info.py:__init__():31] System info init
+2024-07-25 11:53:37,391 DEBUG   HandlerThread:1420279 [system_info.py:__init__():46] System info init done
+2024-07-25 11:53:37,391 INFO    HandlerThread:1420279 [system_monitor.py:start():181] Starting system monitor
+2024-07-25 11:53:37,391 INFO    SystemMonitor:1420279 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2024-07-25 11:53:37,391 INFO    HandlerThread:1420279 [system_monitor.py:probe():201] Collecting system info
+2024-07-25 11:53:37,392 INFO    SystemMonitor:1420279 [interfaces.py:start():190] Started cpu monitoring
+2024-07-25 11:53:37,392 INFO    SystemMonitor:1420279 [interfaces.py:start():190] Started disk monitoring
+2024-07-25 11:53:37,393 INFO    SystemMonitor:1420279 [interfaces.py:start():190] Started gpu monitoring
+2024-07-25 11:53:37,394 INFO    SystemMonitor:1420279 [interfaces.py:start():190] Started memory monitoring
+2024-07-25 11:53:37,395 INFO    SystemMonitor:1420279 [interfaces.py:start():190] Started network monitoring
+2024-07-25 11:53:37,460 DEBUG   HandlerThread:1420279 [system_info.py:probe():195] Probing system
+2024-07-25 11:53:37,461 DEBUG   HandlerThread:1420279 [system_info.py:_probe_git():180] Probing git
+2024-07-25 11:53:37,489 DEBUG   HandlerThread:1420279 [system_info.py:_probe_git():188] Probing git done
+2024-07-25 11:53:37,490 DEBUG   HandlerThread:1420279 [system_info.py:probe():240] Probing system done
+2024-07-25 11:53:37,490 DEBUG   HandlerThread:1420279 [system_monitor.py:probe():210] {'os': 'Linux-4.18.0-513.5.1.el8_9.x86_64-x86_64-with-centos-8.9-Green_Obsidian', 'python': '3.6.12', 'heartbeatAt': '2024-07-25T07:53:37.460154', 'startedAt': '2024-07-25T07:53:36.374057', 'docker': None, 'cuda': None, 'args': ('--mode', 'train', '--epochs', '50', '--batch_size', '16', '--lr', '0.001', '--num_classes', '1', '--modalities', 'EHR-CXR', '--H_mode', 'early', '--save_dir', 'checkpoints', '--task', 'in-hospital-mortality', '--labels_set', 'mortality'), 'state': 'running', 'program': 'fusion_main.py', 'codePath': 'fusion_main.py', 'git': {'remote': 'https://github.com/BaraaAlJorf/DHF.git', 'commit': 'ec30147e8d67f9e41097474659da8c2fe379033f'}, 'email': None, 'root': '/scratch/baj321/MedFuse', 'host': 'cn013', 'username': 'baj321', 'executable': '/home/baj321/.conda/envs/medfuse/bin/python', 'cpu_count': 128, 'cpu_count_logical': 128, 'cpu_freq': {'current': 2248.916203125, 'min': 1500.0, 'max': 2250.0}, 'cpu_freq_per_core': [{'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2199.21, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2202.309, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}], 'disk': {'total': 10.0, 'used': 5.0504608154296875}, 'gpu': 'NVIDIA A100 80GB PCIe', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA A100 80GB PCIe', 'memory_total': 85899345920}], 'memory': {'total': 502.82592010498047}}
+2024-07-25 11:53:37,490 INFO    HandlerThread:1420279 [system_monitor.py:probe():211] Finished collecting system info
+2024-07-25 11:53:37,490 INFO    HandlerThread:1420279 [system_monitor.py:probe():214] Publishing system info
+2024-07-25 11:53:37,490 DEBUG   HandlerThread:1420279 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2024-07-25 11:53:37,492 DEBUG   HandlerThread:1420279 [system_info.py:_save_pip():67] Saving pip packages done
+2024-07-25 11:53:37,492 DEBUG   HandlerThread:1420279 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2024-07-25 11:53:38,309 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/wandb-summary.json
+2024-07-25 11:53:38,310 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/requirements.txt
+2024-07-25 11:53:38,310 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/conda-environment.yaml
+2024-07-25 11:53:40,606 DEBUG   HandlerThread:1420279 [system_info.py:_save_conda():86] Saving conda packages done
+2024-07-25 11:53:40,609 INFO    HandlerThread:1420279 [system_monitor.py:probe():216] Finished publishing system info
+2024-07-25 11:53:41,313 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/conda-environment.yaml
+2024-07-25 11:53:41,313 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/wandb-metadata.json
+2024-07-25 11:53:42,021 DEBUG   SenderThread:1420279 [sender.py:send():375] send: files
+2024-07-25 11:53:42,021 INFO    SenderThread:1420279 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2024-07-25 11:53:42,022 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:53:42,029 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-25 11:53:42,030 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: stop_status
+2024-07-25 11:53:42,405 DEBUG   SenderThread:1420279 [sender.py:send():375] send: telemetry
+2024-07-25 11:53:42,955 INFO    wandb-upload_0:1420279 [upload_job.py:push():137] Uploaded file /tmpdata/tmpaglihu2lwandb/se0ymgqp-wandb-metadata.json
+2024-07-25 11:53:47,406 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:53:50,322 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_created():278] file/dir created: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:53:52,323 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:53:52,774 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:53:56,327 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:53:57,046 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-25 11:53:57,047 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: stop_status
+2024-07-25 11:53:57,328 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:53:58,334 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:54:01,334 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:54:03,368 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-25 11:54:03,369 DEBUG   SenderThread:1420279 [sender.py:send():375] send: history
+2024-07-25 11:54:03,370 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: summary_record
+2024-07-25 11:54:03,372 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:54:03,374 INFO    SenderThread:1420279 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-25 11:54:04,337 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/wandb-summary.json
+2024-07-25 11:54:07,340 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:54:08,502 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:54:09,344 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:54:09,344 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/config.yaml
+2024-07-25 11:54:12,046 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-25 11:54:12,047 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: stop_status
+2024-07-25 11:54:14,349 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:54:17,353 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:54:19,380 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:54:24,688 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:54:25,362 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:54:27,046 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-25 11:54:27,046 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: stop_status
+2024-07-25 11:54:30,366 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:54:33,490 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-25 11:54:33,491 DEBUG   SenderThread:1420279 [sender.py:send():375] send: history
+2024-07-25 11:54:33,491 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: summary_record
+2024-07-25 11:54:33,495 INFO    SenderThread:1420279 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-25 11:54:34,370 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/wandb-summary.json
+2024-07-25 11:54:35,372 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:54:35,502 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:54:37,395 DEBUG   SystemMonitor:1420279 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2024-07-25 11:54:37,398 DEBUG   SenderThread:1420279 [sender.py:send():375] send: stats
+2024-07-25 11:54:39,376 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:54:40,121 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-25 11:54:40,122 DEBUG   SenderThread:1420279 [sender.py:send():375] send: history
+2024-07-25 11:54:40,122 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: summary_record
+2024-07-25 11:54:40,123 INFO    SenderThread:1420279 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-25 11:54:40,377 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/wandb-summary.json
+2024-07-25 11:54:41,124 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:54:42,094 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-25 11:54:42,094 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: stop_status
+2024-07-25 11:54:43,380 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:54:46,657 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:54:47,386 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:54:51,658 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:54:55,394 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:54:57,094 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-25 11:54:57,095 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: stop_status
+2024-07-25 11:54:57,340 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:55:02,720 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:55:03,408 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:55:07,401 DEBUG   SenderThread:1420279 [sender.py:send():375] send: stats
+2024-07-25 11:55:08,402 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:55:11,626 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-25 11:55:11,626 DEBUG   SenderThread:1420279 [sender.py:send():375] send: history
+2024-07-25 11:55:11,627 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: summary_record
+2024-07-25 11:55:11,628 INFO    SenderThread:1420279 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-25 11:55:12,265 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-25 11:55:12,265 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: stop_status
+2024-07-25 11:55:12,416 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/wandb-summary.json
+2024-07-25 11:55:13,417 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:55:13,551 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:55:17,421 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:55:18,341 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: partial_history
+2024-07-25 11:55:18,342 DEBUG   SenderThread:1420279 [sender.py:send():375] send: history
+2024-07-25 11:55:18,342 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: summary_record
+2024-07-25 11:55:18,344 INFO    SenderThread:1420279 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-07-25 11:55:18,422 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/wandb-summary.json
+2024-07-25 11:55:19,344 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:55:21,425 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:55:24,986 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:55:25,432 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:55:27,163 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: stop_status
+2024-07-25 11:55:27,163 DEBUG   SenderThread:1420279 [sender.py:send_request():402] send_request: stop_status
+2024-07-25 11:55:30,444 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:55:33,441 INFO    Thread-12 :1420279 [dir_watcher.py:_on_file_modified():295] file/dir modified: /scratch/baj321/MedFuse/wandb/run-20240725_115336-jsxqg5ya/files/output.log
+2024-07-25 11:55:35,492 DEBUG   HandlerThread:1420279 [handler.py:handle_request():144] handle_request: status_report
+2024-07-25 11:55:37,403 DEBUG   SenderThread:1420279 [sender.py:send():375] send: stats

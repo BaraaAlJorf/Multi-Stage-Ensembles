@@ -1,0 +1,919 @@
+Some weights of the model checkpoint at allenai/longformer-base-4096 were not used when initializing LongformerModel: ['lm_head.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing LongformerModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing LongformerModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at emilyalsentzer/Bio_ClinicalBERT were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+ehr loaded
+cxr loaded
+rr loaded
+==> training
+running for fusion_type fused_ehr
+0
+starting val epoch 0
+val [0000 / 0050] validation loss: 	5.46836
+checkpoint
+starting train epoch 0
+ epoch [0000 / 0050] [0009/4278] eta: 14 Days 15:30:19      lr: 	1.0000E-04 loss: 	9.85983 loss align 0.0000
+ epoch [0000 / 0050] [0109/4278] eta: 1 Days 20:22:53       lr: 	1.0000E-04 loss: 	4.51616 loss align 0.0000
+ epoch [0000 / 0050] [0209/4278] eta: 1 Days 5:45:26        lr: 	1.0000E-04 loss: 	3.86486 loss align 0.0000
+ epoch [0000 / 0050] [0309/4278] eta: 1 Days 0:35:20        lr: 	1.0000E-04 loss: 	3.60432 loss align 0.0000
+ epoch [0000 / 0050] [0409/4278] eta: 0 Days 21:54:59       lr: 	1.0000E-04 loss: 	3.48054 loss align 0.0000
+ epoch [0000 / 0050] [0509/4278] eta: 0 Days 20:17:9        lr: 	1.0000E-04 loss: 	3.59378 loss align 0.0000
+ epoch [0000 / 0050] [0609/4278] eta: 0 Days 19:11:33       lr: 	1.0000E-04 loss: 	3.40957 loss align 0.0000
+ epoch [0000 / 0050] [0709/4278] eta: 0 Days 18:24:0        lr: 	1.0000E-04 loss: 	3.26775 loss align 0.0000
+ epoch [0000 / 0050] [0809/4278] eta: 0 Days 17:48:47       lr: 	1.0000E-04 loss: 	3.19661 loss align 0.0000
+ epoch [0000 / 0050] [0909/4278] eta: 0 Days 17:21:11       lr: 	1.0000E-04 loss: 	3.08267 loss align 0.0000
+ epoch [0000 / 0050] [1009/4278] eta: 0 Days 16:59:7        lr: 	1.0000E-04 loss: 	2.99108 loss align 0.0000
+ epoch [0000 / 0050] [1109/4278] eta: 0 Days 16:40:43       lr: 	1.0000E-04 loss: 	2.96142 loss align 0.0000
+ epoch [0000 / 0050] [1209/4278] eta: 0 Days 16:25:19       lr: 	1.0000E-04 loss: 	2.90718 loss align 0.0000
+ epoch [0000 / 0050] [1309/4278] eta: 0 Days 16:12:25       lr: 	1.0000E-04 loss: 	2.88359 loss align 0.0000
+ epoch [0000 / 0050] [1409/4278] eta: 0 Days 16:1:12        lr: 	1.0000E-04 loss: 	2.86508 loss align 0.0000
+ epoch [0000 / 0050] [1509/4278] eta: 0 Days 15:50:28       lr: 	1.0000E-04 loss: 	2.87103 loss align 0.0000
+ epoch [0000 / 0050] [1609/4278] eta: 0 Days 15:41:7        lr: 	1.0000E-04 loss: 	2.83994 loss align 0.0000
+ epoch [0000 / 0050] [1709/4278] eta: 0 Days 15:32:53       lr: 	1.0000E-04 loss: 	2.82623 loss align 0.0000
+ epoch [0000 / 0050] [1809/4278] eta: 0 Days 15:25:26       lr: 	1.0000E-04 loss: 	2.84304 loss align 0.0000
+ epoch [0000 / 0050] [1909/4278] eta: 0 Days 15:19:1        lr: 	1.0000E-04 loss: 	2.84833 loss align 0.0000
+ epoch [0000 / 0050] [2009/4278] eta: 0 Days 15:12:52       lr: 	1.0000E-04 loss: 	2.80690 loss align 0.0000
+ epoch [0000 / 0050] [2109/4278] eta: 0 Days 15:7:16        lr: 	1.0000E-04 loss: 	2.83597 loss align 0.0000
+ epoch [0000 / 0050] [2209/4278] eta: 0 Days 15:1:57        lr: 	1.0000E-04 loss: 	2.79756 loss align 0.0000
+ epoch [0000 / 0050] [2309/4278] eta: 0 Days 14:57:22       lr: 	1.0000E-04 loss: 	2.81020 loss align 0.0000
+ epoch [0000 / 0050] [2409/4278] eta: 0 Days 14:53:1        lr: 	1.0000E-04 loss: 	2.79976 loss align 0.0000
+ epoch [0000 / 0050] [2509/4278] eta: 0 Days 14:49:5        lr: 	1.0000E-04 loss: 	2.79149 loss align 0.0000
+ epoch [0000 / 0050] [2609/4278] eta: 0 Days 14:45:29       lr: 	1.0000E-04 loss: 	2.77265 loss align 0.0000
+ epoch [0000 / 0050] [2709/4278] eta: 0 Days 14:42:5        lr: 	1.0000E-04 loss: 	2.76142 loss align 0.0000
+ epoch [0000 / 0050] [2809/4278] eta: 0 Days 14:38:56       lr: 	1.0000E-04 loss: 	2.76006 loss align 0.0000
+ epoch [0000 / 0050] [2909/4278] eta: 0 Days 14:35:46       lr: 	1.0000E-04 loss: 	2.75012 loss align 0.0000
+ epoch [0000 / 0050] [3009/4278] eta: 0 Days 14:32:53       lr: 	1.0000E-04 loss: 	2.74617 loss align 0.0000
+ epoch [0000 / 0050] [3109/4278] eta: 0 Days 14:30:10       lr: 	1.0000E-04 loss: 	2.73994 loss align 0.0000
+ epoch [0000 / 0050] [3209/4278] eta: 0 Days 14:27:40       lr: 	1.0000E-04 loss: 	2.73310 loss align 0.0000
+ epoch [0000 / 0050] [3309/4278] eta: 0 Days 14:25:20       lr: 	1.0000E-04 loss: 	2.74082 loss align 0.0000
+ epoch [0000 / 0050] [3409/4278] eta: 0 Days 14:23:5        lr: 	1.0000E-04 loss: 	2.72629 loss align 0.0000
+ epoch [0000 / 0050] [3509/4278] eta: 0 Days 14:20:49       lr: 	1.0000E-04 loss: 	2.71872 loss align 0.0000
+ epoch [0000 / 0050] [3609/4278] eta: 0 Days 14:18:49       lr: 	1.0000E-04 loss: 	2.70499 loss align 0.0000
+ epoch [0000 / 0050] [3709/4278] eta: 0 Days 14:16:44       lr: 	1.0000E-04 loss: 	2.72928 loss align 0.0000
+ epoch [0000 / 0050] [3809/4278] eta: 0 Days 14:14:54       lr: 	1.0000E-04 loss: 	2.71527 loss align 0.0000
+ epoch [0000 / 0050] [3909/4278] eta: 0 Days 14:13:7        lr: 	1.0000E-04 loss: 	2.71414 loss align 0.0000
+ epoch [0000 / 0050] [4009/4278] eta: 0 Days 14:11:19       lr: 	1.0000E-04 loss: 	2.71156 loss align 0.0000
+ epoch [0000 / 0050] [4109/4278] eta: 0 Days 14:9:41        lr: 	1.0000E-04 loss: 	2.70586 loss align 0.0000
+ epoch [0000 / 0050] [4209/4278] eta: 0 Days 14:8:5         lr: 	1.0000E-04 loss: 	2.70511 loss align 0.0000
+1
+starting val epoch 1
+val [0001 / 0050] validation loss: 	2.04430
+checkpoint
+starting train epoch 1
+ epoch [0001 / 0050] [0009/4278] eta: 0 Days 14:43:26       lr: 	1.0000E-04 loss: 	1.17932 loss align 0.0000
+ epoch [0001 / 0050] [0109/4278] eta: 0 Days 14:42:6        lr: 	1.0000E-04 loss: 	3.10902 loss align 0.0000
+ epoch [0001 / 0050] [0209/4278] eta: 0 Days 14:39:54       lr: 	1.0000E-04 loss: 	2.64026 loss align 0.0000
+ epoch [0001 / 0050] [0309/4278] eta: 0 Days 14:37:44       lr: 	1.0000E-04 loss: 	2.46616 loss align 0.0000
+ epoch [0001 / 0050] [0409/4278] eta: 0 Days 14:35:40       lr: 	1.0000E-04 loss: 	3.07015 loss align 0.0000
+ epoch [0001 / 0050] [0509/4278] eta: 0 Days 14:33:45       lr: 	1.0000E-04 loss: 	2.93865 loss align 0.0000
+ epoch [0001 / 0050] [0609/4278] eta: 0 Days 14:31:48       lr: 	1.0000E-04 loss: 	2.86918 loss align 0.0000
+ epoch [0001 / 0050] [0709/4278] eta: 0 Days 14:30:0        lr: 	1.0000E-04 loss: 	2.82125 loss align 0.0000
+ epoch [0001 / 0050] [0809/4278] eta: 0 Days 14:28:9        lr: 	1.0000E-04 loss: 	2.76047 loss align 0.0000
+ epoch [0001 / 0050] [0909/4278] eta: 0 Days 14:26:24       lr: 	1.0000E-04 loss: 	2.68353 loss align 0.0000
+ epoch [0001 / 0050] [1009/4278] eta: 0 Days 14:24:44       lr: 	1.0000E-04 loss: 	2.65021 loss align 0.0000
+ epoch [0001 / 0050] [1109/4278] eta: 0 Days 14:23:3        lr: 	1.0000E-04 loss: 	2.67229 loss align 0.0000
+ epoch [0001 / 0050] [1209/4278] eta: 0 Days 14:21:26       lr: 	1.0000E-04 loss: 	2.62041 loss align 0.0000
+ epoch [0001 / 0050] [1309/4278] eta: 0 Days 14:19:52       lr: 	1.0000E-04 loss: 	2.67741 loss align 0.0000
+ epoch [0001 / 0050] [1409/4278] eta: 0 Days 14:18:22       lr: 	1.0000E-04 loss: 	2.66616 loss align 0.0000
+ epoch [0001 / 0050] [1509/4278] eta: 0 Days 14:16:50       lr: 	1.0000E-04 loss: 	2.64040 loss align 0.0000
+ epoch [0001 / 0050] [1609/4278] eta: 0 Days 14:15:20       lr: 	1.0000E-04 loss: 	2.63279 loss align 0.0000
+ epoch [0001 / 0050] [1709/4278] eta: 0 Days 14:13:56       lr: 	1.0000E-04 loss: 	2.61326 loss align 0.0000
+ epoch [0001 / 0050] [1809/4278] eta: 0 Days 14:12:34       lr: 	1.0000E-04 loss: 	2.60097 loss align 0.0000
+ epoch [0001 / 0050] [1909/4278] eta: 0 Days 14:11:15       lr: 	1.0000E-04 loss: 	2.56592 loss align 0.0000
+ epoch [0001 / 0050] [2009/4278] eta: 0 Days 14:9:57        lr: 	1.0000E-04 loss: 	2.55267 loss align 0.0000
+ epoch [0001 / 0050] [2109/4278] eta: 0 Days 14:8:39        lr: 	1.0000E-04 loss: 	2.54892 loss align 0.0000
+ epoch [0001 / 0050] [2209/4278] eta: 0 Days 14:7:27        lr: 	1.0000E-04 loss: 	2.57011 loss align 0.0000
+ epoch [0001 / 0050] [2309/4278] eta: 0 Days 14:6:12        lr: 	1.0000E-04 loss: 	2.56502 loss align 0.0000
+ epoch [0001 / 0050] [2409/4278] eta: 0 Days 14:4:58        lr: 	1.0000E-04 loss: 	2.55693 loss align 0.0000
+ epoch [0001 / 0050] [2509/4278] eta: 0 Days 14:3:49        lr: 	1.0000E-04 loss: 	2.55822 loss align 0.0000
+ epoch [0001 / 0050] [2609/4278] eta: 0 Days 14:2:37        lr: 	1.0000E-04 loss: 	2.54673 loss align 0.0000
+ epoch [0001 / 0050] [2709/4278] eta: 0 Days 14:1:26        lr: 	1.0000E-04 loss: 	2.53876 loss align 0.0000
+ epoch [0001 / 0050] [2809/4278] eta: 0 Days 14:0:16        lr: 	1.0000E-04 loss: 	2.53244 loss align 0.0000
+ epoch [0001 / 0050] [2909/4278] eta: 0 Days 13:59:8        lr: 	1.0000E-04 loss: 	2.52717 loss align 0.0000
+ epoch [0001 / 0050] [3009/4278] eta: 0 Days 13:58:2        lr: 	1.0000E-04 loss: 	2.52474 loss align 0.0000
+ epoch [0001 / 0050] [3109/4278] eta: 0 Days 13:56:59       lr: 	1.0000E-04 loss: 	2.53600 loss align 0.0000
+ epoch [0001 / 0050] [3209/4278] eta: 0 Days 13:55:56       lr: 	1.0000E-04 loss: 	2.55048 loss align 0.0000
+ epoch [0001 / 0050] [3309/4278] eta: 0 Days 13:54:55       lr: 	1.0000E-04 loss: 	2.54290 loss align 0.0000
+ epoch [0001 / 0050] [3409/4278] eta: 0 Days 13:53:54       lr: 	1.0000E-04 loss: 	2.53816 loss align 0.0000
+ epoch [0001 / 0050] [3509/4278] eta: 0 Days 13:52:55       lr: 	1.0000E-04 loss: 	2.53733 loss align 0.0000
+ epoch [0001 / 0050] [3609/4278] eta: 0 Days 13:51:55       lr: 	1.0000E-04 loss: 	2.53895 loss align 0.0000
+ epoch [0001 / 0050] [3709/4278] eta: 0 Days 13:50:59       lr: 	1.0000E-04 loss: 	2.54447 loss align 0.0000
+ epoch [0001 / 0050] [3809/4278] eta: 0 Days 13:50:3        lr: 	1.0000E-04 loss: 	2.55688 loss align 0.0000
+ epoch [0001 / 0050] [3909/4278] eta: 0 Days 13:49:6        lr: 	1.0000E-04 loss: 	2.55291 loss align 0.0000
+ epoch [0001 / 0050] [4009/4278] eta: 0 Days 13:48:12       lr: 	1.0000E-04 loss: 	2.54901 loss align 0.0000
+ epoch [0001 / 0050] [4109/4278] eta: 0 Days 13:47:17       lr: 	1.0000E-04 loss: 	2.53893 loss align 0.0000
+ epoch [0001 / 0050] [4209/4278] eta: 0 Days 13:46:22       lr: 	1.0000E-04 loss: 	2.52065 loss align 0.0000
+2
+starting val epoch 2
+val [0002 / 0050] validation loss: 	2.24210
+starting train epoch 2
+ epoch [0002 / 0050] [0009/4278] eta: 0 Days 14:2:10        lr: 	1.0000E-04 loss: 	3.61256 loss align 0.0000
+ epoch [0002 / 0050] [0109/4278] eta: 0 Days 14:1:9         lr: 	1.0000E-04 loss: 	2.53924 loss align 0.0000
+ epoch [0002 / 0050] [0209/4278] eta: 0 Days 14:0:8         lr: 	1.0000E-04 loss: 	2.71517 loss align 0.0000
+ epoch [0002 / 0050] [0309/4278] eta: 0 Days 13:59:10       lr: 	1.0000E-04 loss: 	2.70952 loss align 0.0000
+ epoch [0002 / 0050] [0409/4278] eta: 0 Days 13:58:15       lr: 	1.0000E-04 loss: 	2.98263 loss align 0.0000
+ epoch [0002 / 0050] [0509/4278] eta: 0 Days 13:57:22       lr: 	1.0000E-04 loss: 	2.83281 loss align 0.0000
+ epoch [0002 / 0050] [0609/4278] eta: 0 Days 13:56:28       lr: 	1.0000E-04 loss: 	2.77517 loss align 0.0000
+ epoch [0002 / 0050] [0709/4278] eta: 0 Days 13:55:34       lr: 	1.0000E-04 loss: 	2.64599 loss align 0.0000
+ epoch [0002 / 0050] [0809/4278] eta: 0 Days 13:54:40       lr: 	1.0000E-04 loss: 	2.90152 loss align 0.0000
+ epoch [0002 / 0050] [0909/4278] eta: 0 Days 13:53:44       lr: 	1.0000E-04 loss: 	2.84905 loss align 0.0000
+ epoch [0002 / 0050] [1009/4278] eta: 0 Days 13:52:47       lr: 	1.0000E-04 loss: 	2.79447 loss align 0.0000
+ epoch [0002 / 0050] [1109/4278] eta: 0 Days 13:51:52       lr: 	1.0000E-04 loss: 	2.76136 loss align 0.0000
+ epoch [0002 / 0050] [1209/4278] eta: 0 Days 13:50:58       lr: 	1.0000E-04 loss: 	2.69817 loss align 0.0000
+ epoch [0002 / 0050] [1309/4278] eta: 0 Days 13:50:5        lr: 	1.0000E-04 loss: 	2.64086 loss align 0.0000
+ epoch [0002 / 0050] [1409/4278] eta: 0 Days 13:49:11       lr: 	1.0000E-04 loss: 	2.66963 loss align 0.0000
+ epoch [0002 / 0050] [1509/4278] eta: 0 Days 13:48:19       lr: 	1.0000E-04 loss: 	2.64717 loss align 0.0000
+ epoch [0002 / 0050] [1609/4278] eta: 0 Days 13:47:28       lr: 	1.0000E-04 loss: 	2.62383 loss align 0.0000
+ epoch [0002 / 0050] [1709/4278] eta: 0 Days 13:46:38       lr: 	1.0000E-04 loss: 	2.61900 loss align 0.0000
+ epoch [0002 / 0050] [1809/4278] eta: 0 Days 13:45:48       lr: 	1.0000E-04 loss: 	2.59902 loss align 0.0000
+ epoch [0002 / 0050] [1909/4278] eta: 0 Days 13:44:58       lr: 	1.0000E-04 loss: 	2.59175 loss align 0.0000
+ epoch [0002 / 0050] [2009/4278] eta: 0 Days 13:44:8        lr: 	1.0000E-04 loss: 	2.59277 loss align 0.0000
+ epoch [0002 / 0050] [2109/4278] eta: 0 Days 13:43:17       lr: 	1.0000E-04 loss: 	2.58164 loss align 0.0000
+ epoch [0002 / 0050] [2209/4278] eta: 0 Days 13:42:28       lr: 	1.0000E-04 loss: 	2.59628 loss align 0.0000
+ epoch [0002 / 0050] [2309/4278] eta: 0 Days 13:41:39       lr: 	1.0000E-04 loss: 	2.58966 loss align 0.0000
+ epoch [0002 / 0050] [2409/4278] eta: 0 Days 13:40:53       lr: 	1.0000E-04 loss: 	2.58135 loss align 0.0000
+ epoch [0002 / 0050] [2509/4278] eta: 0 Days 13:40:6        lr: 	1.0000E-04 loss: 	2.57918 loss align 0.0000
+ epoch [0002 / 0050] [2609/4278] eta: 0 Days 13:39:21       lr: 	1.0000E-04 loss: 	2.58034 loss align 0.0000
+ epoch [0002 / 0050] [2709/4278] eta: 0 Days 13:38:59       lr: 	1.0000E-04 loss: 	2.56367 loss align 0.0000
+ epoch [0002 / 0050] [2809/4278] eta: 0 Days 13:38:12       lr: 	1.0000E-04 loss: 	2.56436 loss align 0.0000
+ epoch [0002 / 0050] [2909/4278] eta: 0 Days 13:37:25       lr: 	1.0000E-04 loss: 	2.55859 loss align 0.0000
+ epoch [0002 / 0050] [3009/4278] eta: 0 Days 13:36:39       lr: 	1.0000E-04 loss: 	2.54374 loss align 0.0000
+ epoch [0002 / 0050] [3109/4278] eta: 0 Days 13:35:53       lr: 	1.0000E-04 loss: 	2.53597 loss align 0.0000
+ epoch [0002 / 0050] [3209/4278] eta: 0 Days 13:35:5        lr: 	1.0000E-04 loss: 	2.52658 loss align 0.0000
+ epoch [0002 / 0050] [3309/4278] eta: 0 Days 13:34:19       lr: 	1.0000E-04 loss: 	2.52308 loss align 0.0000
+ epoch [0002 / 0050] [3409/4278] eta: 0 Days 13:33:35       lr: 	1.0000E-04 loss: 	2.50995 loss align 0.0000
+ epoch [0002 / 0050] [3509/4278] eta: 0 Days 13:32:50       lr: 	1.0000E-04 loss: 	2.49656 loss align 0.0000
+ epoch [0002 / 0050] [3609/4278] eta: 0 Days 13:32:6        lr: 	1.0000E-04 loss: 	2.49727 loss align 0.0000
+ epoch [0002 / 0050] [3709/4278] eta: 0 Days 13:31:21       lr: 	1.0000E-04 loss: 	2.49581 loss align 0.0000
+ epoch [0002 / 0050] [3809/4278] eta: 0 Days 13:30:38       lr: 	1.0000E-04 loss: 	2.48487 loss align 0.0000
+ epoch [0002 / 0050] [3909/4278] eta: 0 Days 13:29:57       lr: 	1.0000E-04 loss: 	2.47112 loss align 0.0000
+ epoch [0002 / 0050] [4009/4278] eta: 0 Days 13:29:15       lr: 	1.0000E-04 loss: 	2.47280 loss align 0.0000
+ epoch [0002 / 0050] [4109/4278] eta: 0 Days 13:28:33       lr: 	1.0000E-04 loss: 	2.46424 loss align 0.0000
+ epoch [0002 / 0050] [4209/4278] eta: 0 Days 13:27:51       lr: 	1.0000E-04 loss: 	2.46828 loss align 0.0000
+3
+starting val epoch 3
+val [0003 / 0050] validation loss: 	2.17899
+starting train epoch 3
+ epoch [0003 / 0050] [0009/4278] eta: 0 Days 13:38:1        lr: 	1.0000E-04 loss: 	2.87160 loss align 0.0000
+ epoch [0003 / 0050] [0109/4278] eta: 0 Days 13:37:16       lr: 	1.0000E-04 loss: 	2.47127 loss align 0.0000
+ epoch [0003 / 0050] [0209/4278] eta: 0 Days 13:36:33       lr: 	1.0000E-04 loss: 	2.33771 loss align 0.0000
+ epoch [0003 / 0050] [0309/4278] eta: 0 Days 13:35:50       lr: 	1.0000E-04 loss: 	2.20528 loss align 0.0000
+ epoch [0003 / 0050] [0409/4278] eta: 0 Days 13:35:6        lr: 	1.0000E-04 loss: 	2.65631 loss align 0.0000
+ epoch [0003 / 0050] [0509/4278] eta: 0 Days 13:34:25       lr: 	1.0000E-04 loss: 	2.63125 loss align 0.0000
+ epoch [0003 / 0050] [0609/4278] eta: 0 Days 13:33:45       lr: 	1.0000E-04 loss: 	2.54213 loss align 0.0000
+ epoch [0003 / 0050] [0709/4278] eta: 0 Days 13:33:4        lr: 	1.0000E-04 loss: 	2.50431 loss align 0.0000
+ epoch [0003 / 0050] [0809/4278] eta: 0 Days 13:32:24       lr: 	1.0000E-04 loss: 	2.46527 loss align 0.0000
+ epoch [0003 / 0050] [0909/4278] eta: 0 Days 13:31:43       lr: 	1.0000E-04 loss: 	2.45778 loss align 0.0000
+ epoch [0003 / 0050] [1009/4278] eta: 0 Days 13:31:2        lr: 	1.0000E-04 loss: 	2.47794 loss align 0.0000
+ epoch [0003 / 0050] [1109/4278] eta: 0 Days 13:30:21       lr: 	1.0000E-04 loss: 	2.48661 loss align 0.0000
+ epoch [0003 / 0050] [1209/4278] eta: 0 Days 13:29:40       lr: 	1.0000E-04 loss: 	2.51531 loss align 0.0000
+ epoch [0003 / 0050] [1309/4278] eta: 0 Days 13:28:57       lr: 	1.0000E-04 loss: 	2.57508 loss align 0.0000
+ epoch [0003 / 0050] [1409/4278] eta: 0 Days 13:28:16       lr: 	1.0000E-04 loss: 	2.63742 loss align 0.0000
+ epoch [0003 / 0050] [1509/4278] eta: 0 Days 13:27:35       lr: 	1.0000E-04 loss: 	2.61300 loss align 0.0000
+ epoch [0003 / 0050] [1609/4278] eta: 0 Days 13:26:55       lr: 	1.0000E-04 loss: 	2.71720 loss align 0.0000
+ epoch [0003 / 0050] [1709/4278] eta: 0 Days 13:26:15       lr: 	1.0000E-04 loss: 	2.76301 loss align 0.0000
+ epoch [0003 / 0050] [1809/4278] eta: 0 Days 13:25:35       lr: 	1.0000E-04 loss: 	2.73277 loss align 0.0000
+ epoch [0003 / 0050] [1909/4278] eta: 0 Days 13:24:55       lr: 	1.0000E-04 loss: 	2.72570 loss align 0.0000
+ epoch [0003 / 0050] [2009/4278] eta: 0 Days 13:24:13       lr: 	1.0000E-04 loss: 	2.71105 loss align 0.0000
+ epoch [0003 / 0050] [2109/4278] eta: 0 Days 13:23:32       lr: 	1.0000E-04 loss: 	2.69547 loss align 0.0000
+ epoch [0003 / 0050] [2209/4278] eta: 0 Days 13:22:51       lr: 	1.0000E-04 loss: 	2.67774 loss align 0.0000
+ epoch [0003 / 0050] [2309/4278] eta: 0 Days 13:22:9        lr: 	1.0000E-04 loss: 	2.64981 loss align 0.0000
+ epoch [0003 / 0050] [2409/4278] eta: 0 Days 13:21:28       lr: 	1.0000E-04 loss: 	2.63355 loss align 0.0000
+ epoch [0003 / 0050] [2509/4278] eta: 0 Days 13:20:47       lr: 	1.0000E-04 loss: 	2.62025 loss align 0.0000
+ epoch [0003 / 0050] [2609/4278] eta: 0 Days 13:20:7        lr: 	1.0000E-04 loss: 	2.60521 loss align 0.0000
+ epoch [0003 / 0050] [2709/4278] eta: 0 Days 13:19:27       lr: 	1.0000E-04 loss: 	2.58322 loss align 0.0000
+ epoch [0003 / 0050] [2809/4278] eta: 0 Days 13:18:47       lr: 	1.0000E-04 loss: 	2.56845 loss align 0.0000
+ epoch [0003 / 0050] [2909/4278] eta: 0 Days 13:18:8        lr: 	1.0000E-04 loss: 	2.56340 loss align 0.0000
+ epoch [0003 / 0050] [3009/4278] eta: 0 Days 13:17:29       lr: 	1.0000E-04 loss: 	2.56302 loss align 0.0000
+ epoch [0003 / 0050] [3109/4278] eta: 0 Days 13:16:49       lr: 	1.0000E-04 loss: 	2.56159 loss align 0.0000
+ epoch [0003 / 0050] [3209/4278] eta: 0 Days 13:16:9        lr: 	1.0000E-04 loss: 	2.54261 loss align 0.0000
+ epoch [0003 / 0050] [3309/4278] eta: 0 Days 13:15:29       lr: 	1.0000E-04 loss: 	2.60148 loss align 0.0000
+ epoch [0003 / 0050] [3409/4278] eta: 0 Days 13:14:50       lr: 	1.0000E-04 loss: 	2.60068 loss align 0.0000
+ epoch [0003 / 0050] [3509/4278] eta: 0 Days 13:14:11       lr: 	1.0000E-04 loss: 	2.58000 loss align 0.0000
+ epoch [0003 / 0050] [3609/4278] eta: 0 Days 13:13:33       lr: 	1.0000E-04 loss: 	2.59332 loss align 0.0000
+ epoch [0003 / 0050] [3709/4278] eta: 0 Days 13:12:54       lr: 	1.0000E-04 loss: 	2.60244 loss align 0.0000
+ epoch [0003 / 0050] [3809/4278] eta: 0 Days 13:12:16       lr: 	1.0000E-04 loss: 	2.59652 loss align 0.0000
+ epoch [0003 / 0050] [3909/4278] eta: 0 Days 13:11:39       lr: 	1.0000E-04 loss: 	2.59217 loss align 0.0000
+ epoch [0003 / 0050] [4009/4278] eta: 0 Days 13:11:1        lr: 	1.0000E-04 loss: 	2.61100 loss align 0.0000
+ epoch [0003 / 0050] [4109/4278] eta: 0 Days 13:10:23       lr: 	1.0000E-04 loss: 	2.60792 loss align 0.0000
+ epoch [0003 / 0050] [4209/4278] eta: 0 Days 13:9:46        lr: 	1.0000E-04 loss: 	2.60131 loss align 0.0000
+4
+starting val epoch 4
+val [0004 / 0050] validation loss: 	2.13771
+checkpoint
+starting train epoch 4
+ epoch [0004 / 0050] [0009/4278] eta: 0 Days 13:17:52       lr: 	1.0000E-04 loss: 	1.93472 loss align 0.0000
+ epoch [0004 / 0050] [0109/4278] eta: 0 Days 13:17:16       lr: 	1.0000E-04 loss: 	1.92256 loss align 0.0000
+ epoch [0004 / 0050] [0209/4278] eta: 0 Days 13:16:41       lr: 	1.0000E-04 loss: 	2.46724 loss align 0.0000
+ epoch [0004 / 0050] [0309/4278] eta: 0 Days 13:16:2        lr: 	1.0000E-04 loss: 	2.47907 loss align 0.0000
+ epoch [0004 / 0050] [0409/4278] eta: 0 Days 13:15:23       lr: 	1.0000E-04 loss: 	2.43760 loss align 0.0000
+ epoch [0004 / 0050] [0509/4278] eta: 0 Days 13:14:44       lr: 	1.0000E-04 loss: 	2.33132 loss align 0.0000
+ epoch [0004 / 0050] [0609/4278] eta: 0 Days 13:14:4        lr: 	1.0000E-04 loss: 	2.36285 loss align 0.0000
+ epoch [0004 / 0050] [0709/4278] eta: 0 Days 13:13:26       lr: 	1.0000E-04 loss: 	2.42312 loss align 0.0000
+ epoch [0004 / 0050] [0809/4278] eta: 0 Days 13:12:45       lr: 	1.0000E-04 loss: 	2.39976 loss align 0.0000
+ epoch [0004 / 0050] [0909/4278] eta: 0 Days 13:12:7        lr: 	1.0000E-04 loss: 	2.39733 loss align 0.0000
+ epoch [0004 / 0050] [1009/4278] eta: 0 Days 13:11:28       lr: 	1.0000E-04 loss: 	2.40695 loss align 0.0000
+ epoch [0004 / 0050] [1109/4278] eta: 0 Days 13:10:50       lr: 	1.0000E-04 loss: 	2.46334 loss align 0.0000
+ epoch [0004 / 0050] [1209/4278] eta: 0 Days 13:10:12       lr: 	1.0000E-04 loss: 	2.44056 loss align 0.0000
+ epoch [0004 / 0050] [1309/4278] eta: 0 Days 13:9:34        lr: 	1.0000E-04 loss: 	2.48368 loss align 0.0000
+ epoch [0004 / 0050] [1409/4278] eta: 0 Days 13:8:56        lr: 	1.0000E-04 loss: 	2.47823 loss align 0.0000
+ epoch [0004 / 0050] [1509/4278] eta: 0 Days 13:8:20        lr: 	1.0000E-04 loss: 	2.63488 loss align 0.0000
+ epoch [0004 / 0050] [1609/4278] eta: 0 Days 13:7:44        lr: 	1.0000E-04 loss: 	2.61077 loss align 0.0000
+ epoch [0004 / 0050] [1709/4278] eta: 0 Days 13:7:7         lr: 	1.0000E-04 loss: 	2.71070 loss align 0.0000
+ epoch [0004 / 0050] [1809/4278] eta: 0 Days 13:6:31        lr: 	1.0000E-04 loss: 	2.70977 loss align 0.0000
+ epoch [0004 / 0050] [1909/4278] eta: 0 Days 13:5:54        lr: 	1.0000E-04 loss: 	2.69840 loss align 0.0000
+ epoch [0004 / 0050] [2009/4278] eta: 0 Days 13:5:18        lr: 	1.0000E-04 loss: 	2.68687 loss align 0.0000
+ epoch [0004 / 0050] [2109/4278] eta: 0 Days 13:4:41        lr: 	1.0000E-04 loss: 	2.67796 loss align 0.0000
+ epoch [0004 / 0050] [2209/4278] eta: 0 Days 13:4:5         lr: 	1.0000E-04 loss: 	2.66365 loss align 0.0000
+ epoch [0004 / 0050] [2309/4278] eta: 0 Days 13:3:29        lr: 	1.0000E-04 loss: 	2.63962 loss align 0.0000
+ epoch [0004 / 0050] [2409/4278] eta: 0 Days 13:2:52        lr: 	1.0000E-04 loss: 	2.62494 loss align 0.0000
+ epoch [0004 / 0050] [2509/4278] eta: 0 Days 13:2:16        lr: 	1.0000E-04 loss: 	2.67025 loss align 0.0000
+ epoch [0004 / 0050] [2609/4278] eta: 0 Days 13:1:40        lr: 	1.0000E-04 loss: 	2.65087 loss align 0.0000
+ epoch [0004 / 0050] [2709/4278] eta: 0 Days 13:1:4         lr: 	1.0000E-04 loss: 	2.64330 loss align 0.0000
+ epoch [0004 / 0050] [2809/4278] eta: 0 Days 13:0:29        lr: 	1.0000E-04 loss: 	2.61604 loss align 0.0000
+ epoch [0004 / 0050] [2909/4278] eta: 0 Days 12:59:53       lr: 	1.0000E-04 loss: 	2.62239 loss align 0.0000
+ epoch [0004 / 0050] [3009/4278] eta: 0 Days 12:59:17       lr: 	1.0000E-04 loss: 	2.62690 loss align 0.0000
+ epoch [0004 / 0050] [3109/4278] eta: 0 Days 12:58:42       lr: 	1.0000E-04 loss: 	2.61587 loss align 0.0000
+ epoch [0004 / 0050] [3209/4278] eta: 0 Days 12:58:6        lr: 	1.0000E-04 loss: 	2.59249 loss align 0.0000
+ epoch [0004 / 0050] [3309/4278] eta: 0 Days 12:57:31       lr: 	1.0000E-04 loss: 	2.59060 loss align 0.0000
+ epoch [0004 / 0050] [3409/4278] eta: 0 Days 12:56:56       lr: 	1.0000E-04 loss: 	2.58575 loss align 0.0000
+ epoch [0004 / 0050] [3509/4278] eta: 0 Days 12:56:21       lr: 	1.0000E-04 loss: 	2.58104 loss align 0.0000
+ epoch [0004 / 0050] [3609/4278] eta: 0 Days 12:55:45       lr: 	1.0000E-04 loss: 	2.57589 loss align 0.0000
+ epoch [0004 / 0050] [3709/4278] eta: 0 Days 12:55:11       lr: 	1.0000E-04 loss: 	2.57243 loss align 0.0000
+ epoch [0004 / 0050] [3809/4278] eta: 0 Days 12:54:37       lr: 	1.0000E-04 loss: 	2.55965 loss align 0.0000
+ epoch [0004 / 0050] [3909/4278] eta: 0 Days 12:54:2        lr: 	1.0000E-04 loss: 	2.55429 loss align 0.0000
+ epoch [0004 / 0050] [4009/4278] eta: 0 Days 12:53:28       lr: 	1.0000E-04 loss: 	2.56303 loss align 0.0000
+ epoch [0004 / 0050] [4109/4278] eta: 0 Days 12:52:54       lr: 	1.0000E-04 loss: 	2.55305 loss align 0.0000
+ epoch [0004 / 0050] [4209/4278] eta: 0 Days 12:52:20       lr: 	1.0000E-04 loss: 	2.54478 loss align 0.0000
+5
+starting val epoch 5
+val [0005 / 0050] validation loss: 	2.23853
+starting train epoch 5
+ epoch [0005 / 0050] [0009/4278] eta: 0 Days 12:58:7        lr: 	1.0000E-04 loss: 	2.52419 loss align 0.0000
+ epoch [0005 / 0050] [0109/4278] eta: 0 Days 12:57:31       lr: 	1.0000E-04 loss: 	2.53918 loss align 0.0000
+ epoch [0005 / 0050] [0209/4278] eta: 0 Days 12:56:55       lr: 	1.0000E-04 loss: 	2.33172 loss align 0.0000
+ epoch [0005 / 0050] [0309/4278] eta: 0 Days 12:56:21       lr: 	1.0000E-04 loss: 	2.35962 loss align 0.0000
+ epoch [0005 / 0050] [0409/4278] eta: 0 Days 12:55:46       lr: 	1.0000E-04 loss: 	2.38703 loss align 0.0000
+ epoch [0005 / 0050] [0509/4278] eta: 0 Days 12:55:11       lr: 	1.0000E-04 loss: 	2.35239 loss align 0.0000
+ epoch [0005 / 0050] [0609/4278] eta: 0 Days 12:54:36       lr: 	1.0000E-04 loss: 	2.65782 loss align 0.0000
+ epoch [0005 / 0050] [0709/4278] eta: 0 Days 12:54:2        lr: 	1.0000E-04 loss: 	2.64702 loss align 0.0000
+ epoch [0005 / 0050] [0809/4278] eta: 0 Days 12:53:29       lr: 	1.0000E-04 loss: 	2.57033 loss align 0.0000
+ epoch [0005 / 0050] [0909/4278] eta: 0 Days 12:52:55       lr: 	1.0000E-04 loss: 	2.53597 loss align 0.0000
+ epoch [0005 / 0050] [1009/4278] eta: 0 Days 12:52:22       lr: 	1.0000E-04 loss: 	2.50556 loss align 0.0000
+ epoch [0005 / 0050] [1109/4278] eta: 0 Days 12:51:49       lr: 	1.0000E-04 loss: 	2.47470 loss align 0.0000
+ epoch [0005 / 0050] [1209/4278] eta: 0 Days 12:51:16       lr: 	1.0000E-04 loss: 	2.44559 loss align 0.0000
+ epoch [0005 / 0050] [1309/4278] eta: 0 Days 12:50:42       lr: 	1.0000E-04 loss: 	2.42718 loss align 0.0000
+ epoch [0005 / 0050] [1409/4278] eta: 0 Days 12:50:9        lr: 	1.0000E-04 loss: 	2.42740 loss align 0.0000
+ epoch [0005 / 0050] [1509/4278] eta: 0 Days 12:49:35       lr: 	1.0000E-04 loss: 	2.43799 loss align 0.0000
+ epoch [0005 / 0050] [1609/4278] eta: 0 Days 12:49:2        lr: 	1.0000E-04 loss: 	2.42807 loss align 0.0000
+ epoch [0005 / 0050] [1709/4278] eta: 0 Days 12:48:28       lr: 	1.0000E-04 loss: 	2.43870 loss align 0.0000
+ epoch [0005 / 0050] [1809/4278] eta: 0 Days 12:47:55       lr: 	1.0000E-04 loss: 	2.46632 loss align 0.0000
+ epoch [0005 / 0050] [1909/4278] eta: 0 Days 12:47:22       lr: 	1.0000E-04 loss: 	2.45880 loss align 0.0000
+ epoch [0005 / 0050] [2009/4278] eta: 0 Days 12:46:50       lr: 	1.0000E-04 loss: 	2.45693 loss align 0.0000
+ epoch [0005 / 0050] [2109/4278] eta: 0 Days 12:46:17       lr: 	1.0000E-04 loss: 	2.43867 loss align 0.0000
+ epoch [0005 / 0050] [2209/4278] eta: 0 Days 12:45:45       lr: 	1.0000E-04 loss: 	2.42765 loss align 0.0000
+ epoch [0005 / 0050] [2309/4278] eta: 0 Days 12:45:13       lr: 	1.0000E-04 loss: 	2.44603 loss align 0.0000
+ epoch [0005 / 0050] [2409/4278] eta: 0 Days 12:44:42       lr: 	1.0000E-04 loss: 	2.44698 loss align 0.0000
+ epoch [0005 / 0050] [2509/4278] eta: 0 Days 12:44:9        lr: 	1.0000E-04 loss: 	2.43859 loss align 0.0000
+ epoch [0005 / 0050] [2609/4278] eta: 0 Days 12:43:37       lr: 	1.0000E-04 loss: 	2.44052 loss align 0.0000
+ epoch [0005 / 0050] [2709/4278] eta: 0 Days 12:43:5        lr: 	1.0000E-04 loss: 	2.43094 loss align 0.0000
+ epoch [0005 / 0050] [2809/4278] eta: 0 Days 12:42:32       lr: 	1.0000E-04 loss: 	2.43410 loss align 0.0000
+ epoch [0005 / 0050] [2909/4278] eta: 0 Days 12:42:0        lr: 	1.0000E-04 loss: 	2.43810 loss align 0.0000
+ epoch [0005 / 0050] [3009/4278] eta: 0 Days 12:41:27       lr: 	1.0000E-04 loss: 	2.43538 loss align 0.0000
+ epoch [0005 / 0050] [3109/4278] eta: 0 Days 12:40:55       lr: 	1.0000E-04 loss: 	2.42375 loss align 0.0000
+ epoch [0005 / 0050] [3209/4278] eta: 0 Days 12:40:23       lr: 	1.0000E-04 loss: 	2.42781 loss align 0.0000
+ epoch [0005 / 0050] [3309/4278] eta: 0 Days 12:39:51       lr: 	1.0000E-04 loss: 	2.42894 loss align 0.0000
+ epoch [0005 / 0050] [3409/4278] eta: 0 Days 12:39:20       lr: 	1.0000E-04 loss: 	2.43160 loss align 0.0000
+ epoch [0005 / 0050] [3509/4278] eta: 0 Days 12:38:49       lr: 	1.0000E-04 loss: 	2.42073 loss align 0.0000
+ epoch [0005 / 0050] [3609/4278] eta: 0 Days 12:38:18       lr: 	1.0000E-04 loss: 	2.43268 loss align 0.0000
+ epoch [0005 / 0050] [3709/4278] eta: 0 Days 12:37:47       lr: 	1.0000E-04 loss: 	2.42417 loss align 0.0000
+ epoch [0005 / 0050] [3809/4278] eta: 0 Days 12:37:16       lr: 	1.0000E-04 loss: 	2.42178 loss align 0.0000
+ epoch [0005 / 0050] [3909/4278] eta: 0 Days 12:36:44       lr: 	1.0000E-04 loss: 	2.41501 loss align 0.0000
+ epoch [0005 / 0050] [4009/4278] eta: 0 Days 12:36:13       lr: 	1.0000E-04 loss: 	2.41081 loss align 0.0000
+ epoch [0005 / 0050] [4109/4278] eta: 0 Days 12:35:43       lr: 	1.0000E-04 loss: 	2.40778 loss align 0.0000
+ epoch [0005 / 0050] [4209/4278] eta: 0 Days 12:35:12       lr: 	1.0000E-04 loss: 	2.40584 loss align 0.0000
+6
+starting val epoch 6
+val [0006 / 0050] validation loss: 	2.32549
+starting train epoch 6
+ epoch [0006 / 0050] [0009/4278] eta: 0 Days 12:39:44       lr: 	1.0000E-04 loss: 	0.78798 loss align 0.0000
+ epoch [0006 / 0050] [0109/4278] eta: 0 Days 12:39:12       lr: 	1.0000E-04 loss: 	3.16451 loss align 0.0000
+ epoch [0006 / 0050] [0209/4278] eta: 0 Days 12:38:39       lr: 	1.0000E-04 loss: 	2.47790 loss align 0.0000
+ epoch [0006 / 0050] [0309/4278] eta: 0 Days 12:38:5        lr: 	1.0000E-04 loss: 	3.57417 loss align 0.0000
+ epoch [0006 / 0050] [0409/4278] eta: 0 Days 12:37:32       lr: 	1.0000E-04 loss: 	3.24748 loss align 0.0000
+ epoch [0006 / 0050] [0509/4278] eta: 0 Days 12:36:59       lr: 	1.0000E-04 loss: 	3.13131 loss align 0.0000
+ epoch [0006 / 0050] [0609/4278] eta: 0 Days 12:36:25       lr: 	1.0000E-04 loss: 	2.98332 loss align 0.0000
+ epoch [0006 / 0050] [0709/4278] eta: 0 Days 12:35:52       lr: 	1.0000E-04 loss: 	2.90719 loss align 0.0000
+ epoch [0006 / 0050] [0809/4278] eta: 0 Days 12:35:19       lr: 	1.0000E-04 loss: 	2.85889 loss align 0.0000
+ epoch [0006 / 0050] [0909/4278] eta: 0 Days 12:34:45       lr: 	1.0000E-04 loss: 	2.79625 loss align 0.0000
+ epoch [0006 / 0050] [1009/4278] eta: 0 Days 12:34:12       lr: 	1.0000E-04 loss: 	2.85205 loss align 0.0000
+ epoch [0006 / 0050] [1109/4278] eta: 0 Days 12:33:39       lr: 	1.0000E-04 loss: 	2.79423 loss align 0.0000
+ epoch [0006 / 0050] [1209/4278] eta: 0 Days 12:33:6        lr: 	1.0000E-04 loss: 	2.78224 loss align 0.0000
+ epoch [0006 / 0050] [1309/4278] eta: 0 Days 12:32:33       lr: 	1.0000E-04 loss: 	2.77795 loss align 0.0000
+ epoch [0006 / 0050] [1409/4278] eta: 0 Days 12:32:1        lr: 	1.0000E-04 loss: 	2.75740 loss align 0.0000
+ epoch [0006 / 0050] [1509/4278] eta: 0 Days 12:31:28       lr: 	1.0000E-04 loss: 	2.72292 loss align 0.0000
+ epoch [0006 / 0050] [1609/4278] eta: 0 Days 12:30:56       lr: 	1.0000E-04 loss: 	2.79716 loss align 0.0000
+ epoch [0006 / 0050] [1709/4278] eta: 0 Days 12:30:23       lr: 	1.0000E-04 loss: 	2.73034 loss align 0.0000
+ epoch [0006 / 0050] [1809/4278] eta: 0 Days 12:29:51       lr: 	1.0000E-04 loss: 	2.75865 loss align 0.0000
+ epoch [0006 / 0050] [1909/4278] eta: 0 Days 12:29:18       lr: 	1.0000E-04 loss: 	2.75626 loss align 0.0000
+ epoch [0006 / 0050] [2009/4278] eta: 0 Days 12:28:47       lr: 	1.0000E-04 loss: 	2.70194 loss align 0.0000
+ epoch [0006 / 0050] [2109/4278] eta: 0 Days 12:28:14       lr: 	1.0000E-04 loss: 	2.67476 loss align 0.0000
+ epoch [0006 / 0050] [2209/4278] eta: 0 Days 12:27:42       lr: 	1.0000E-04 loss: 	2.64929 loss align 0.0000
+ epoch [0006 / 0050] [2309/4278] eta: 0 Days 12:27:10       lr: 	1.0000E-04 loss: 	2.71072 loss align 0.0000
+ epoch [0006 / 0050] [2409/4278] eta: 0 Days 12:26:39       lr: 	1.0000E-04 loss: 	2.69750 loss align 0.0000
+ epoch [0006 / 0050] [2509/4278] eta: 0 Days 12:26:7        lr: 	1.0000E-04 loss: 	2.68513 loss align 0.0000
+ epoch [0006 / 0050] [2609/4278] eta: 0 Days 12:25:36       lr: 	1.0000E-04 loss: 	2.68126 loss align 0.0000
+ epoch [0006 / 0050] [2709/4278] eta: 0 Days 12:25:4        lr: 	1.0000E-04 loss: 	2.66660 loss align 0.0000
+ epoch [0006 / 0050] [2809/4278] eta: 0 Days 12:24:32       lr: 	1.0000E-04 loss: 	2.65865 loss align 0.0000
+ epoch [0006 / 0050] [2909/4278] eta: 0 Days 12:24:1        lr: 	1.0000E-04 loss: 	2.63674 loss align 0.0000
+ epoch [0006 / 0050] [3009/4278] eta: 0 Days 12:23:30       lr: 	1.0000E-04 loss: 	2.63340 loss align 0.0000
+ epoch [0006 / 0050] [3109/4278] eta: 0 Days 12:22:59       lr: 	1.0000E-04 loss: 	2.61933 loss align 0.0000
+ epoch [0006 / 0050] [3209/4278] eta: 0 Days 12:22:27       lr: 	1.0000E-04 loss: 	2.60576 loss align 0.0000
+ epoch [0006 / 0050] [3309/4278] eta: 0 Days 12:21:56       lr: 	1.0000E-04 loss: 	2.61008 loss align 0.0000
+ epoch [0006 / 0050] [3409/4278] eta: 0 Days 12:21:25       lr: 	1.0000E-04 loss: 	2.60440 loss align 0.0000
+ epoch [0006 / 0050] [3509/4278] eta: 0 Days 12:20:54       lr: 	1.0000E-04 loss: 	2.59760 loss align 0.0000
+ epoch [0006 / 0050] [3609/4278] eta: 0 Days 12:20:23       lr: 	1.0000E-04 loss: 	2.59316 loss align 0.0000
+ epoch [0006 / 0050] [3709/4278] eta: 0 Days 12:19:52       lr: 	1.0000E-04 loss: 	2.58882 loss align 0.0000
+ epoch [0006 / 0050] [3809/4278] eta: 0 Days 12:19:20       lr: 	1.0000E-04 loss: 	2.57691 loss align 0.0000
+ epoch [0006 / 0050] [3909/4278] eta: 0 Days 12:18:49       lr: 	1.0000E-04 loss: 	2.57779 loss align 0.0000
+ epoch [0006 / 0050] [4009/4278] eta: 0 Days 12:18:18       lr: 	1.0000E-04 loss: 	2.56967 loss align 0.0000
+ epoch [0006 / 0050] [4109/4278] eta: 0 Days 12:17:47       lr: 	1.0000E-04 loss: 	2.56581 loss align 0.0000
+ epoch [0006 / 0050] [4209/4278] eta: 0 Days 12:17:17       lr: 	1.0000E-04 loss: 	2.58369 loss align 0.0000
+7
+starting val epoch 7
+val [0007 / 0050] validation loss: 	3.08357
+starting train epoch 7
+ epoch [0007 / 0050] [0009/4278] eta: 0 Days 12:21:6        lr: 	1.0000E-04 loss: 	5.03107 loss align 0.0000
+ epoch [0007 / 0050] [0109/4278] eta: 0 Days 12:20:35       lr: 	1.0000E-04 loss: 	2.52312 loss align 0.0000
+ epoch [0007 / 0050] [0209/4278] eta: 0 Days 12:20:4        lr: 	1.0000E-04 loss: 	2.57659 loss align 0.0000
+ epoch [0007 / 0050] [0309/4278] eta: 0 Days 12:19:34       lr: 	1.0000E-04 loss: 	2.47019 loss align 0.0000
+ epoch [0007 / 0050] [0409/4278] eta: 0 Days 12:19:4        lr: 	1.0000E-04 loss: 	2.35397 loss align 0.0000
+ epoch [0007 / 0050] [0509/4278] eta: 0 Days 12:18:33       lr: 	1.0000E-04 loss: 	2.36074 loss align 0.0000
+ epoch [0007 / 0050] [0609/4278] eta: 0 Days 12:18:3        lr: 	1.0000E-04 loss: 	2.31138 loss align 0.0000
+ epoch [0007 / 0050] [0709/4278] eta: 0 Days 12:17:33       lr: 	1.0000E-04 loss: 	2.32354 loss align 0.0000
+ epoch [0007 / 0050] [0809/4278] eta: 0 Days 12:17:3        lr: 	1.0000E-04 loss: 	2.31040 loss align 0.0000
+ epoch [0007 / 0050] [0909/4278] eta: 0 Days 12:16:33       lr: 	1.0000E-04 loss: 	2.36053 loss align 0.0000
+ epoch [0007 / 0050] [1009/4278] eta: 0 Days 12:16:2        lr: 	1.0000E-04 loss: 	2.30112 loss align 0.0000
+ epoch [0007 / 0050] [1109/4278] eta: 0 Days 12:15:32       lr: 	1.0000E-04 loss: 	2.33990 loss align 0.0000
+ epoch [0007 / 0050] [1209/4278] eta: 0 Days 12:15:2        lr: 	1.0000E-04 loss: 	2.37432 loss align 0.0000
+ epoch [0007 / 0050] [1309/4278] eta: 0 Days 12:14:33       lr: 	1.0000E-04 loss: 	2.38316 loss align 0.0000
+ epoch [0007 / 0050] [1409/4278] eta: 0 Days 12:14:4        lr: 	1.0000E-04 loss: 	2.39000 loss align 0.0000
+ epoch [0007 / 0050] [1509/4278] eta: 0 Days 12:13:33       lr: 	1.0000E-04 loss: 	2.37016 loss align 0.0000
+ epoch [0007 / 0050] [1609/4278] eta: 0 Days 12:13:4        lr: 	1.0000E-04 loss: 	2.38517 loss align 0.0000
+ epoch [0007 / 0050] [1709/4278] eta: 0 Days 12:12:34       lr: 	1.0000E-04 loss: 	2.39495 loss align 0.0000
+ epoch [0007 / 0050] [1809/4278] eta: 0 Days 12:12:4        lr: 	1.0000E-04 loss: 	2.40969 loss align 0.0000
+ epoch [0007 / 0050] [1909/4278] eta: 0 Days 12:11:36       lr: 	1.0000E-04 loss: 	2.38628 loss align 0.0000
+ epoch [0007 / 0050] [2009/4278] eta: 0 Days 12:11:6        lr: 	1.0000E-04 loss: 	2.39994 loss align 0.0000
+ epoch [0007 / 0050] [2109/4278] eta: 0 Days 12:10:37       lr: 	1.0000E-04 loss: 	2.41143 loss align 0.0000
+ epoch [0007 / 0050] [2209/4278] eta: 0 Days 12:10:7        lr: 	1.0000E-04 loss: 	2.43037 loss align 0.0000
+ epoch [0007 / 0050] [2309/4278] eta: 0 Days 12:9:37        lr: 	1.0000E-04 loss: 	2.42528 loss align 0.0000
+ epoch [0007 / 0050] [2409/4278] eta: 0 Days 12:9:8         lr: 	1.0000E-04 loss: 	2.43622 loss align 0.0000
+ epoch [0007 / 0050] [2509/4278] eta: 0 Days 12:8:39        lr: 	1.0000E-04 loss: 	2.43472 loss align 0.0000
+ epoch [0007 / 0050] [2609/4278] eta: 0 Days 12:8:9         lr: 	1.0000E-04 loss: 	2.43548 loss align 0.0000
+ epoch [0007 / 0050] [2709/4278] eta: 0 Days 12:7:40        lr: 	1.0000E-04 loss: 	2.43454 loss align 0.0000
+ epoch [0007 / 0050] [2809/4278] eta: 0 Days 12:7:11        lr: 	1.0000E-04 loss: 	2.43004 loss align 0.0000
+ epoch [0007 / 0050] [2909/4278] eta: 0 Days 12:6:41        lr: 	1.0000E-04 loss: 	2.45654 loss align 0.0000
+ epoch [0007 / 0050] [3009/4278] eta: 0 Days 12:6:11        lr: 	1.0000E-04 loss: 	2.45235 loss align 0.0000
+ epoch [0007 / 0050] [3109/4278] eta: 0 Days 12:5:42        lr: 	1.0000E-04 loss: 	2.45088 loss align 0.0000
+ epoch [0007 / 0050] [3209/4278] eta: 0 Days 12:5:12        lr: 	1.0000E-04 loss: 	2.45492 loss align 0.0000
+ epoch [0007 / 0050] [3309/4278] eta: 0 Days 12:4:43        lr: 	1.0000E-04 loss: 	2.45241 loss align 0.0000
+ epoch [0007 / 0050] [3409/4278] eta: 0 Days 12:4:14        lr: 	1.0000E-04 loss: 	2.43842 loss align 0.0000
+ epoch [0007 / 0050] [3509/4278] eta: 0 Days 12:3:45        lr: 	1.0000E-04 loss: 	2.43966 loss align 0.0000
+ epoch [0007 / 0050] [3609/4278] eta: 0 Days 12:3:16        lr: 	1.0000E-04 loss: 	2.43998 loss align 0.0000
+ epoch [0007 / 0050] [3709/4278] eta: 0 Days 12:2:47        lr: 	1.0000E-04 loss: 	2.45588 loss align 0.0000
+ epoch [0007 / 0050] [3809/4278] eta: 0 Days 12:2:17        lr: 	1.0000E-04 loss: 	2.46537 loss align 0.0000
+ epoch [0007 / 0050] [3909/4278] eta: 0 Days 12:1:47        lr: 	1.0000E-04 loss: 	2.46522 loss align 0.0000
+ epoch [0007 / 0050] [4009/4278] eta: 0 Days 12:1:17        lr: 	1.0000E-04 loss: 	2.46590 loss align 0.0000
+ epoch [0007 / 0050] [4109/4278] eta: 0 Days 12:0:48        lr: 	1.0000E-04 loss: 	2.46232 loss align 0.0000
+ epoch [0007 / 0050] [4209/4278] eta: 0 Days 12:0:18        lr: 	1.0000E-04 loss: 	2.47518 loss align 0.0000
+8
+starting val epoch 8
+val [0008 / 0050] validation loss: 	3.01913
+starting train epoch 8
+ epoch [0008 / 0050] [0009/4278] eta: 0 Days 12:3:29        lr: 	1.0000E-04 loss: 	2.61582 loss align 0.0000
+ epoch [0008 / 0050] [0109/4278] eta: 0 Days 12:2:58        lr: 	1.0000E-04 loss: 	2.43198 loss align 0.0000
+ epoch [0008 / 0050] [0209/4278] eta: 0 Days 12:2:27        lr: 	1.0000E-04 loss: 	2.45835 loss align 0.0000
+ epoch [0008 / 0050] [0309/4278] eta: 0 Days 12:1:57        lr: 	1.0000E-04 loss: 	2.43659 loss align 0.0000
+ epoch [0008 / 0050] [0409/4278] eta: 0 Days 12:1:27        lr: 	1.0000E-04 loss: 	2.34298 loss align 0.0000
+ epoch [0008 / 0050] [0509/4278] eta: 0 Days 12:0:56        lr: 	1.0000E-04 loss: 	2.37245 loss align 0.0000
+ epoch [0008 / 0050] [0609/4278] eta: 0 Days 12:0:26        lr: 	1.0000E-04 loss: 	2.37994 loss align 0.0000
+ epoch [0008 / 0050] [0709/4278] eta: 0 Days 11:59:56       lr: 	1.0000E-04 loss: 	2.42473 loss align 0.0000
+ epoch [0008 / 0050] [0809/4278] eta: 0 Days 11:59:25       lr: 	1.0000E-04 loss: 	2.40437 loss align 0.0000
+ epoch [0008 / 0050] [0909/4278] eta: 0 Days 11:58:55       lr: 	1.0000E-04 loss: 	2.48973 loss align 0.0000
+ epoch [0008 / 0050] [1009/4278] eta: 0 Days 11:58:26       lr: 	1.0000E-04 loss: 	2.52165 loss align 0.0000
+ epoch [0008 / 0050] [1109/4278] eta: 0 Days 11:57:55       lr: 	1.0000E-04 loss: 	2.51104 loss align 0.0000
+ epoch [0008 / 0050] [1209/4278] eta: 0 Days 11:57:26       lr: 	1.0000E-04 loss: 	2.52403 loss align 0.0000
+ epoch [0008 / 0050] [1309/4278] eta: 0 Days 11:56:56       lr: 	1.0000E-04 loss: 	2.48068 loss align 0.0000
+ epoch [0008 / 0050] [1409/4278] eta: 0 Days 11:56:26       lr: 	1.0000E-04 loss: 	2.51432 loss align 0.0000
+ epoch [0008 / 0050] [1509/4278] eta: 0 Days 11:55:56       lr: 	1.0000E-04 loss: 	2.50069 loss align 0.0000
+ epoch [0008 / 0050] [1609/4278] eta: 0 Days 11:55:27       lr: 	1.0000E-04 loss: 	2.49193 loss align 0.0000
+ epoch [0008 / 0050] [1709/4278] eta: 0 Days 11:54:57       lr: 	1.0000E-04 loss: 	2.49603 loss align 0.0000
+ epoch [0008 / 0050] [1809/4278] eta: 0 Days 11:54:28       lr: 	1.0000E-04 loss: 	2.49381 loss align 0.0000
+ epoch [0008 / 0050] [1909/4278] eta: 0 Days 11:53:59       lr: 	1.0000E-04 loss: 	2.49807 loss align 0.0000
+ epoch [0008 / 0050] [2009/4278] eta: 0 Days 11:53:29       lr: 	1.0000E-04 loss: 	2.50963 loss align 0.0000
+ epoch [0008 / 0050] [2109/4278] eta: 0 Days 11:53:0        lr: 	1.0000E-04 loss: 	2.49597 loss align 0.0000
+ epoch [0008 / 0050] [2209/4278] eta: 0 Days 11:52:30       lr: 	1.0000E-04 loss: 	2.48422 loss align 0.0000
+ epoch [0008 / 0050] [2309/4278] eta: 0 Days 11:52:1        lr: 	1.0000E-04 loss: 	2.49673 loss align 0.0000
+ epoch [0008 / 0050] [2409/4278] eta: 0 Days 11:51:31       lr: 	1.0000E-04 loss: 	2.47705 loss align 0.0000
+ epoch [0008 / 0050] [2509/4278] eta: 0 Days 11:51:2        lr: 	1.0000E-04 loss: 	2.47724 loss align 0.0000
+ epoch [0008 / 0050] [2609/4278] eta: 0 Days 11:50:33       lr: 	1.0000E-04 loss: 	2.46668 loss align 0.0000
+ epoch [0008 / 0050] [2709/4278] eta: 0 Days 11:50:3        lr: 	1.0000E-04 loss: 	2.50404 loss align 0.0000
+ epoch [0008 / 0050] [2809/4278] eta: 0 Days 11:49:34       lr: 	1.0000E-04 loss: 	2.49809 loss align 0.0000
+ epoch [0008 / 0050] [2909/4278] eta: 0 Days 11:49:4        lr: 	1.0000E-04 loss: 	2.48864 loss align 0.0000
+ epoch [0008 / 0050] [3009/4278] eta: 0 Days 11:48:35       lr: 	1.0000E-04 loss: 	2.50365 loss align 0.0000
+ epoch [0008 / 0050] [3109/4278] eta: 0 Days 11:48:6        lr: 	1.0000E-04 loss: 	2.50352 loss align 0.0000
+ epoch [0008 / 0050] [3209/4278] eta: 0 Days 11:47:37       lr: 	1.0000E-04 loss: 	2.48835 loss align 0.0000
+ epoch [0008 / 0050] [3309/4278] eta: 0 Days 11:47:7        lr: 	1.0000E-04 loss: 	2.51035 loss align 0.0000
+ epoch [0008 / 0050] [3409/4278] eta: 0 Days 11:46:39       lr: 	1.0000E-04 loss: 	2.51504 loss align 0.0000
+ epoch [0008 / 0050] [3509/4278] eta: 0 Days 11:46:9        lr: 	1.0000E-04 loss: 	2.53048 loss align 0.0000
+ epoch [0008 / 0050] [3609/4278] eta: 0 Days 11:45:40       lr: 	1.0000E-04 loss: 	2.52837 loss align 0.0000
+ epoch [0008 / 0050] [3709/4278] eta: 0 Days 11:45:11       lr: 	1.0000E-04 loss: 	2.52280 loss align 0.0000
+ epoch [0008 / 0050] [3809/4278] eta: 0 Days 11:44:42       lr: 	1.0000E-04 loss: 	2.51347 loss align 0.0000
+ epoch [0008 / 0050] [3909/4278] eta: 0 Days 11:44:13       lr: 	1.0000E-04 loss: 	2.52842 loss align 0.0000
+ epoch [0008 / 0050] [4009/4278] eta: 0 Days 11:43:44       lr: 	1.0000E-04 loss: 	2.52448 loss align 0.0000
+ epoch [0008 / 0050] [4109/4278] eta: 0 Days 11:43:15       lr: 	1.0000E-04 loss: 	2.53260 loss align 0.0000
+ epoch [0008 / 0050] [4209/4278] eta: 0 Days 11:42:47       lr: 	1.0000E-04 loss: 	2.52618 loss align 0.0000
+9
+starting val epoch 9
+val [0009 / 0050] validation loss: 	2.16871
+starting train epoch 9
+ epoch [0009 / 0050] [0009/4278] eta: 0 Days 11:45:31       lr: 	1.0000E-04 loss: 	2.08961 loss align 0.0000
+ epoch [0009 / 0050] [0109/4278] eta: 0 Days 11:45:1        lr: 	1.0000E-04 loss: 	2.76599 loss align 0.0000
+ epoch [0009 / 0050] [0209/4278] eta: 0 Days 11:44:31       lr: 	1.0000E-04 loss: 	2.68505 loss align 0.0000
+ epoch [0009 / 0050] [0309/4278] eta: 0 Days 11:44:1        lr: 	1.0000E-04 loss: 	2.49109 loss align 0.0000
+ epoch [0009 / 0050] [0409/4278] eta: 0 Days 11:43:32       lr: 	1.0000E-04 loss: 	2.45936 loss align 0.0000
+ epoch [0009 / 0050] [0509/4278] eta: 0 Days 11:43:2        lr: 	1.0000E-04 loss: 	2.46497 loss align 0.0000
+ epoch [0009 / 0050] [0609/4278] eta: 0 Days 11:42:33       lr: 	1.0000E-04 loss: 	2.48286 loss align 0.0000
+ epoch [0009 / 0050] [0709/4278] eta: 0 Days 11:42:2        lr: 	1.0000E-04 loss: 	2.47905 loss align 0.0000
+ epoch [0009 / 0050] [0809/4278] eta: 0 Days 11:41:33       lr: 	1.0000E-04 loss: 	2.47481 loss align 0.0000
+ epoch [0009 / 0050] [0909/4278] eta: 0 Days 11:41:3        lr: 	1.0000E-04 loss: 	2.46419 loss align 0.0000
+ epoch [0009 / 0050] [1009/4278] eta: 0 Days 11:40:34       lr: 	1.0000E-04 loss: 	2.43686 loss align 0.0000
+ epoch [0009 / 0050] [1109/4278] eta: 0 Days 11:40:4        lr: 	1.0000E-04 loss: 	2.47518 loss align 0.0000
+ epoch [0009 / 0050] [1209/4278] eta: 0 Days 11:39:35       lr: 	1.0000E-04 loss: 	2.46574 loss align 0.0000
+ epoch [0009 / 0050] [1309/4278] eta: 0 Days 11:39:6        lr: 	1.0000E-04 loss: 	2.45835 loss align 0.0000
+ epoch [0009 / 0050] [1409/4278] eta: 0 Days 11:38:37       lr: 	1.0000E-04 loss: 	2.46427 loss align 0.0000
+ epoch [0009 / 0050] [1509/4278] eta: 0 Days 11:38:8        lr: 	1.0000E-04 loss: 	2.50453 loss align 0.0000
+ epoch [0009 / 0050] [1609/4278] eta: 0 Days 11:37:39       lr: 	1.0000E-04 loss: 	2.48593 loss align 0.0000
+ epoch [0009 / 0050] [1709/4278] eta: 0 Days 11:37:9        lr: 	1.0000E-04 loss: 	2.47939 loss align 0.0000
+ epoch [0009 / 0050] [1809/4278] eta: 0 Days 11:36:40       lr: 	1.0000E-04 loss: 	2.48403 loss align 0.0000
+ epoch [0009 / 0050] [1909/4278] eta: 0 Days 11:36:11       lr: 	1.0000E-04 loss: 	2.48510 loss align 0.0000
+ epoch [0009 / 0050] [2009/4278] eta: 0 Days 11:35:42       lr: 	1.0000E-04 loss: 	2.47260 loss align 0.0000
+ epoch [0009 / 0050] [2109/4278] eta: 0 Days 11:35:13       lr: 	1.0000E-04 loss: 	2.49798 loss align 0.0000
+ epoch [0009 / 0050] [2209/4278] eta: 0 Days 11:34:44       lr: 	1.0000E-04 loss: 	2.49892 loss align 0.0000
+ epoch [0009 / 0050] [2309/4278] eta: 0 Days 11:34:15       lr: 	1.0000E-04 loss: 	2.63028 loss align 0.0000
+ epoch [0009 / 0050] [2409/4278] eta: 0 Days 11:33:47       lr: 	1.0000E-04 loss: 	2.69506 loss align 0.0000
+ epoch [0009 / 0050] [2509/4278] eta: 0 Days 11:33:18       lr: 	1.0000E-04 loss: 	2.68206 loss align 0.0000
+ epoch [0009 / 0050] [2609/4278] eta: 0 Days 11:32:49       lr: 	1.0000E-04 loss: 	2.65927 loss align 0.0000
+ epoch [0009 / 0050] [2709/4278] eta: 0 Days 11:32:20       lr: 	1.0000E-04 loss: 	2.65011 loss align 0.0000
+ epoch [0009 / 0050] [2809/4278] eta: 0 Days 11:31:51       lr: 	1.0000E-04 loss: 	2.64259 loss align 0.0000
+ epoch [0009 / 0050] [2909/4278] eta: 0 Days 11:31:22       lr: 	1.0000E-04 loss: 	2.63719 loss align 0.0000
+ epoch [0009 / 0050] [3009/4278] eta: 0 Days 11:30:54       lr: 	1.0000E-04 loss: 	2.60308 loss align 0.0000
+ epoch [0009 / 0050] [3109/4278] eta: 0 Days 11:30:25       lr: 	1.0000E-04 loss: 	2.61800 loss align 0.0000
+ epoch [0009 / 0050] [3209/4278] eta: 0 Days 11:29:57       lr: 	1.0000E-04 loss: 	2.62012 loss align 0.0000
+ epoch [0009 / 0050] [3309/4278] eta: 0 Days 11:29:28       lr: 	1.0000E-04 loss: 	2.61541 loss align 0.0000
+ epoch [0009 / 0050] [3409/4278] eta: 0 Days 11:29:0        lr: 	1.0000E-04 loss: 	2.61483 loss align 0.0000
+ epoch [0009 / 0050] [3509/4278] eta: 0 Days 11:28:31       lr: 	1.0000E-04 loss: 	2.61265 loss align 0.0000
+ epoch [0009 / 0050] [3609/4278] eta: 0 Days 11:28:3        lr: 	1.0000E-04 loss: 	2.61801 loss align 0.0000
+ epoch [0009 / 0050] [3709/4278] eta: 0 Days 11:27:34       lr: 	1.0000E-04 loss: 	2.63026 loss align 0.0000
+ epoch [0009 / 0050] [3809/4278] eta: 0 Days 11:27:6        lr: 	1.0000E-04 loss: 	2.63547 loss align 0.0000
+ epoch [0009 / 0050] [3909/4278] eta: 0 Days 11:26:39       lr: 	1.0000E-04 loss: 	2.63533 loss align 0.0000
+ epoch [0009 / 0050] [4009/4278] eta: 0 Days 11:26:11       lr: 	1.0000E-04 loss: 	2.63035 loss align 0.0000
+ epoch [0009 / 0050] [4109/4278] eta: 0 Days 11:25:44       lr: 	1.0000E-04 loss: 	2.63780 loss align 0.0000
+ epoch [0009 / 0050] [4209/4278] eta: 0 Days 11:25:16       lr: 	1.0000E-04 loss: 	2.62784 loss align 0.0000
+10
+starting val epoch 10
+val [0010 / 0050] validation loss: 	2.26866
+starting train epoch 10
+ epoch [0010 / 0050] [0009/4278] eta: 0 Days 11:27:38       lr: 	1.0000E-04 loss: 	3.58775 loss align 0.0000
+ epoch [0010 / 0050] [0109/4278] eta: 0 Days 11:27:9        lr: 	1.0000E-04 loss: 	2.53046 loss align 0.0000
+ epoch [0010 / 0050] [0209/4278] eta: 0 Days 11:26:41       lr: 	1.0000E-04 loss: 	2.44405 loss align 0.0000
+ epoch [0010 / 0050] [0309/4278] eta: 0 Days 11:26:13       lr: 	1.0000E-04 loss: 	2.43876 loss align 0.0000
+ epoch [0010 / 0050] [0409/4278] eta: 0 Days 11:25:45       lr: 	1.0000E-04 loss: 	2.55114 loss align 0.0000
+ epoch [0010 / 0050] [0509/4278] eta: 0 Days 11:25:17       lr: 	1.0000E-04 loss: 	2.53232 loss align 0.0000
+ epoch [0010 / 0050] [0609/4278] eta: 0 Days 11:24:49       lr: 	1.0000E-04 loss: 	2.47830 loss align 0.0000
+ epoch [0010 / 0050] [0709/4278] eta: 0 Days 11:24:21       lr: 	1.0000E-04 loss: 	2.49277 loss align 0.0000
+ epoch [0010 / 0050] [0809/4278] eta: 0 Days 11:23:53       lr: 	1.0000E-04 loss: 	2.47543 loss align 0.0000
+ epoch [0010 / 0050] [0909/4278] eta: 0 Days 11:23:25       lr: 	1.0000E-04 loss: 	2.48053 loss align 0.0000
+ epoch [0010 / 0050] [1009/4278] eta: 0 Days 11:22:57       lr: 	1.0000E-04 loss: 	2.54324 loss align 0.0000
+ epoch [0010 / 0050] [1109/4278] eta: 0 Days 11:22:29       lr: 	1.0000E-04 loss: 	2.53698 loss align 0.0000
+ epoch [0010 / 0050] [1209/4278] eta: 0 Days 11:22:2        lr: 	1.0000E-04 loss: 	2.52579 loss align 0.0000
+ epoch [0010 / 0050] [1309/4278] eta: 0 Days 11:21:34       lr: 	1.0000E-04 loss: 	2.51484 loss align 0.0000
+ epoch [0010 / 0050] [1409/4278] eta: 0 Days 11:21:6        lr: 	1.0000E-04 loss: 	2.50805 loss align 0.0000
+ epoch [0010 / 0050] [1509/4278] eta: 0 Days 11:20:39       lr: 	1.0000E-04 loss: 	2.50513 loss align 0.0000
+ epoch [0010 / 0050] [1609/4278] eta: 0 Days 11:20:11       lr: 	1.0000E-04 loss: 	2.50815 loss align 0.0000
+ epoch [0010 / 0050] [1709/4278] eta: 0 Days 11:19:44       lr: 	1.0000E-04 loss: 	2.50277 loss align 0.0000
+ epoch [0010 / 0050] [1809/4278] eta: 0 Days 11:19:16       lr: 	1.0000E-04 loss: 	2.50939 loss align 0.0000
+ epoch [0010 / 0050] [1909/4278] eta: 0 Days 11:18:48       lr: 	1.0000E-04 loss: 	2.52731 loss align 0.0000
+ epoch [0010 / 0050] [2009/4278] eta: 0 Days 11:18:21       lr: 	1.0000E-04 loss: 	2.55066 loss align 0.0000
+ epoch [0010 / 0050] [2109/4278] eta: 0 Days 11:17:53       lr: 	1.0000E-04 loss: 	2.59766 loss align 0.0000
+ epoch [0010 / 0050] [2209/4278] eta: 0 Days 11:17:26       lr: 	1.0000E-04 loss: 	2.60042 loss align 0.0000
+ epoch [0010 / 0050] [2309/4278] eta: 0 Days 11:16:58       lr: 	1.0000E-04 loss: 	2.58684 loss align 0.0000
+ epoch [0010 / 0050] [2409/4278] eta: 0 Days 11:16:30       lr: 	1.0000E-04 loss: 	2.57588 loss align 0.0000
+ epoch [0010 / 0050] [2509/4278] eta: 0 Days 11:16:3        lr: 	1.0000E-04 loss: 	2.59436 loss align 0.0000
+ epoch [0010 / 0050] [2609/4278] eta: 0 Days 11:15:35       lr: 	1.0000E-04 loss: 	2.57992 loss align 0.0000
+ epoch [0010 / 0050] [2709/4278] eta: 0 Days 11:15:8        lr: 	1.0000E-04 loss: 	2.57331 loss align 0.0000
+ epoch [0010 / 0050] [2809/4278] eta: 0 Days 11:14:40       lr: 	1.0000E-04 loss: 	2.58667 loss align 0.0000
+ epoch [0010 / 0050] [2909/4278] eta: 0 Days 11:14:12       lr: 	1.0000E-04 loss: 	2.58117 loss align 0.0000
+ epoch [0010 / 0050] [3009/4278] eta: 0 Days 11:13:45       lr: 	1.0000E-04 loss: 	2.59263 loss align 0.0000
+ epoch [0010 / 0050] [3109/4278] eta: 0 Days 11:13:18       lr: 	1.0000E-04 loss: 	2.59463 loss align 0.0000
+ epoch [0010 / 0050] [3209/4278] eta: 0 Days 11:12:50       lr: 	1.0000E-04 loss: 	2.59267 loss align 0.0000
+ epoch [0010 / 0050] [3309/4278] eta: 0 Days 11:12:23       lr: 	1.0000E-04 loss: 	2.59395 loss align 0.0000
+ epoch [0010 / 0050] [3409/4278] eta: 0 Days 11:11:56       lr: 	1.0000E-04 loss: 	2.58125 loss align 0.0000
+ epoch [0010 / 0050] [3509/4278] eta: 0 Days 11:11:29       lr: 	1.0000E-04 loss: 	2.58495 loss align 0.0000
+ epoch [0010 / 0050] [3609/4278] eta: 0 Days 11:11:1        lr: 	1.0000E-04 loss: 	2.58595 loss align 0.0000
+ epoch [0010 / 0050] [3709/4278] eta: 0 Days 11:10:34       lr: 	1.0000E-04 loss: 	2.58984 loss align 0.0000
+ epoch [0010 / 0050] [3809/4278] eta: 0 Days 11:10:7        lr: 	1.0000E-04 loss: 	2.58922 loss align 0.0000
+ epoch [0010 / 0050] [3909/4278] eta: 0 Days 11:9:39        lr: 	1.0000E-04 loss: 	2.58301 loss align 0.0000
+ epoch [0010 / 0050] [4009/4278] eta: 0 Days 11:9:12        lr: 	1.0000E-04 loss: 	2.57480 loss align 0.0000
+ epoch [0010 / 0050] [4109/4278] eta: 0 Days 11:8:45        lr: 	1.0000E-04 loss: 	2.58306 loss align 0.0000
+ epoch [0010 / 0050] [4209/4278] eta: 0 Days 11:8:18        lr: 	1.0000E-04 loss: 	2.57526 loss align 0.0000
+11
+starting val epoch 11
+val [0011 / 0050] validation loss: 	2.22792
+starting train epoch 11
+ epoch [0011 / 0050] [0009/4278] eta: 0 Days 11:10:23       lr: 	1.0000E-04 loss: 	3.37670 loss align 0.0000
+ epoch [0011 / 0050] [0109/4278] eta: 0 Days 11:9:55        lr: 	1.0000E-04 loss: 	2.36204 loss align 0.0000
+ epoch [0011 / 0050] [0209/4278] eta: 0 Days 11:9:28        lr: 	1.0000E-04 loss: 	2.32733 loss align 0.0000
+ epoch [0011 / 0050] [0309/4278] eta: 0 Days 11:9:1         lr: 	1.0000E-04 loss: 	2.47070 loss align 0.0000
+ epoch [0011 / 0050] [0409/4278] eta: 0 Days 11:8:33        lr: 	1.0000E-04 loss: 	2.49171 loss align 0.0000
+ epoch [0011 / 0050] [0509/4278] eta: 0 Days 11:8:5         lr: 	1.0000E-04 loss: 	2.67318 loss align 0.0000
+ epoch [0011 / 0050] [0609/4278] eta: 0 Days 11:7:37        lr: 	1.0000E-04 loss: 	2.72378 loss align 0.0000
+ epoch [0011 / 0050] [0709/4278] eta: 0 Days 11:7:10        lr: 	1.0000E-04 loss: 	2.66387 loss align 0.0000
+ epoch [0011 / 0050] [0809/4278] eta: 0 Days 11:6:42        lr: 	1.0000E-04 loss: 	2.65170 loss align 0.0000
+ epoch [0011 / 0050] [0909/4278] eta: 0 Days 11:6:15        lr: 	1.0000E-04 loss: 	2.68315 loss align 0.0000
+ epoch [0011 / 0050] [1009/4278] eta: 0 Days 11:5:48        lr: 	1.0000E-04 loss: 	2.70586 loss align 0.0000
+ epoch [0011 / 0050] [1109/4278] eta: 0 Days 11:5:21        lr: 	1.0000E-04 loss: 	2.67770 loss align 0.0000
+ epoch [0011 / 0050] [1209/4278] eta: 0 Days 11:4:53        lr: 	1.0000E-04 loss: 	2.69491 loss align 0.0000
+ epoch [0011 / 0050] [1309/4278] eta: 0 Days 11:4:25        lr: 	1.0000E-04 loss: 	2.66654 loss align 0.0000
+ epoch [0011 / 0050] [1409/4278] eta: 0 Days 11:3:57        lr: 	1.0000E-04 loss: 	2.65725 loss align 0.0000
+ epoch [0011 / 0050] [1509/4278] eta: 0 Days 11:3:30        lr: 	1.0000E-04 loss: 	2.65837 loss align 0.0000
+ epoch [0011 / 0050] [1609/4278] eta: 0 Days 11:3:3         lr: 	1.0000E-04 loss: 	2.67466 loss align 0.0000
+ epoch [0011 / 0050] [1709/4278] eta: 0 Days 11:2:36        lr: 	1.0000E-04 loss: 	2.67964 loss align 0.0000
+ epoch [0011 / 0050] [1809/4278] eta: 0 Days 11:2:8         lr: 	1.0000E-04 loss: 	2.67105 loss align 0.0000
+ epoch [0011 / 0050] [1909/4278] eta: 0 Days 11:1:42        lr: 	1.0000E-04 loss: 	2.65535 loss align 0.0000
+ epoch [0011 / 0050] [2009/4278] eta: 0 Days 11:1:14        lr: 	1.0000E-04 loss: 	2.66391 loss align 0.0000
+ epoch [0011 / 0050] [2109/4278] eta: 0 Days 11:0:47        lr: 	1.0000E-04 loss: 	2.64517 loss align 0.0000
+ epoch [0011 / 0050] [2209/4278] eta: 0 Days 11:0:19        lr: 	1.0000E-04 loss: 	2.62270 loss align 0.0000
+ epoch [0011 / 0050] [2309/4278] eta: 0 Days 10:59:52       lr: 	1.0000E-04 loss: 	2.61637 loss align 0.0000
+ epoch [0011 / 0050] [2409/4278] eta: 0 Days 10:59:25       lr: 	1.0000E-04 loss: 	2.60245 loss align 0.0000
+ epoch [0011 / 0050] [2509/4278] eta: 0 Days 10:58:58       lr: 	1.0000E-04 loss: 	2.59157 loss align 0.0000
+ epoch [0011 / 0050] [2609/4278] eta: 0 Days 10:58:31       lr: 	1.0000E-04 loss: 	2.61432 loss align 0.0000
+ epoch [0011 / 0050] [2709/4278] eta: 0 Days 10:58:4        lr: 	1.0000E-04 loss: 	2.61845 loss align 0.0000
+ epoch [0011 / 0050] [2809/4278] eta: 0 Days 10:57:37       lr: 	1.0000E-04 loss: 	2.61654 loss align 0.0000
+ epoch [0011 / 0050] [2909/4278] eta: 0 Days 10:57:9        lr: 	1.0000E-04 loss: 	2.62996 loss align 0.0000
+ epoch [0011 / 0050] [3009/4278] eta: 0 Days 10:56:42       lr: 	1.0000E-04 loss: 	2.67112 loss align 0.0000
+ epoch [0011 / 0050] [3109/4278] eta: 0 Days 10:56:15       lr: 	1.0000E-04 loss: 	2.66057 loss align 0.0000
+ epoch [0011 / 0050] [3209/4278] eta: 0 Days 10:55:48       lr: 	1.0000E-04 loss: 	2.66127 loss align 0.0000
+ epoch [0011 / 0050] [3309/4278] eta: 0 Days 10:55:21       lr: 	1.0000E-04 loss: 	2.64166 loss align 0.0000
+ epoch [0011 / 0050] [3409/4278] eta: 0 Days 10:54:55       lr: 	1.0000E-04 loss: 	2.64686 loss align 0.0000
+ epoch [0011 / 0050] [3509/4278] eta: 0 Days 10:54:28       lr: 	1.0000E-04 loss: 	2.64045 loss align 0.0000
+ epoch [0011 / 0050] [3609/4278] eta: 0 Days 10:54:1        lr: 	1.0000E-04 loss: 	2.63987 loss align 0.0000
+ epoch [0011 / 0050] [3709/4278] eta: 0 Days 10:53:34       lr: 	1.0000E-04 loss: 	2.63530 loss align 0.0000
+ epoch [0011 / 0050] [3809/4278] eta: 0 Days 10:53:7        lr: 	1.0000E-04 loss: 	2.63358 loss align 0.0000
+ epoch [0011 / 0050] [3909/4278] eta: 0 Days 10:52:40       lr: 	1.0000E-04 loss: 	2.63063 loss align 0.0000
+ epoch [0011 / 0050] [4009/4278] eta: 0 Days 10:52:13       lr: 	1.0000E-04 loss: 	2.62133 loss align 0.0000
+ epoch [0011 / 0050] [4109/4278] eta: 0 Days 10:51:46       lr: 	1.0000E-04 loss: 	2.62374 loss align 0.0000
+ epoch [0011 / 0050] [4209/4278] eta: 0 Days 10:51:19       lr: 	1.0000E-04 loss: 	2.62812 loss align 0.0000
+12
+starting val epoch 12
+val [0012 / 0050] validation loss: 	2.21416
+starting train epoch 12
+ epoch [0012 / 0050] [0009/4278] eta: 0 Days 10:53:6        lr: 	1.0000E-04 loss: 	1.24250 loss align 0.0000
+ epoch [0012 / 0050] [0109/4278] eta: 0 Days 10:52:39       lr: 	1.0000E-04 loss: 	2.77651 loss align 0.0000
+ epoch [0012 / 0050] [0209/4278] eta: 0 Days 10:52:12       lr: 	1.0000E-04 loss: 	3.22002 loss align 0.0000
+ epoch [0012 / 0050] [0309/4278] eta: 0 Days 10:51:45       lr: 	1.0000E-04 loss: 	2.85339 loss align 0.0000
+ epoch [0012 / 0050] [0409/4278] eta: 0 Days 10:51:18       lr: 	1.0000E-04 loss: 	2.86783 loss align 0.0000
+ epoch [0012 / 0050] [0509/4278] eta: 0 Days 10:50:50       lr: 	1.0000E-04 loss: 	2.82518 loss align 0.0000
+ epoch [0012 / 0050] [0609/4278] eta: 0 Days 10:50:23       lr: 	1.0000E-04 loss: 	2.77152 loss align 0.0000
+ epoch [0012 / 0050] [0709/4278] eta: 0 Days 10:49:56       lr: 	1.0000E-04 loss: 	2.77326 loss align 0.0000
+ epoch [0012 / 0050] [0809/4278] eta: 0 Days 10:49:29       lr: 	1.0000E-04 loss: 	2.71525 loss align 0.0000
+ epoch [0012 / 0050] [0909/4278] eta: 0 Days 10:49:2        lr: 	1.0000E-04 loss: 	2.71828 loss align 0.0000
+ epoch [0012 / 0050] [1009/4278] eta: 0 Days 10:48:35       lr: 	1.0000E-04 loss: 	2.67117 loss align 0.0000
+ epoch [0012 / 0050] [1109/4278] eta: 0 Days 10:48:8        lr: 	1.0000E-04 loss: 	2.62636 loss align 0.0000
+ epoch [0012 / 0050] [1209/4278] eta: 0 Days 10:47:41       lr: 	1.0000E-04 loss: 	2.61755 loss align 0.0000
+ epoch [0012 / 0050] [1309/4278] eta: 0 Days 10:47:14       lr: 	1.0000E-04 loss: 	2.69559 loss align 0.0000
+ epoch [0012 / 0050] [1409/4278] eta: 0 Days 10:46:47       lr: 	1.0000E-04 loss: 	2.69946 loss align 0.0000
+ epoch [0012 / 0050] [1509/4278] eta: 0 Days 10:46:20       lr: 	1.0000E-04 loss: 	2.67495 loss align 0.0000
+ epoch [0012 / 0050] [1609/4278] eta: 0 Days 10:45:54       lr: 	1.0000E-04 loss: 	2.65204 loss align 0.0000
+ epoch [0012 / 0050] [1709/4278] eta: 0 Days 10:45:27       lr: 	1.0000E-04 loss: 	2.64971 loss align 0.0000
+ epoch [0012 / 0050] [1809/4278] eta: 0 Days 10:45:0        lr: 	1.0000E-04 loss: 	2.63648 loss align 0.0000
+ epoch [0012 / 0050] [1909/4278] eta: 0 Days 10:44:33       lr: 	1.0000E-04 loss: 	2.65805 loss align 0.0000
+ epoch [0012 / 0050] [2009/4278] eta: 0 Days 10:44:6        lr: 	1.0000E-04 loss: 	2.65867 loss align 0.0000
+ epoch [0012 / 0050] [2109/4278] eta: 0 Days 10:43:39       lr: 	1.0000E-04 loss: 	2.65785 loss align 0.0000
+ epoch [0012 / 0050] [2209/4278] eta: 0 Days 10:43:13       lr: 	1.0000E-04 loss: 	2.65436 loss align 0.0000
+ epoch [0012 / 0050] [2309/4278] eta: 0 Days 10:42:46       lr: 	1.0000E-04 loss: 	2.65181 loss align 0.0000
+ epoch [0012 / 0050] [2409/4278] eta: 0 Days 10:42:19       lr: 	1.0000E-04 loss: 	2.64672 loss align 0.0000
+ epoch [0012 / 0050] [2509/4278] eta: 0 Days 10:41:52       lr: 	1.0000E-04 loss: 	2.62738 loss align 0.0000
+ epoch [0012 / 0050] [2609/4278] eta: 0 Days 10:41:25       lr: 	1.0000E-04 loss: 	2.63195 loss align 0.0000
+ epoch [0012 / 0050] [2709/4278] eta: 0 Days 10:40:58       lr: 	1.0000E-04 loss: 	2.62280 loss align 0.0000
+ epoch [0012 / 0050] [2809/4278] eta: 0 Days 10:40:32       lr: 	1.0000E-04 loss: 	2.69311 loss align 0.0000
+ epoch [0012 / 0050] [2909/4278] eta: 0 Days 10:40:5        lr: 	1.0000E-04 loss: 	2.69240 loss align 0.0000
+ epoch [0012 / 0050] [3009/4278] eta: 0 Days 10:39:39       lr: 	1.0000E-04 loss: 	2.71086 loss align 0.0000
+ epoch [0012 / 0050] [3109/4278] eta: 0 Days 10:39:12       lr: 	1.0000E-04 loss: 	2.70365 loss align 0.0000
+ epoch [0012 / 0050] [3209/4278] eta: 0 Days 10:38:46       lr: 	1.0000E-04 loss: 	2.70940 loss align 0.0000
+ epoch [0012 / 0050] [3309/4278] eta: 0 Days 10:38:19       lr: 	1.0000E-04 loss: 	2.71400 loss align 0.0000
+ epoch [0012 / 0050] [3409/4278] eta: 0 Days 10:37:53       lr: 	1.0000E-04 loss: 	2.71240 loss align 0.0000
+ epoch [0012 / 0050] [3509/4278] eta: 0 Days 10:37:26       lr: 	1.0000E-04 loss: 	2.73164 loss align 0.0000
+ epoch [0012 / 0050] [3609/4278] eta: 0 Days 10:37:0        lr: 	1.0000E-04 loss: 	2.71586 loss align 0.0000
+ epoch [0012 / 0050] [3709/4278] eta: 0 Days 10:36:33       lr: 	1.0000E-04 loss: 	2.76581 loss align 0.0000
+ epoch [0012 / 0050] [3809/4278] eta: 0 Days 10:36:6        lr: 	1.0000E-04 loss: 	2.75983 loss align 0.0000
+ epoch [0012 / 0050] [3909/4278] eta: 0 Days 10:35:40       lr: 	1.0000E-04 loss: 	2.75870 loss align 0.0000
+ epoch [0012 / 0050] [4009/4278] eta: 0 Days 10:35:17       lr: 	1.0000E-04 loss: 	2.75983 loss align 0.0000
+ epoch [0012 / 0050] [4109/4278] eta: 0 Days 10:34:50       lr: 	1.0000E-04 loss: 	2.75731 loss align 0.0000
+ epoch [0012 / 0050] [4209/4278] eta: 0 Days 10:34:24       lr: 	1.0000E-04 loss: 	2.75255 loss align 0.0000
+13
+starting val epoch 13
+val [0013 / 0050] validation loss: 	2.81734
+starting train epoch 13
+ epoch [0013 / 0050] [0009/4278] eta: 0 Days 10:35:59       lr: 	1.0000E-04 loss: 	2.30992 loss align 0.0000
+ epoch [0013 / 0050] [0109/4278] eta: 0 Days 10:35:33       lr: 	1.0000E-04 loss: 	2.78798 loss align 0.0000
+ epoch [0013 / 0050] [0209/4278] eta: 0 Days 10:35:7        lr: 	1.0000E-04 loss: 	2.48257 loss align 0.0000
+ epoch [0013 / 0050] [0309/4278] eta: 0 Days 10:34:40       lr: 	1.0000E-04 loss: 	2.47421 loss align 0.0000
+ epoch [0013 / 0050] [0409/4278] eta: 0 Days 10:34:13       lr: 	1.0000E-04 loss: 	2.60953 loss align 0.0000
+ epoch [0013 / 0050] [0509/4278] eta: 0 Days 10:33:46       lr: 	1.0000E-04 loss: 	2.65572 loss align 0.0000
+ epoch [0013 / 0050] [0609/4278] eta: 0 Days 10:33:20       lr: 	1.0000E-04 loss: 	2.63598 loss align 0.0000
+ epoch [0013 / 0050] [0709/4278] eta: 0 Days 10:32:53       lr: 	1.0000E-04 loss: 	2.65380 loss align 0.0000
+ epoch [0013 / 0050] [0809/4278] eta: 0 Days 10:32:26       lr: 	1.0000E-04 loss: 	2.58958 loss align 0.0000
+ epoch [0013 / 0050] [0909/4278] eta: 0 Days 10:31:59       lr: 	1.0000E-04 loss: 	2.58999 loss align 0.0000
+ epoch [0013 / 0050] [1009/4278] eta: 0 Days 10:31:33       lr: 	1.0000E-04 loss: 	2.68309 loss align 0.0000
+ epoch [0013 / 0050] [1109/4278] eta: 0 Days 10:31:6        lr: 	1.0000E-04 loss: 	2.66864 loss align 0.0000
+ epoch [0013 / 0050] [1209/4278] eta: 0 Days 10:30:40       lr: 	1.0000E-04 loss: 	2.66838 loss align 0.0000
+ epoch [0013 / 0050] [1309/4278] eta: 0 Days 10:30:14       lr: 	1.0000E-04 loss: 	2.69633 loss align 0.0000
+ epoch [0013 / 0050] [1409/4278] eta: 0 Days 10:29:47       lr: 	1.0000E-04 loss: 	2.67206 loss align 0.0000
+ epoch [0013 / 0050] [1509/4278] eta: 0 Days 10:29:20       lr: 	1.0000E-04 loss: 	2.65054 loss align 0.0000
+ epoch [0013 / 0050] [1609/4278] eta: 0 Days 10:28:53       lr: 	1.0000E-04 loss: 	2.66622 loss align 0.0000
+ epoch [0013 / 0050] [1709/4278] eta: 0 Days 10:28:26       lr: 	1.0000E-04 loss: 	2.64928 loss align 0.0000
+ epoch [0013 / 0050] [1809/4278] eta: 0 Days 10:28:0        lr: 	1.0000E-04 loss: 	2.66252 loss align 0.0000
+ epoch [0013 / 0050] [1909/4278] eta: 0 Days 10:27:33       lr: 	1.0000E-04 loss: 	2.64483 loss align 0.0000
+ epoch [0013 / 0050] [2009/4278] eta: 0 Days 10:27:7        lr: 	1.0000E-04 loss: 	2.68878 loss align 0.0000
+ epoch [0013 / 0050] [2109/4278] eta: 0 Days 10:26:40       lr: 	1.0000E-04 loss: 	2.68886 loss align 0.0000
+ epoch [0013 / 0050] [2209/4278] eta: 0 Days 10:26:14       lr: 	1.0000E-04 loss: 	2.68069 loss align 0.0000
+ epoch [0013 / 0050] [2309/4278] eta: 0 Days 10:25:48       lr: 	1.0000E-04 loss: 	2.67733 loss align 0.0000
+ epoch [0013 / 0050] [2409/4278] eta: 0 Days 10:25:21       lr: 	1.0000E-04 loss: 	2.66742 loss align 0.0000
+ epoch [0013 / 0050] [2509/4278] eta: 0 Days 10:24:54       lr: 	1.0000E-04 loss: 	2.68723 loss align 0.0000
+ epoch [0013 / 0050] [2609/4278] eta: 0 Days 10:24:28       lr: 	1.0000E-04 loss: 	2.69826 loss align 0.0000
+ epoch [0013 / 0050] [2709/4278] eta: 0 Days 10:24:1        lr: 	1.0000E-04 loss: 	2.69630 loss align 0.0000
+ epoch [0013 / 0050] [2809/4278] eta: 0 Days 10:23:34       lr: 	1.0000E-04 loss: 	2.70125 loss align 0.0000
+ epoch [0013 / 0050] [2909/4278] eta: 0 Days 10:23:8        lr: 	1.0000E-04 loss: 	2.72308 loss align 0.0000
+ epoch [0013 / 0050] [3009/4278] eta: 0 Days 10:22:42       lr: 	1.0000E-04 loss: 	2.71501 loss align 0.0000
+ epoch [0013 / 0050] [3109/4278] eta: 0 Days 10:22:16       lr: 	1.0000E-04 loss: 	2.73869 loss align 0.0000
+ epoch [0013 / 0050] [3209/4278] eta: 0 Days 10:21:49       lr: 	1.0000E-04 loss: 	2.75960 loss align 0.0000
+ epoch [0013 / 0050] [3309/4278] eta: 0 Days 10:21:22       lr: 	1.0000E-04 loss: 	2.76850 loss align 0.0000
+ epoch [0013 / 0050] [3409/4278] eta: 0 Days 10:20:56       lr: 	1.0000E-04 loss: 	2.76151 loss align 0.0000
+ epoch [0013 / 0050] [3509/4278] eta: 0 Days 10:20:29       lr: 	1.0000E-04 loss: 	2.76263 loss align 0.0000
+ epoch [0013 / 0050] [3609/4278] eta: 0 Days 10:20:3        lr: 	1.0000E-04 loss: 	2.75784 loss align 0.0000
+ epoch [0013 / 0050] [3709/4278] eta: 0 Days 10:19:36       lr: 	1.0000E-04 loss: 	2.75528 loss align 0.0000
+ epoch [0013 / 0050] [3809/4278] eta: 0 Days 10:19:10       lr: 	1.0000E-04 loss: 	2.74274 loss align 0.0000
+ epoch [0013 / 0050] [3909/4278] eta: 0 Days 10:18:44       lr: 	1.0000E-04 loss: 	2.74605 loss align 0.0000
+ epoch [0013 / 0050] [4009/4278] eta: 0 Days 10:18:18       lr: 	1.0000E-04 loss: 	2.74517 loss align 0.0000
+ epoch [0013 / 0050] [4109/4278] eta: 0 Days 10:17:52       lr: 	1.0000E-04 loss: 	2.74037 loss align 0.0000
+ epoch [0013 / 0050] [4209/4278] eta: 0 Days 10:17:26       lr: 	1.0000E-04 loss: 	2.74190 loss align 0.0000
+14
+starting val epoch 14
+val [0014 / 0050] validation loss: 	3.11404
+starting train epoch 14
+ epoch [0014 / 0050] [0009/4278] eta: 0 Days 10:18:53       lr: 	1.0000E-04 loss: 	2.55718 loss align 0.0000
+ epoch [0014 / 0050] [0109/4278] eta: 0 Days 10:18:26       lr: 	1.0000E-04 loss: 	2.83352 loss align 0.0000
+ epoch [0014 / 0050] [0209/4278] eta: 0 Days 10:17:59       lr: 	1.0000E-04 loss: 	2.57437 loss align 0.0000
+ epoch [0014 / 0050] [0309/4278] eta: 0 Days 10:17:32       lr: 	1.0000E-04 loss: 	2.57328 loss align 0.0000
+ epoch [0014 / 0050] [0409/4278] eta: 0 Days 10:17:5        lr: 	1.0000E-04 loss: 	2.54805 loss align 0.0000
+ epoch [0014 / 0050] [0509/4278] eta: 0 Days 10:16:39       lr: 	1.0000E-04 loss: 	2.50554 loss align 0.0000
+ epoch [0014 / 0050] [0609/4278] eta: 0 Days 10:16:12       lr: 	1.0000E-04 loss: 	2.54072 loss align 0.0000
+ epoch [0014 / 0050] [0709/4278] eta: 0 Days 10:15:46       lr: 	1.0000E-04 loss: 	2.54027 loss align 0.0000
+ epoch [0014 / 0050] [0809/4278] eta: 0 Days 10:15:19       lr: 	1.0000E-04 loss: 	2.63144 loss align 0.0000
+ epoch [0014 / 0050] [0909/4278] eta: 0 Days 10:14:53       lr: 	1.0000E-04 loss: 	2.62381 loss align 0.0000
+ epoch [0014 / 0050] [1009/4278] eta: 0 Days 10:14:26       lr: 	1.0000E-04 loss: 	2.61782 loss align 0.0000
+ epoch [0014 / 0050] [1109/4278] eta: 0 Days 10:14:0        lr: 	1.0000E-04 loss: 	2.72724 loss align 0.0000
+ epoch [0014 / 0050] [1209/4278] eta: 0 Days 10:13:33       lr: 	1.0000E-04 loss: 	2.74047 loss align 0.0000
+ epoch [0014 / 0050] [1309/4278] eta: 0 Days 10:13:7        lr: 	1.0000E-04 loss: 	2.71380 loss align 0.0000
+ epoch [0014 / 0050] [1409/4278] eta: 0 Days 10:12:41       lr: 	1.0000E-04 loss: 	2.79412 loss align 0.0000
+ epoch [0014 / 0050] [1509/4278] eta: 0 Days 10:12:14       lr: 	1.0000E-04 loss: 	2.74809 loss align 0.0000
+ epoch [0014 / 0050] [1609/4278] eta: 0 Days 10:11:48       lr: 	1.0000E-04 loss: 	2.75696 loss align 0.0000
+ epoch [0014 / 0050] [1709/4278] eta: 0 Days 10:11:22       lr: 	1.0000E-04 loss: 	2.74653 loss align 0.0000
+ epoch [0014 / 0050] [1809/4278] eta: 0 Days 10:10:55       lr: 	1.0000E-04 loss: 	2.76109 loss align 0.0000
+ epoch [0014 / 0050] [1909/4278] eta: 0 Days 10:10:29       lr: 	1.0000E-04 loss: 	2.74064 loss align 0.0000
+ epoch [0014 / 0050] [2009/4278] eta: 0 Days 10:10:2        lr: 	1.0000E-04 loss: 	2.73519 loss align 0.0000
+ epoch [0014 / 0050] [2109/4278] eta: 0 Days 10:9:36        lr: 	1.0000E-04 loss: 	2.73073 loss align 0.0000
+ epoch [0014 / 0050] [2209/4278] eta: 0 Days 10:9:9         lr: 	1.0000E-04 loss: 	2.76181 loss align 0.0000
+ epoch [0014 / 0050] [2309/4278] eta: 0 Days 10:8:43        lr: 	1.0000E-04 loss: 	2.77265 loss align 0.0000
+ epoch [0014 / 0050] [2409/4278] eta: 0 Days 10:8:17        lr: 	1.0000E-04 loss: 	2.81737 loss align 0.0000
+ epoch [0014 / 0050] [2509/4278] eta: 0 Days 10:7:50        lr: 	1.0000E-04 loss: 	2.81910 loss align 0.0000
+ epoch [0014 / 0050] [2609/4278] eta: 0 Days 10:7:24        lr: 	1.0000E-04 loss: 	2.80952 loss align 0.0000
+ epoch [0014 / 0050] [2709/4278] eta: 0 Days 10:6:58        lr: 	1.0000E-04 loss: 	2.81732 loss align 0.0000
+ epoch [0014 / 0050] [2809/4278] eta: 0 Days 10:6:32        lr: 	1.0000E-04 loss: 	2.81196 loss align 0.0000
+ epoch [0014 / 0050] [2909/4278] eta: 0 Days 10:6:5         lr: 	1.0000E-04 loss: 	2.78282 loss align 0.0000
+ epoch [0014 / 0050] [3009/4278] eta: 0 Days 10:5:39        lr: 	1.0000E-04 loss: 	2.77889 loss align 0.0000
+ epoch [0014 / 0050] [3109/4278] eta: 0 Days 10:5:13        lr: 	1.0000E-04 loss: 	2.78507 loss align 0.0000
+ epoch [0014 / 0050] [3209/4278] eta: 0 Days 10:4:47        lr: 	1.0000E-04 loss: 	2.78499 loss align 0.0000
+ epoch [0014 / 0050] [3309/4278] eta: 0 Days 10:4:21        lr: 	1.0000E-04 loss: 	2.78159 loss align 0.0000
+ epoch [0014 / 0050] [3409/4278] eta: 0 Days 10:3:55        lr: 	1.0000E-04 loss: 	2.78878 loss align 0.0000
+ epoch [0014 / 0050] [3509/4278] eta: 0 Days 10:3:29        lr: 	1.0000E-04 loss: 	2.79253 loss align 0.0000
+ epoch [0014 / 0050] [3609/4278] eta: 0 Days 10:3:2         lr: 	1.0000E-04 loss: 	2.80461 loss align 0.0000
+ epoch [0014 / 0050] [3709/4278] eta: 0 Days 10:2:36        lr: 	1.0000E-04 loss: 	2.81230 loss align 0.0000
+ epoch [0014 / 0050] [3809/4278] eta: 0 Days 10:2:10        lr: 	1.0000E-04 loss: 	2.79859 loss align 0.0000
+ epoch [0014 / 0050] [3909/4278] eta: 0 Days 10:1:44        lr: 	1.0000E-04 loss: 	2.80365 loss align 0.0000
+ epoch [0014 / 0050] [4009/4278] eta: 0 Days 10:1:18        lr: 	1.0000E-04 loss: 	2.79335 loss align 0.0000
+ epoch [0014 / 0050] [4109/4278] eta: 0 Days 10:0:51        lr: 	1.0000E-04 loss: 	2.79469 loss align 0.0000
+ epoch [0014 / 0050] [4209/4278] eta: 0 Days 10:0:25        lr: 	1.0000E-04 loss: 	2.79600 loss align 0.0000
+15
+starting val epoch 15
+val [0015 / 0050] validation loss: 	2.25713
+starting train epoch 15
+ epoch [0015 / 0050] [0009/4278] eta: 0 Days 10:1:41        lr: 	1.0000E-04 loss: 	3.44115 loss align 0.0000
+ epoch [0015 / 0050] [0109/4278] eta: 0 Days 10:1:14        lr: 	1.0000E-04 loss: 	2.50248 loss align 0.0000
+ epoch [0015 / 0050] [0209/4278] eta: 0 Days 10:0:47        lr: 	1.0000E-04 loss: 	3.03456 loss align 0.0000
+ epoch [0015 / 0050] [0309/4278] eta: 0 Days 10:0:21        lr: 	1.0000E-04 loss: 	2.88263 loss align 0.0000
+ epoch [0015 / 0050] [0409/4278] eta: 0 Days 9:59:54        lr: 	1.0000E-04 loss: 	2.77491 loss align 0.0000
+ epoch [0015 / 0050] [0509/4278] eta: 0 Days 9:59:28        lr: 	1.0000E-04 loss: 	2.76621 loss align 0.0000
+ epoch [0015 / 0050] [0609/4278] eta: 0 Days 9:59:2         lr: 	1.0000E-04 loss: 	2.77548 loss align 0.0000
+ epoch [0015 / 0050] [0709/4278] eta: 0 Days 9:58:36        lr: 	1.0000E-04 loss: 	2.76395 loss align 0.0000
+ epoch [0015 / 0050] [0809/4278] eta: 0 Days 9:58:9         lr: 	1.0000E-04 loss: 	2.76726 loss align 0.0000
+ epoch [0015 / 0050] [0909/4278] eta: 0 Days 9:57:43        lr: 	1.0000E-04 loss: 	2.73998 loss align 0.0000
+ epoch [0015 / 0050] [1009/4278] eta: 0 Days 9:57:17        lr: 	1.0000E-04 loss: 	2.73453 loss align 0.0000
+ epoch [0015 / 0050] [1109/4278] eta: 0 Days 9:56:51        lr: 	1.0000E-04 loss: 	2.71948 loss align 0.0000
+ epoch [0015 / 0050] [1209/4278] eta: 0 Days 9:56:24        lr: 	1.0000E-04 loss: 	2.68291 loss align 0.0000
+ epoch [0015 / 0050] [1309/4278] eta: 0 Days 9:55:58        lr: 	1.0000E-04 loss: 	2.73808 loss align 0.0000
+ epoch [0015 / 0050] [1409/4278] eta: 0 Days 9:55:32        lr: 	1.0000E-04 loss: 	2.70776 loss align 0.0000
+ epoch [0015 / 0050] [1509/4278] eta: 0 Days 9:55:6         lr: 	1.0000E-04 loss: 	2.73818 loss align 0.0000
+ epoch [0015 / 0050] [1609/4278] eta: 0 Days 9:54:40        lr: 	1.0000E-04 loss: 	2.75135 loss align 0.0000
+ epoch [0015 / 0050] [1709/4278] eta: 0 Days 9:54:14        lr: 	1.0000E-04 loss: 	2.72205 loss align 0.0000
+ epoch [0015 / 0050] [1809/4278] eta: 0 Days 9:53:48        lr: 	1.0000E-04 loss: 	2.77828 loss align 0.0000
+ epoch [0015 / 0050] [1909/4278] eta: 0 Days 9:53:21        lr: 	1.0000E-04 loss: 	2.78168 loss align 0.0000
+ epoch [0015 / 0050] [2009/4278] eta: 0 Days 9:52:55        lr: 	1.0000E-04 loss: 	2.79764 loss align 0.0000
+ epoch [0015 / 0050] [2109/4278] eta: 0 Days 9:52:29        lr: 	1.0000E-04 loss: 	2.77684 loss align 0.0000
+ epoch [0015 / 0050] [2209/4278] eta: 0 Days 9:52:3         lr: 	1.0000E-04 loss: 	2.76325 loss align 0.0000
+ epoch [0015 / 0050] [2309/4278] eta: 0 Days 9:51:37        lr: 	1.0000E-04 loss: 	2.76227 loss align 0.0000
+ epoch [0015 / 0050] [2409/4278] eta: 0 Days 9:51:11        lr: 	1.0000E-04 loss: 	2.75907 loss align 0.0000
+ epoch [0015 / 0050] [2509/4278] eta: 0 Days 9:50:44        lr: 	1.0000E-04 loss: 	2.76790 loss align 0.0000
+ epoch [0015 / 0050] [2609/4278] eta: 0 Days 9:50:18        lr: 	1.0000E-04 loss: 	2.76331 loss align 0.0000
+ epoch [0015 / 0050] [2709/4278] eta: 0 Days 9:49:52        lr: 	1.0000E-04 loss: 	2.75974 loss align 0.0000
+ epoch [0015 / 0050] [2809/4278] eta: 0 Days 9:49:26        lr: 	1.0000E-04 loss: 	2.76799 loss align 0.0000
+ epoch [0015 / 0050] [2909/4278] eta: 0 Days 9:49:0         lr: 	1.0000E-04 loss: 	2.76690 loss align 0.0000
+ epoch [0015 / 0050] [3009/4278] eta: 0 Days 9:48:34        lr: 	1.0000E-04 loss: 	2.81603 loss align 0.0000
+ epoch [0015 / 0050] [3109/4278] eta: 0 Days 9:48:8         lr: 	1.0000E-04 loss: 	2.86171 loss align 0.0000
+ epoch [0015 / 0050] [3209/4278] eta: 0 Days 9:47:42        lr: 	1.0000E-04 loss: 	2.86941 loss align 0.0000
+ epoch [0015 / 0050] [3309/4278] eta: 0 Days 9:47:16        lr: 	1.0000E-04 loss: 	2.90275 loss align 0.0000
+ epoch [0015 / 0050] [3409/4278] eta: 0 Days 9:46:50        lr: 	1.0000E-04 loss: 	2.89317 loss align 0.0000
+ epoch [0015 / 0050] [3509/4278] eta: 0 Days 9:46:24        lr: 	1.0000E-04 loss: 	2.89243 loss align 0.0000
+ epoch [0015 / 0050] [3609/4278] eta: 0 Days 9:45:58        lr: 	1.0000E-04 loss: 	2.89295 loss align 0.0000
+ epoch [0015 / 0050] [3709/4278] eta: 0 Days 9:45:32        lr: 	1.0000E-04 loss: 	2.88269 loss align 0.0000
+ epoch [0015 / 0050] [3809/4278] eta: 0 Days 9:45:6         lr: 	1.0000E-04 loss: 	2.95957 loss align 0.0000
+ epoch [0015 / 0050] [3909/4278] eta: 0 Days 9:44:40        lr: 	1.0000E-04 loss: 	2.95432 loss align 0.0000
+ epoch [0015 / 0050] [4009/4278] eta: 0 Days 9:44:14        lr: 	1.0000E-04 loss: 	2.97806 loss align 0.0000
+ epoch [0015 / 0050] [4109/4278] eta: 0 Days 9:43:48        lr: 	1.0000E-04 loss: 	2.97730 loss align 0.0000
+ epoch [0015 / 0050] [4209/4278] eta: 0 Days 9:43:22        lr: 	1.0000E-04 loss: 	2.96309 loss align 0.0000
+16
+starting val epoch 16
+val [0016 / 0050] validation loss: 	2.55151
+starting train epoch 16
+ epoch [0016 / 0050] [0009/4278] eta: 0 Days 9:44:29        lr: 	1.0000E-04 loss: 	1.62516 loss align 0.0000
+ epoch [0016 / 0050] [0109/4278] eta: 0 Days 9:44:2         lr: 	1.0000E-04 loss: 	2.88936 loss align 0.0000
+ epoch [0016 / 0050] [0209/4278] eta: 0 Days 9:43:36        lr: 	1.0000E-04 loss: 	2.70740 loss align 0.0000
+ epoch [0016 / 0050] [0309/4278] eta: 0 Days 9:43:10        lr: 	1.0000E-04 loss: 	2.72964 loss align 0.0000
+ epoch [0016 / 0050] [0409/4278] eta: 0 Days 9:42:44        lr: 	1.0000E-04 loss: 	2.59722 loss align 0.0000
+ epoch [0016 / 0050] [0509/4278] eta: 0 Days 9:42:18        lr: 	1.0000E-04 loss: 	2.55670 loss align 0.0000
+ epoch [0016 / 0050] [0609/4278] eta: 0 Days 9:41:52        lr: 	1.0000E-04 loss: 	2.70088 loss align 0.0000
+ epoch [0016 / 0050] [0709/4278] eta: 0 Days 9:41:26        lr: 	1.0000E-04 loss: 	2.89660 loss align 0.0000
+ epoch [0016 / 0050] [0809/4278] eta: 0 Days 9:41:0         lr: 	1.0000E-04 loss: 	2.87487 loss align 0.0000
+ epoch [0016 / 0050] [0909/4278] eta: 0 Days 9:40:34        lr: 	1.0000E-04 loss: 	2.89486 loss align 0.0000
+ epoch [0016 / 0050] [1009/4278] eta: 0 Days 9:40:8         lr: 	1.0000E-04 loss: 	2.87602 loss align 0.0000
+ epoch [0016 / 0050] [1109/4278] eta: 0 Days 9:39:42        lr: 	1.0000E-04 loss: 	2.86250 loss align 0.0000
+ epoch [0016 / 0050] [1209/4278] eta: 0 Days 9:39:16        lr: 	1.0000E-04 loss: 	2.85659 loss align 0.0000
+ epoch [0016 / 0050] [1309/4278] eta: 0 Days 9:38:50        lr: 	1.0000E-04 loss: 	2.84382 loss align 0.0000
+ epoch [0016 / 0050] [1409/4278] eta: 0 Days 9:38:24        lr: 	1.0000E-04 loss: 	2.86502 loss align 0.0000
+ epoch [0016 / 0050] [1509/4278] eta: 0 Days 9:37:58        lr: 	1.0000E-04 loss: 	2.89589 loss align 0.0000
+ epoch [0016 / 0050] [1609/4278] eta: 0 Days 9:37:31        lr: 	1.0000E-04 loss: 	2.89630 loss align 0.0000
+ epoch [0016 / 0050] [1709/4278] eta: 0 Days 9:37:5         lr: 	1.0000E-04 loss: 	2.88822 loss align 0.0000
+ epoch [0016 / 0050] [1809/4278] eta: 0 Days 9:36:39        lr: 	1.0000E-04 loss: 	2.87421 loss align 0.0000
+ epoch [0016 / 0050] [1909/4278] eta: 0 Days 9:36:13        lr: 	1.0000E-04 loss: 	2.86209 loss align 0.0000
+ epoch [0016 / 0050] [2009/4278] eta: 0 Days 9:35:47        lr: 	1.0000E-04 loss: 	2.84489 loss align 0.0000
+ epoch [0016 / 0050] [2109/4278] eta: 0 Days 9:35:21        lr: 	1.0000E-04 loss: 	2.83667 loss align 0.0000
+ epoch [0016 / 0050] [2209/4278] eta: 0 Days 9:34:55        lr: 	1.0000E-04 loss: 	2.82229 loss align 0.0000
+ epoch [0016 / 0050] [2309/4278] eta: 0 Days 9:34:29        lr: 	1.0000E-04 loss: 	2.82480 loss align 0.0000
+ epoch [0016 / 0050] [2409/4278] eta: 0 Days 9:34:3         lr: 	1.0000E-04 loss: 	2.80629 loss align 0.0000
+ epoch [0016 / 0050] [2509/4278] eta: 0 Days 9:33:37        lr: 	1.0000E-04 loss: 	2.79544 loss align 0.0000
+ epoch [0016 / 0050] [2609/4278] eta: 0 Days 9:33:11        lr: 	1.0000E-04 loss: 	2.80509 loss align 0.0000
+ epoch [0016 / 0050] [2709/4278] eta: 0 Days 9:32:45        lr: 	1.0000E-04 loss: 	2.84694 loss align 0.0000
+ epoch [0016 / 0050] [2809/4278] eta: 0 Days 9:32:19        lr: 	1.0000E-04 loss: 	2.84519 loss align 0.0000
+ epoch [0016 / 0050] [2909/4278] eta: 0 Days 9:31:53        lr: 	1.0000E-04 loss: 	2.82315 loss align 0.0000
+ epoch [0016 / 0050] [3009/4278] eta: 0 Days 9:31:28        lr: 	1.0000E-04 loss: 	2.82814 loss align 0.0000
+ epoch [0016 / 0050] [3109/4278] eta: 0 Days 9:31:2         lr: 	1.0000E-04 loss: 	2.83690 loss align 0.0000
+ epoch [0016 / 0050] [3209/4278] eta: 0 Days 9:30:36        lr: 	1.0000E-04 loss: 	2.82373 loss align 0.0000
+ epoch [0016 / 0050] [3309/4278] eta: 0 Days 9:30:10        lr: 	1.0000E-04 loss: 	2.80706 loss align 0.0000
+ epoch [0016 / 0050] [3409/4278] eta: 0 Days 9:29:44        lr: 	1.0000E-04 loss: 	2.80780 loss align 0.0000
+ epoch [0016 / 0050] [3509/4278] eta: 0 Days 9:29:18        lr: 	1.0000E-04 loss: 	2.80399 loss align 0.0000
+ epoch [0016 / 0050] [3609/4278] eta: 0 Days 9:28:53        lr: 	1.0000E-04 loss: 	2.79789 loss align 0.0000
+ epoch [0016 / 0050] [3709/4278] eta: 0 Days 9:28:27        lr: 	1.0000E-04 loss: 	2.79924 loss align 0.0000
+ epoch [0016 / 0050] [3809/4278] eta: 0 Days 9:28:1         lr: 	1.0000E-04 loss: 	2.80988 loss align 0.0000
+ epoch [0016 / 0050] [3909/4278] eta: 0 Days 9:27:35        lr: 	1.0000E-04 loss: 	2.83603 loss align 0.0000
+ epoch [0016 / 0050] [4009/4278] eta: 0 Days 9:27:9         lr: 	1.0000E-04 loss: 	2.83604 loss align 0.0000
+ epoch [0016 / 0050] [4109/4278] eta: 0 Days 9:26:44        lr: 	1.0000E-04 loss: 	2.83523 loss align 0.0000
+ epoch [0016 / 0050] [4209/4278] eta: 0 Days 9:26:18        lr: 	1.0000E-04 loss: 	2.84758 loss align 0.0000
+17
+starting val epoch 17
+val [0017 / 0050] validation loss: 	3.07734
+starting train epoch 17
+ epoch [0017 / 0050] [0009/4278] eta: 0 Days 9:27:18        lr: 	1.0000E-04 loss: 	4.03794 loss align 0.0000
+ epoch [0017 / 0050] [0109/4278] eta: 0 Days 9:26:52        lr: 	1.0000E-04 loss: 	2.50319 loss align 0.0000
+ epoch [0017 / 0050] [0209/4278] eta: 0 Days 9:26:25        lr: 	1.0000E-04 loss: 	2.49360 loss align 0.0000
+ epoch [0017 / 0050] [0309/4278] eta: 0 Days 9:25:59        lr: 	1.0000E-04 loss: 	2.46006 loss align 0.0000
+ epoch [0017 / 0050] [0409/4278] eta: 0 Days 9:25:33        lr: 	1.0000E-04 loss: 	2.58713 loss align 0.0000
+ epoch [0017 / 0050] [0509/4278] eta: 0 Days 9:25:7         lr: 	1.0000E-04 loss: 	2.58950 loss align 0.0000
+ epoch [0017 / 0050] [0609/4278] eta: 0 Days 9:24:41        lr: 	1.0000E-04 loss: 	2.60251 loss align 0.0000
+ epoch [0017 / 0050] [0709/4278] eta: 0 Days 9:24:15        lr: 	1.0000E-04 loss: 	2.65427 loss align 0.0000
+ epoch [0017 / 0050] [0809/4278] eta: 0 Days 9:23:49        lr: 	1.0000E-04 loss: 	2.67674 loss align 0.0000
+ epoch [0017 / 0050] [0909/4278] eta: 0 Days 9:23:23        lr: 	1.0000E-04 loss: 	2.70526 loss align 0.0000
+ epoch [0017 / 0050] [1009/4278] eta: 0 Days 9:22:57        lr: 	1.0000E-04 loss: 	2.72436 loss align 0.0000
+ epoch [0017 / 0050] [1109/4278] eta: 0 Days 9:22:32        lr: 	1.0000E-04 loss: 	2.69702 loss align 0.0000
+ epoch [0017 / 0050] [1209/4278] eta: 0 Days 9:22:6         lr: 	1.0000E-04 loss: 	2.67253 loss align 0.0000
+ epoch [0017 / 0050] [1309/4278] eta: 0 Days 9:21:40        lr: 	1.0000E-04 loss: 	2.70102 loss align 0.0000
+ epoch [0017 / 0050] [1409/4278] eta: 0 Days 9:21:14        lr: 	1.0000E-04 loss: 	2.72652 loss align 0.0000
+ epoch [0017 / 0050] [1509/4278] eta: 0 Days 9:20:48        lr: 	1.0000E-04 loss: 	2.72783 loss align 0.0000
+ epoch [0017 / 0050] [1609/4278] eta: 0 Days 9:20:22        lr: 	1.0000E-04 loss: 	2.73246 loss align 0.0000
+ epoch [0017 / 0050] [1709/4278] eta: 0 Days 9:19:56        lr: 	1.0000E-04 loss: 	2.70524 loss align 0.0000
+ epoch [0017 / 0050] [1809/4278] eta: 0 Days 9:19:30        lr: 	1.0000E-04 loss: 	2.69962 loss align 0.0000
+ epoch [0017 / 0050] [1909/4278] eta: 0 Days 9:19:4         lr: 	1.0000E-04 loss: 	2.69629 loss align 0.0000
+ epoch [0017 / 0050] [2009/4278] eta: 0 Days 9:18:38        lr: 	1.0000E-04 loss: 	2.69039 loss align 0.0000
+ epoch [0017 / 0050] [2109/4278] eta: 0 Days 9:18:12        lr: 	1.0000E-04 loss: 	2.69109 loss align 0.0000
+ epoch [0017 / 0050] [2209/4278] eta: 0 Days 9:17:46        lr: 	1.0000E-04 loss: 	2.71028 loss align 0.0000
+ epoch [0017 / 0050] [2309/4278] eta: 0 Days 9:17:20        lr: 	1.0000E-04 loss: 	2.72163 loss align 0.0000
+ epoch [0017 / 0050] [2409/4278] eta: 0 Days 9:16:55        lr: 	1.0000E-04 loss: 	2.71450 loss align 0.0000
+ epoch [0017 / 0050] [2509/4278] eta: 0 Days 9:16:29        lr: 	1.0000E-04 loss: 	2.71666 loss align 0.0000
+ epoch [0017 / 0050] [2609/4278] eta: 0 Days 9:16:3         lr: 	1.0000E-04 loss: 	2.75609 loss align 0.0000
+ epoch [0017 / 0050] [2709/4278] eta: 0 Days 9:15:37        lr: 	1.0000E-04 loss: 	2.79555 loss align 0.0000
+ epoch [0017 / 0050] [2809/4278] eta: 0 Days 9:15:11        lr: 	1.0000E-04 loss: 	2.79427 loss align 0.0000
+ epoch [0017 / 0050] [2909/4278] eta: 0 Days 9:14:45        lr: 	1.0000E-04 loss: 	2.82368 loss align 0.0000
+ epoch [0017 / 0050] [3009/4278] eta: 0 Days 9:14:19        lr: 	1.0000E-04 loss: 	2.81540 loss align 0.0000
+ epoch [0017 / 0050] [3109/4278] eta: 0 Days 9:13:54        lr: 	1.0000E-04 loss: 	2.81964 loss align 0.0000
+ epoch [0017 / 0050] [3209/4278] eta: 0 Days 9:13:27        lr: 	1.0000E-04 loss: 	2.80585 loss align 0.0000
+ epoch [0017 / 0050] [3309/4278] eta: 0 Days 9:13:1         lr: 	1.0000E-04 loss: 	2.79232 loss align 0.0000
+ epoch [0017 / 0050] [3409/4278] eta: 0 Days 9:12:35        lr: 	1.0000E-04 loss: 	2.80970 loss align 0.0000
+ epoch [0017 / 0050] [3509/4278] eta: 0 Days 9:12:8         lr: 	1.0000E-04 loss: 	2.82381 loss align 0.0000
+ epoch [0017 / 0050] [3609/4278] eta: 0 Days 9:11:42        lr: 	1.0000E-04 loss: 	2.82097 loss align 0.0000
+ epoch [0017 / 0050] [3709/4278] eta: 0 Days 9:11:16        lr: 	1.0000E-04 loss: 	2.81255 loss align 0.0000
+ epoch [0017 / 0050] [3809/4278] eta: 0 Days 9:10:50        lr: 	1.0000E-04 loss: 	2.82793 loss align 0.0000
+ epoch [0017 / 0050] [3909/4278] eta: 0 Days 9:10:24        lr: 	1.0000E-04 loss: 	2.83479 loss align 0.0000
+ epoch [0017 / 0050] [4009/4278] eta: 0 Days 9:9:58         lr: 	1.0000E-04 loss: 	2.82745 loss align 0.0000
+ epoch [0017 / 0050] [4109/4278] eta: 0 Days 9:9:32         lr: 	1.0000E-04 loss: 	2.85647 loss align 0.0000
+ epoch [0017 / 0050] [4209/4278] eta: 0 Days 9:9:5          lr: 	1.0000E-04 loss: 	2.92151 loss align 0.0000
+18
+starting val epoch 18
+val [0018 / 0050] validation loss: 	3.14421
+starting train epoch 18
+ epoch [0018 / 0050] [0009/4278] eta: 0 Days 9:9:58         lr: 	1.0000E-04 loss: 	2.03986 loss align 0.0000
+ epoch [0018 / 0050] [0109/4278] eta: 0 Days 9:9:33         lr: 	1.0000E-04 loss: 	3.22009 loss align 0.0000
+ epoch [0018 / 0050] [0209/4278] eta: 0 Days 9:9:7          lr: 	1.0000E-04 loss: 	2.95609 loss align 0.0000
+ epoch [0018 / 0050] [0309/4278] eta: 0 Days 9:8:41         lr: 	1.0000E-04 loss: 	2.98376 loss align 0.0000
+ epoch [0018 / 0050] [0409/4278] eta: 0 Days 9:8:15         lr: 	1.0000E-04 loss: 	2.95539 loss align 0.0000
+ epoch [0018 / 0050] [0509/4278] eta: 0 Days 9:7:49         lr: 	1.0000E-04 loss: 	2.95317 loss align 0.0000
+ epoch [0018 / 0050] [0609/4278] eta: 0 Days 9:7:23         lr: 	1.0000E-04 loss: 	3.07562 loss align 0.0000
+ epoch [0018 / 0050] [0709/4278] eta: 0 Days 9:6:57         lr: 	1.0000E-04 loss: 	3.01790 loss align 0.0000
+ epoch [0018 / 0050] [0809/4278] eta: 0 Days 9:6:31         lr: 	1.0000E-04 loss: 	2.98726 loss align 0.0000
+ epoch [0018 / 0050] [0909/4278] eta: 0 Days 9:6:6          lr: 	1.0000E-04 loss: 	2.95856 loss align 0.0000
+ epoch [0018 / 0050] [1009/4278] eta: 0 Days 9:5:40         lr: 	1.0000E-04 loss: 	2.90224 loss align 0.0000
+ epoch [0018 / 0050] [1109/4278] eta: 0 Days 9:5:15         lr: 	1.0000E-04 loss: 	2.90186 loss align 0.0000
+ epoch [0018 / 0050] [1209/4278] eta: 0 Days 9:4:49         lr: 	1.0000E-04 loss: 	2.86718 loss align 0.0000
+ epoch [0018 / 0050] [1309/4278] eta: 0 Days 9:4:23         lr: 	1.0000E-04 loss: 	2.91409 loss align 0.0000
+ epoch [0018 / 0050] [1409/4278] eta: 0 Days 9:3:57         lr: 	1.0000E-04 loss: 	2.87770 loss align 0.0000
+ epoch [0018 / 0050] [1509/4278] eta: 0 Days 9:3:31         lr: 	1.0000E-04 loss: 	2.88779 loss align 0.0000
+ epoch [0018 / 0050] [1609/4278] eta: 0 Days 9:3:6          lr: 	1.0000E-04 loss: 	2.88494 loss align 0.0000
+ epoch [0018 / 0050] [1709/4278] eta: 0 Days 9:2:40         lr: 	1.0000E-04 loss: 	2.87053 loss align 0.0000
+ epoch [0018 / 0050] [1809/4278] eta: 0 Days 9:2:14         lr: 	1.0000E-04 loss: 	2.86919 loss align 0.0000
+ epoch [0018 / 0050] [1909/4278] eta: 0 Days 9:1:49         lr: 	1.0000E-04 loss: 	2.89065 loss align 0.0000
+ epoch [0018 / 0050] [2009/4278] eta: 0 Days 9:1:23         lr: 	1.0000E-04 loss: 	2.87732 loss align 0.0000
+ epoch [0018 / 0050] [2109/4278] eta: 0 Days 9:0:58         lr: 	1.0000E-04 loss: 	2.88236 loss align 0.0000
+ epoch [0018 / 0050] [2209/4278] eta: 0 Days 9:0:32         lr: 	1.0000E-04 loss: 	2.86606 loss align 0.0000
+ epoch [0018 / 0050] [2309/4278] eta: 0 Days 9:0:6          lr: 	1.0000E-04 loss: 	2.87271 loss align 0.0000
+ epoch [0018 / 0050] [2409/4278] eta: 0 Days 8:59:41        lr: 	1.0000E-04 loss: 	2.88692 loss align 0.0000
+ epoch [0018 / 0050] [2509/4278] eta: 0 Days 8:59:15        lr: 	1.0000E-04 loss: 	2.87781 loss align 0.0000
+ epoch [0018 / 0050] [2609/4278] eta: 0 Days 8:58:50        lr: 	1.0000E-04 loss: 	2.91490 loss align 0.0000
+ epoch [0018 / 0050] [2709/4278] eta: 0 Days 8:58:24        lr: 	1.0000E-04 loss: 	2.89825 loss align 0.0000
+ epoch [0018 / 0050] [2809/4278] eta: 0 Days 8:57:58        lr: 	1.0000E-04 loss: 	2.89299 loss align 0.0000
+ epoch [0018 / 0050] [2909/4278] eta: 0 Days 8:57:32        lr: 	1.0000E-04 loss: 	2.89734 loss align 0.0000
+ epoch [0018 / 0050] [3009/4278] eta: 0 Days 8:57:7         lr: 	1.0000E-04 loss: 	2.91033 loss align 0.0000
+ epoch [0018 / 0050] [3109/4278] eta: 0 Days 8:56:42        lr: 	1.0000E-04 loss: 	2.90067 loss align 0.0000
+ epoch [0018 / 0050] [3209/4278] eta: 0 Days 8:56:16        lr: 	1.0000E-04 loss: 	2.90305 loss align 0.0000
+ epoch [0018 / 0050] [3309/4278] eta: 0 Days 8:55:51        lr: 	1.0000E-04 loss: 	2.90367 loss align 0.0000
+ epoch [0018 / 0050] [3409/4278] eta: 0 Days 8:55:25        lr: 	1.0000E-04 loss: 	2.90775 loss align 0.0000
+ epoch [0018 / 0050] [3509/4278] eta: 0 Days 8:54:59        lr: 	1.0000E-04 loss: 	2.90631 loss align 0.0000
+ epoch [0018 / 0050] [3609/4278] eta: 0 Days 8:54:34        lr: 	1.0000E-04 loss: 	2.92459 loss align 0.0000
+ epoch [0018 / 0050] [3709/4278] eta: 0 Days 8:54:8         lr: 	1.0000E-04 loss: 	2.92668 loss align 0.0000
+ epoch [0018 / 0050] [3809/4278] eta: 0 Days 8:53:42        lr: 	1.0000E-04 loss: 	2.93150 loss align 0.0000
+ epoch [0018 / 0050] [3909/4278] eta: 0 Days 8:53:17        lr: 	1.0000E-04 loss: 	2.94374 loss align 0.0000
+ epoch [0018 / 0050] [4009/4278] eta: 0 Days 8:52:51        lr: 	1.0000E-04 loss: 	2.95366 loss align 0.0000
+ epoch [0018 / 0050] [4109/4278] eta: 0 Days 8:52:26        lr: 	1.0000E-04 loss: 	2.98009 loss align 0.0000
+ epoch [0018 / 0050] [4209/4278] eta: 0 Days 8:52:0         lr: 	1.0000E-04 loss: 	2.96079 loss align 0.0000
+19
+starting val epoch 19
+val [0019 / 0050] validation loss: 	5.04806
+starting val epoch 0
+val [0000 / 0050] validation loss: 	2.17021
+Acute and unspecified renal failure                                                        & 0.709(0.750, 0.667) & 0.271 (0.332, 0.224)
+fused_ehr test  0   best mean auc :0.709 mean auprc 0.271
+                    CI AUROC (0.667, 0.750) CI AUPRC (0.224, 0.332)
+                     AUROC accute 0.709 mixed 0.709 chronic 0.709
+                     AUROC accute CI (0.667, 0.750) mixed (0.667 , 0.750) chronic (0.667, 0.750)
+                     AUPRC accute  0.271 mixed 0.271 chronic 0.271
+                     AUPRC accute CI  (0.224, 0.332) mixed (0.224,  0.332) chronic (0.224, 0.332)

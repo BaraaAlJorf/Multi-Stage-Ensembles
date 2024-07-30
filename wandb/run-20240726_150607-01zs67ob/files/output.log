@@ -1,0 +1,48 @@
+Some weights of the model checkpoint at allenai/longformer-base-4096 were not used when initializing LongformerModel: ['lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing LongformerModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing LongformerModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+==> training
+Running unimodal pretraining for modality DN
+0
+Starting val epoch 0
+val [0000 / 0050] validation loss: 	0.72276
+checkpoint
+Starting train epoch 0
+Traceback (most recent call last):
+  File "fusion_main.py", line 137, in <module>
+    trainer.train()
+  File "/scratch/baj321/MedFuse/trainers/unimodal_trainer.py", line 258, in train
+    self.train_epoch()
+  File "/scratch/baj321/MedFuse/trainers/unimodal_trainer.py", line 155, in train_epoch
+    v, cls = self.encoder(mod)
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/scratch/baj321/MedFuse/models/dn_encoder.py", line 21, in forward
+    outputs = self.longformer(input_ids=input_ids, attention_mask=attention_mask)
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/transformers/models/longformer/modeling_longformer.py", line 1714, in forward
+    return_dict=return_dict,
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/transformers/models/longformer/modeling_longformer.py", line 1296, in forward
+    output_attentions=output_attentions,
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/transformers/models/longformer/modeling_longformer.py", line 1220, in forward
+    output_attentions=output_attentions,
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/transformers/models/longformer/modeling_longformer.py", line 1156, in forward
+    output_attentions=output_attentions,
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/transformers/models/longformer/modeling_longformer.py", line 584, in forward
+    query_vectors, key_vectors, self.one_sided_attn_window_size
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/transformers/models/longformer/modeling_longformer.py", line 827, in _sliding_chunks_query_key_matmul
+    diagonal_chunked_attention_scores = torch.einsum("bcxd,bcyd->bcxy", (query, key))  # multiply
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/torch/functional.py", line 406, in einsum
+    return einsum(equation, *_operands)
+  File "/home/baj321/.conda/envs/medfuse/lib/python3.6/site-packages/torch/functional.py", line 408, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore
+RuntimeError: CUDA out of memory. Tried to allocate 2.81 GiB (GPU 0; 79.15 GiB total capacity; 71.85 GiB already allocated; 1.92 GiB free; 75.53 GiB reserved in total by PyTorch)

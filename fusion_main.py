@@ -11,12 +11,21 @@ from trainers.frozen_trainer import FrozenTrainer
 from trainers.mmtm_trainer import MMTMTrainer
 from trainers.daft_trainer import DAFTTrainer
 
+from trainers.unimodal_trainer import UnimodalTrainer
+from trainers.staged_Trainer import StagedFusionTrainer
+from trainers.DHF_trainer import DHFTrainer
+
+from trainers.ensemble_trainer import EnsembleFusionTrainer
+from trainers.hierarchical_ensemble_trainer import HierEnsembleFusionTrainer
+
+
 from ehr_utils.preprocessing import Discretizer, Normalizer
 from datasets.ehr_dataset import get_datasets
 from datasets.cxr_dataset import get_cxr_datasets
-from datasets.Quatrimodal_Fusion import load_cxr_ehr
+from datasets.Quatrimodal_Fusion import load_cxr_ehr_rr_dn
 from pathlib import Path
 import torch
+import random
 
 from arguments import args_parser
 
@@ -34,6 +43,14 @@ path.mkdir(parents=True, exist_ok=True)
 seed = 1002
 torch.manual_seed(seed)
 np.random.seed(seed)
+torch.cuda.manual_seed(seed)
+torch.cuda.manual_seed_all(seed)  # if you are using multi-GPU.
+os.environ['PYTHONHASHSEED'] = str(seed)
+random.seed(seed)
+
+# Set PyTorch to deterministic mode
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
 
 def read_timeseries(args):
     path = f'{args.ehr_data_dir}/{args.task}/train/14991576_episode3_timeseries.csv'
@@ -69,7 +86,7 @@ ehr_train_ds, ehr_val_ds, ehr_test_ds = get_datasets(discretizer, normalizer, ar
 
 cxr_train_ds, cxr_val_ds, cxr_test_ds = get_cxr_datasets(args)
 
-train_dl, val_dl, test_dl = load_cxr_ehr(args, ehr_train_ds, ehr_val_ds, cxr_train_ds, cxr_val_ds, ehr_test_ds, cxr_test_ds)
+train_dl, val_dl, test_dl = load_cxr_ehr_rr_dn(args, ehr_train_ds, ehr_val_ds, cxr_train_ds, cxr_val_ds, ehr_test_ds, cxr_test_ds)
 
 print("data gone")
 
@@ -78,9 +95,41 @@ with open(f"{args.save_dir}/args.txt", 'w') as results_file:
         print(f"  {arg:<40}: {getattr(args, arg)}")
         results_file.write(f"  {arg:<40}: {getattr(args, arg)}\n")
 
-if args.H_mode =='unimodal'
-elif args.H_mode == 'early' or args.H_mode == 'joint' or args.H_mode == 'late'
-elif args.H_mode == 'relevancy-based-hierarchical' or args.H_mode == 'predefined-hierarchical'
+if args.H_mode =='unimodal':
+    trainer = UnimodalTrainer(
+        train_dl, 
+        val_dl, 
+        args,
+        test_dl
+        )
+elif args.H_mode == 'early' or args.H_mode == 'joint' or args.H_mode == 'late':
+    trainer = StagedFusionTrainer(
+        train_dl, 
+        val_dl, 
+        args,
+        test_dl
+        )
+elif args.H_mode == 'relevancy-based-hierarchical' or args.H_mode == 'predefined-hierarchical':
+    trainer = DHFTrainer(
+        train_dl, 
+        val_dl, 
+        args,
+        test_dl
+        )
+elif args.H_mode == 'ensemble-hierarchical':
+    trainer = HierEnsembleFusionTrainer(
+        train_dl, 
+        val_dl, 
+        args,
+        test_dl
+        )
+elif args.H_mode == 'ensemble':
+    trainer = EnsembleFusionTrainer(
+        train_dl, 
+        val_dl, 
+        args,
+        test_dl
+        )
 elif args.fusion_type == 'mmtm':
     trainer = MMTMTrainer(
         train_dl, 
@@ -89,7 +138,7 @@ elif args.fusion_type == 'mmtm':
         test_dl=test_dl
         )
 elif args.fusion_type == 'daft':
-        trainer = DAFTTrainer(train_dl, 
+    trainer = DAFTTrainer(train_dl, 
         val_dl, 
         args,
         test_dl=test_dl)

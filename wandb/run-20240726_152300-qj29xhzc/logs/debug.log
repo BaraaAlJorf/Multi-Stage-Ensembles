@@ -1,0 +1,28 @@
+2024-07-26 15:23:00,204 INFO    MainThread:2345906 [wandb_setup.py:_flush():76] Current SDK version is 0.15.2
+2024-07-26 15:23:00,205 INFO    MainThread:2345906 [wandb_setup.py:_flush():76] Configure stats pid to 2345906
+2024-07-26 15:23:00,205 INFO    MainThread:2345906 [wandb_setup.py:_flush():76] Loading settings from /home/baj321/.config/wandb/settings
+2024-07-26 15:23:00,205 INFO    MainThread:2345906 [wandb_setup.py:_flush():76] Loading settings from /scratch/baj321/MedFuse/wandb/settings
+2024-07-26 15:23:00,205 INFO    MainThread:2345906 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-07-26 15:23:00,205 INFO    MainThread:2345906 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-07-26 15:23:00,205 INFO    MainThread:2345906 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'fusion_main.py', 'program': 'fusion_main.py'}
+2024-07-26 15:23:00,205 INFO    MainThread:2345906 [wandb_init.py:_log_setup():507] Logging user logs to /scratch/baj321/MedFuse/wandb/run-20240726_152300-qj29xhzc/logs/debug.log
+2024-07-26 15:23:00,205 INFO    MainThread:2345906 [wandb_init.py:_log_setup():508] Logging internal logs to /scratch/baj321/MedFuse/wandb/run-20240726_152300-qj29xhzc/logs/debug-internal.log
+2024-07-26 15:23:00,205 INFO    MainThread:2345906 [wandb_init.py:init():547] calling init triggers
+2024-07-26 15:23:00,205 INFO    MainThread:2345906 [wandb_init.py:init():555] wandb.init called with sweep_config: {}
+config: {'modalities': 'EHR-DN', 'pretraining': 'DN', 'H_mode': 'unimodal', 'order': None, 'layer_after': 4, 'layers': 1, 'vision_num_classes': 14, 'retrieve_cxr': 'recent', 'load_cxr': None, 'load_ehr': None, 'load_dn': None, 'load_rr': None, 'resize': 256, 'crop': 224, 'vision_backbone': 'densenet121', 'pretrained': False, 'eval': False, 'network': None, 'fusion_type': 'fused_ehr', 'run_method': 'fine_tune', 'task': 'phenotyping', 'labels_set': 'pheno', 'data_ratio': 1.0, 'mmtm_ratio': 4, 'daft_activation': 'linear', 'fusion': 'joint', 'dim': 256, 'depth': 1, 'epochs': 50, 'load_state': None, 'load_state_cxr': None, 'load_state_ehr': None, 'mode': 'train', 'batch_size': 8, 'resume': False, 'dropout': 0.0, 'num_classes': 25, 'patience': 15, 'rec_dropout': 0.0, 'timestep': 1.0, 'imputation': 'previous', 'lr': 1e-06, 'align': 0.0, 'data_pairs': 'paired', 'missing_token': None, 'beta_1': 0.9, 'normalizer_state': None, 'ehr_data_dir': '/scratch/fs999/shamoutlab/data/mimic-iv-extracted', 'cxr_data_dir': '/scratch/fs999/shamoutlab/data/physionet.org/files/mimic-cxr-jpg/2.0.0', 'save_dir': 'checkpoints'}
+2024-07-26 15:23:00,206 INFO    MainThread:2345906 [wandb_init.py:init():596] starting backend
+2024-07-26 15:23:00,206 INFO    MainThread:2345906 [wandb_init.py:init():600] setting up manager
+2024-07-26 15:23:00,211 INFO    MainThread:2345906 [backend.py:_multiprocessing_setup():108] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-07-26 15:23:00,214 INFO    MainThread:2345906 [wandb_init.py:init():606] backend started and connected
+2024-07-26 15:23:00,218 INFO    MainThread:2345906 [wandb_init.py:init():700] updated telemetry
+2024-07-26 15:23:00,404 INFO    MainThread:2345906 [wandb_init.py:init():737] communicating run to backend with 60.0 second timeout
+2024-07-26 15:23:01,017 INFO    MainThread:2345906 [wandb_run.py:_on_init():2177] communicating current version
+2024-07-26 15:23:01,090 INFO    MainThread:2345906 [wandb_run.py:_on_init():2186] got version response upgrade_message: "wandb version 0.17.5 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-07-26 15:23:01,090 INFO    MainThread:2345906 [wandb_init.py:init():787] starting run threads in backend
+2024-07-26 15:23:05,645 INFO    MainThread:2345906 [wandb_run.py:_console_start():2158] atexit reg
+2024-07-26 15:23:05,645 INFO    MainThread:2345906 [wandb_run.py:_redirect():2013] redirect: SettingsConsole.WRAP_RAW
+2024-07-26 15:23:05,647 INFO    MainThread:2345906 [wandb_run.py:_redirect():2078] Wrapping output streams.
+2024-07-26 15:23:05,647 INFO    MainThread:2345906 [wandb_run.py:_redirect():2103] Redirects installed.
+2024-07-26 15:23:05,648 INFO    MainThread:2345906 [wandb_init.py:init():829] run started, returning control to user process
+2024-07-26 15:25:21,465 WARNING MsgRouterThr:2345906 [router.py:message_loop():77] message_loop has been closed
