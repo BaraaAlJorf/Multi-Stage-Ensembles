@@ -64,7 +64,7 @@ def args_parser():
     parser.add_argument('--lr', type=float, default=0.0001, help='learning rate')
     parser.add_argument('--align', type=float, default=0.0, help='align weight')
 
-    parser.add_argument('--data_pairs', type=str, default='paired', help='paired, ehr, cxr')
+    parser.add_argument('--data_pairs', type=str, default='paired', help='paired, unpaired')
     parser.add_argument('--missing_token', type=str, default=None, help='zeros, learnable')
 
     parser.add_argument('--beta_1', type=float, default=0.9,

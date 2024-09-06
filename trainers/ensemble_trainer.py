@@ -28,7 +28,7 @@ class EnsembleFusionTrainer(Trainer):
         ):
 
         super(EnsembleFusionTrainer, self).__init__(args)
-        run = wandb.init(project=f'Fusion_{self.args.task}', config=args)
+        run = wandb.init(project=f'Fusion_{self.args.H_mode}_{self.args.task}', config=args)
         self.epoch = 0 
         self.start_epoch = 0
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -145,10 +145,11 @@ class EnsembleFusionTrainer(Trainer):
         # Initialize transformer layers
         self.early_transformer_layer = CustomTransformerLayer(input_dim=384 * len(self.args.modalities.split('-')), model_dim=384, nhead=4, num_layers=1).to(self.device)
         self.joint_transformer_layer = CustomTransformerLayer(input_dim=384 * len(self.args.modalities.split('-')), model_dim=384, nhead=4, num_layers=1).to(self.device)
+        self.late_transformer_layer = CustomTransformerLayer(input_dim=384 * len(self.args.modalities.split('-')), model_dim=384, nhead=4, num_layers=1).to(self.device)
         self.final_transformer_layer = CustomTransformerLayer(input_dim=384 * len(self.args.modalities.split('-')) * 3, model_dim=384, nhead=4, num_layers=1).to(self.device)
         
         if self.args.load_early:
-            checkpoint = torch.load(self.args.load_ehr)
+            checkpoint = torch.load(self.args.load_early)
             self.early_ehr_encoder.load_state_dict(checkpoint['ehr_encoder_state_dict'])
             self.early_cxr_encoder.load_state_dict(checkpoint['cxr_encoder_state_dict'])
             self.early_dn_encoder.load_state_dict(checkpoint['dn_encoder_state_dict'])
@@ -156,7 +157,7 @@ class EnsembleFusionTrainer(Trainer):
             print("early loaded")
             
         if self.args.load_joint:
-            checkpoint = torch.load(self.args.load_cxr)
+            checkpoint = torch.load(self.args.load_joint)
             self.joint_ehr_encoder.load_state_dict(checkpoint['ehr_encoder_state_dict'])
             self.joint_cxr_encoder.load_state_dict(checkpoint['cxr_encoder_state_dict'])
             self.joint_dn_encoder.load_state_dict(checkpoint['dn_encoder_state_dict'])
@@ -164,7 +165,7 @@ class EnsembleFusionTrainer(Trainer):
             print("joint loaded")
         
         if self.args.load_late:
-            checkpoint = torch.load(self.args.load_dn)
+            checkpoint = torch.load(self.args.load_late)
             self.late_ehr_encoder.load_state_dict(checkpoint['ehr_encoder_state_dict'])
             self.late_cxr_encoder.load_state_dict(checkpoint['cxr_encoder_state_dict'])
             self.late_dn_encoder.load_state_dict(checkpoint['dn_encoder_state_dict'])
@@ -179,6 +180,22 @@ class EnsembleFusionTrainer(Trainer):
             param.requires_grad = False
         for param in self.early_rr_encoder.parameters():
             param.requires_grad = False
+        for param in self.joint_ehr_encoder.parameters():
+            param.requires_grad = False
+        for param in self.joint_cxr_encoder.parameters():
+            param.requires_grad = False
+        for param in self.joint_dn_encoder.parameters():
+            param.requires_grad = False
+        for param in self.joint_rr_encoder.parameters():
+            param.requires_grad = False
+        for param in self.late_ehr_encoder.parameters():
+            param.requires_grad = False
+        for param in self.late_cxr_encoder.parameters():
+            param.requires_grad = False
+        for param in self.late_dn_encoder.parameters():
+            param.requires_grad = False
+        for param in self.late_rr_encoder.parameters():
+            param.requires_grad = False
             
         all_params = (
                 list(self.joint_ehr_encoder.parameters()) +
@@ -191,6 +208,7 @@ class EnsembleFusionTrainer(Trainer):
                 list(self.late_rr_encoder.parameters()) +
                 list(self.early_transformer_layer.parameters()) +
                 list(self.joint_transformer_layer.parameters()) +
+                list(self.late_transformer_layer.parameters()) +
                 list(self.final_transformer_layer.parameters()) +
                 list(self.final_classifier.parameters())
             )
@@ -224,11 +242,12 @@ class EnsembleFusionTrainer(Trainer):
             'late_rr_encoder_state_dict': self.late_rr_encoder.state_dict(),
             'early_transformer_layer_state_dict': self.early_transformer_layer.state_dict(),
             'joint_transformer_layer_state_dict': self.joint_transformer_layer.state_dict(),
+            'late_transformer_layer_state_dict': self.late_transformer_layer.state_dict(),
             'final_transformer_layer_state_dict': self.final_transformer_layer.state_dict(),
             'final_classifier_state_dict': self.final_classifier.state_dict(),
             'optimizer_state_dict': self.optimizer.state_dict(),
         }
-        torch.save(checkpoint, f'{checkpoint_dir}/best_checkpoint_{self.args.H_mode}_{self.args.order}_{self.args.lr}_{self.args.task}.pth.tar')
+        torch.save(checkpoint, f'{checkpoint_dir}/best_checkpoint_{self.args.H_mode}_{self.args.order}_{self.args.lr}_{self.args.task}_{self.args.data_pairs}.pth.tar')
 
     def load_fusion_checkpoint(self, checkpoint_path):
         checkpoint = torch.load(checkpoint_path)
@@ -247,6 +266,7 @@ class EnsembleFusionTrainer(Trainer):
         self.late_rr_encoder.load_state_dict(checkpoint['late_rr_encoder_state_dict'])
         self.early_transformer_layer.load_state_dict(checkpoint['early_transformer_layer_state_dict'])
         self.joint_transformer_layer.load_state_dict(checkpoint['joint_transformer_layer_state_dict'])
+        self.late_transformer_layer.load_state_dict(checkpoint['late_transformer_layer_state_dict'])
         self.final_transformer_layer.load_state_dict(checkpoint['final_transformer_layer_state_dict'])
         self.final_classifier.load_state_dict(checkpoint['final_classifier_state_dict'])
         self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
@@ -267,6 +287,7 @@ class EnsembleFusionTrainer(Trainer):
         self.late_rr_encoder.train()
         self.early_transformer_layer.train()
         self.joint_transformer_layer.train()
+        self.late_transformer_layer.train()
         self.final_transformer_layer.train()
         self.final_classifier.train()
 
@@ -286,6 +307,7 @@ class EnsembleFusionTrainer(Trainer):
         self.late_rr_encoder.eval()
         self.early_transformer_layer.eval()
         self.joint_transformer_layer.eval()
+        self.late_transformer_layer.eval()
         self.final_transformer_layer.eval()
         self.final_classifier.eval()
 
@@ -460,7 +482,7 @@ class EnsembleFusionTrainer(Trainer):
 
     def eval(self):
         checkpoint_dir = f'{self.args.save_dir}/{self.args.task}'
-        self.load_fusion_checkpoint(f'{checkpoint_dir}/best_checkpoint_{self.args.H_mode}_{self.args.order}_{self.args.lr}_{self.args.task}.pth.tar')
+        self.load_fusion_checkpoint(f'{checkpoint_dir}/best_checkpoint_{self.args.H_mode}_{self.args.order}_{self.args.lr}_{self.args.task}_{self.args.data_pairs}.pth.tar')
         
         self.epoch = 0
         self.set_eval_mode() 

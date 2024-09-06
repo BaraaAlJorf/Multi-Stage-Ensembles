@@ -2,7 +2,14 @@ import numpy as np
 from sklearn.metrics import roc_auc_score, average_precision_score
 
 def evaluate_new(df):
-    auroc = roc_auc_score(df['y_truth'], df['y_pred'])
+    #auroc = roc_auc_score(df['y_truth'], df['y_pred'])
+    y_truth = df['y_truth']
+    y_pred = df['y_pred']
+    if len(np.unique(y_truth)) < 2:
+        auroc = np.nan  # or 0.5, or another value that makes sense in your context
+    else:
+        auroc = roc_auc_score(y_truth, y_pred)
+    
     auprc = average_precision_score(df['y_truth'], df['y_pred'])
     return auprc, auroc
 
@@ -15,8 +22,9 @@ def bootstraping_eval(df, num_iter):
     for _ in range(num_iter):
         sample = df.sample(frac=1, replace=True)
         auprc, auroc = evaluate_new(sample)
-        auroc_list.append(auroc)
-        auprc_list.append(auprc)
+        if auprc != np.nan and auroc != np.nan:
+            auroc_list.append(auroc)
+            auprc_list.append(auprc)
     return auprc_list, auroc_list
 
 def computing_confidence_intervals(list_,true_value):

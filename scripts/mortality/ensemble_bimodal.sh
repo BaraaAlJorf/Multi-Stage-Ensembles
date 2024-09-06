@@ -15,7 +15,7 @@ CUDA_VISIBLE_DEVICES=0 CUDA_LAUNCH_BLOCKING=1 python fusion_main.py \
 --mode train \
 --epochs 50 --batch_size 16 --lr 0.0001 \
 --num_classes 1 \
---modalities EHR-CXR-RR \
+--modalities EHR-CXR \
 --data_pairs paired \
 --order EHR-CXR-RR-ensemble \
 --H_mode ensemble \

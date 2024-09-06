@@ -93,6 +93,15 @@ class EHRTransformer(nn.Module):
         self.to_latent = nn.Identity()
 
     def forward(self, ehr):
+        
+        # print(f"Shape after permute: {ehr.shape}")  # Debugging print
+    
+        # # Check if the input dimensions match what the embedding layer expects
+        # assert ehr.shape[1] == self.to_ehr_embedding.in_features, (
+        #     f"Expected {self.to_ehr_embedding.in_features} features, "
+        #     f"but got {ehr.shape[1]}"
+        # )
+        
         ehr = ehr.to(self.to_ehr_embedding.weight.device)
         ehr = ehr.permute(0, 2, 1)
         ehr = self.to_ehr_embedding(ehr)  # Embed raw EHR data

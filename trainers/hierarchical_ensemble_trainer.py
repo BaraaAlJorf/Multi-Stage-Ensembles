@@ -165,10 +165,10 @@ class HierEnsembleFusionTrainer(Trainer):
         self.transformer_layer3 = CustomTransformerLayer(input_dim=384 * 2, model_dim=384, nhead=4, num_layers=1).to(self.device)
         
         # Initialize trainable token vector
-        self.token_vector = nn.Parameter(torch.randn(1, 384), requires_grad=True).to(self.device)
+        self.token_vector = torch.nn.Parameter(torch.randn(self.token_dim).to(self.device))
         
         if self.args.load_early:
-            checkpoint = torch.load(self.args.load_ehr)
+            checkpoint = torch.load(self.args.load_early)
             self.early_ehr_encoder.load_state_dict(checkpoint['ehr_encoder_state_dict'])
             self.early_cxr_encoder.load_state_dict(checkpoint['cxr_encoder_state_dict'])
             self.early_dn_encoder.load_state_dict(checkpoint['dn_encoder_state_dict'])
@@ -176,7 +176,7 @@ class HierEnsembleFusionTrainer(Trainer):
             print("early loaded")
             
         if self.args.load_joint:
-            checkpoint = torch.load(self.args.load_cxr)
+            checkpoint = torch.load(self.args.load_joint)
             self.joint_ehr_encoder.load_state_dict(checkpoint['ehr_encoder_state_dict'])
             self.joint_cxr_encoder.load_state_dict(checkpoint['cxr_encoder_state_dict'])
             self.joint_dn_encoder.load_state_dict(checkpoint['dn_encoder_state_dict'])
@@ -184,7 +184,7 @@ class HierEnsembleFusionTrainer(Trainer):
             print("joint loaded")
         
         if self.args.load_late:
-            checkpoint = torch.load(self.args.load_dn)
+            checkpoint = torch.load(self.args.load_late)
             self.late_ehr_encoder.load_state_dict(checkpoint['ehr_encoder_state_dict'])
             self.late_cxr_encoder.load_state_dict(checkpoint['cxr_encoder_state_dict'])
             self.late_dn_encoder.load_state_dict(checkpoint['dn_encoder_state_dict'])
@@ -198,6 +198,22 @@ class HierEnsembleFusionTrainer(Trainer):
         for param in self.early_dn_encoder.parameters():
             param.requires_grad = False
         for param in self.early_rr_encoder.parameters():
+            param.requires_grad = False
+        for param in self.joint_ehr_encoder.parameters():
+            param.requires_grad = False
+        for param in self.joint_cxr_encoder.parameters():
+            param.requires_grad = False
+        for param in self.joint_dn_encoder.parameters():
+            param.requires_grad = False
+        for param in self.joint_rr_encoder.parameters():
+            param.requires_grad = False
+        for param in self.late_ehr_encoder.parameters():
+            param.requires_grad = False
+        for param in self.late_cxr_encoder.parameters():
+            param.requires_grad = False
+        for param in self.late_dn_encoder.parameters():
+            param.requires_grad = False
+        for param in self.late_rr_encoder.parameters():
             param.requires_grad = False
             
         all_params = (
@@ -254,7 +270,7 @@ class HierEnsembleFusionTrainer(Trainer):
             'token_vector': self.token_vector,
             'optimizer_state_dict': self.optimizer.state_dict(),
         }
-        torch.save(checkpoint, f'{checkpoint_dir}/best_checkpoint_{self.args.H_mode}_{self.args.order}_{self.args.lr}_{self.args.task}.pth.tar')
+        torch.save(checkpoint, f'{checkpoint_dir}/best_checkpoint_{self.args.H_mode}_{self.args.order}_{self.args.lr}_{self.args.task}_{self.args.data_pairs}.pth.tar')
 
     def load_fusion_checkpoint(self, checkpoint_path):
         checkpoint = torch.load(checkpoint_path)
@@ -504,7 +520,7 @@ class HierEnsembleFusionTrainer(Trainer):
 
     def eval(self):
         checkpoint_dir = f'{self.args.save_dir}/{self.args.task}'
-        self.load_fusion_checkpoint(f'{checkpoint_dir}/best_checkpoint_{self.args.H_mode}_{self.args.order}_{self.args.lr}_{self.args.task}.pth.tar')
+        self.load_fusion_checkpoint(f'{checkpoint_dir}/best_checkpoint_{self.args.H_mode}_{self.args.order}_{self.args.lr}_{self.args.task}_{self.args.data_pairs}.pth.tar')
         
         self.epoch = 0
         self.set_eval_mode() 

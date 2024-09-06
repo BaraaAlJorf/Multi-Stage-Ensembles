@@ -1,6 +1,0 @@
-Running unimodal pretraining for modality EHR
-0
-Starting val epoch 0
-val [0000 / 0002] validation loss: 	1.44235
-checkpoint
-Starting train epoch 0

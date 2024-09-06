@@ -94,7 +94,7 @@ class Trainer():
         plt.ylabel(disc)
         plt.savefig(f'{disc}.pdf')
         plt.close()
-    
+        
     def computeAUROC(self, y_true, predictions, verbose=1):
 
         predictions = np.array(predictions)
@@ -139,7 +139,73 @@ class Trainer():
             "auprc_scores": auprc_scores, 
             'ci_auroc': ci_auroc,
             'ci_auprc': ci_auprc,
-            }
+            }  
+            
+    def compute_unimodal_AUROC(self, y_true, predictions, ages, genders, ethnicities, prefix='', verbose=1):
+        
+        def group_metrics(y_true, predictions, group_values, group_name, prefix=''):
+            group_aucs = {}
+            group_auprcs = {}
+            for value in np.unique(group_values):
+                idx = np.where(group_values == value)[0]
+                if len(idx) > 0:
+                    if len(np.unique(y_true[idx])) > 1:  # Ensure there are at least two classes
+                        group_auc = metrics.roc_auc_score(y_true[idx], predictions[idx], average="macro")
+                        group_auprc = metrics.average_precision_score(y_true[idx], predictions[idx], average="macro")
+                        group_aucs[f'{prefix}{group_name}_{value}_auroc'] = group_auc
+                        group_auprcs[f'{prefix}{group_name}_{value}_auprc'] = group_auprc
+                    else:
+                        group_aucs[f'{prefix}{group_name}_{value}_auroc'] = None
+                        group_auprcs[f'{prefix}{group_name}_{value}_auprc'] = None
+            return group_aucs, group_auprcs
+            
+        predictions = np.array(predictions)
+        
+        auc_scores = metrics.roc_auc_score(y_true, predictions, average=None)
+        ave_auc_micro = metrics.roc_auc_score(y_true, predictions, average="micro")
+        ave_auc_macro = metrics.roc_auc_score(y_true, predictions, average="macro")
+        ave_auc_weighted = metrics.roc_auc_score(y_true, predictions, average="weighted")
+        auprc = metrics.average_precision_score(y_true, predictions, average=None)
+    
+        # Overall AUROC and AUPRC scores
+        auc_scores = []
+        auprc_scores = []
+        ci_auroc = []
+        ci_auprc = []
+        if len(y_true.shape) == 1:
+            y_true = y_true[:, None]
+            predictions = predictions[:, None]
+    
+        for i in range(y_true.shape[1]):
+            df = pd.DataFrame({'y_truth': y_true[:, i], 'y_pred': predictions[:, i]})
+            (test_auprc, upper_auprc, lower_auprc), (test_auroc, upper_auroc, lower_auroc) = get_model_performance(df)
+            auc_scores.append(test_auroc)
+            auprc_scores.append(test_auprc)
+            ci_auroc.append((lower_auroc, upper_auroc))
+            ci_auprc.append((lower_auprc, upper_auprc))
+    
+        auc_scores = np.array(auc_scores)
+        auprc_scores = np.array(auprc_scores)
+        
+        # Calculate AUROC and AUPRC for different demographic groups
+        age_aucs, age_auprcs = group_metrics(y_true, predictions, np.array(ages), 'age', prefix)
+        gender_aucs, gender_auprcs = group_metrics(y_true, predictions, np.array(genders), 'gender', prefix)
+        ethnicity_aucs, ethnicity_auprcs = group_metrics(y_true, predictions, np.array(ethnicities), 'ethnicity', prefix)
+    
+        return {
+            "auc_scores": auc_scores,
+            "auroc_mean": np.mean(auc_scores),
+            "auprc_mean": np.mean(auprc_scores),
+            "auprc_scores": auprc_scores, 
+            'ci_auroc': ci_auroc,
+            'ci_auprc': ci_auprc,
+            "age_aucs": age_aucs,
+            "gender_aucs": gender_aucs,
+            "ethnicity_aucs": ethnicity_aucs,
+            "age_auprcs": age_auprcs,
+            "gender_auprcs": gender_auprcs,
+            "ethnicity_auprcs": ethnicity_auprcs
+        }
 
 
     def step_lr(self, epoch):

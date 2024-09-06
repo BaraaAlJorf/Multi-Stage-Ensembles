@@ -16,9 +16,9 @@ CUDA_VISIBLE_DEVICES=0 CUDA_LAUNCH_BLOCKING=1 python fusion_main.py \
 --epochs 50 --batch_size 16 --lr 0.0001 \
 --num_classes 1 \
 --modalities EHR-CXR-RR \
---data_pairs paired \
 --order EHR-CXR-RR-ensemble \
---H_mode ensemble \
+--data_pairs unpaired \
+--H_mode ensemble-hierarchical \
 --load_early checkpoints/in-hospital-mortality/early/best_checkpoint_0.0001_in-hospital-mortality_early_trimodal.pth.tar \
 --load_joint checkpoints/in-hospital-mortality/joint/best_checkpoint_1e-05_in-hospital-mortality_joint_trimodal.pth.tar \
 --load_late checkpoints/in-hospital-mortality/late/best_checkpoint_1e-05_in-hospital-mortality_late_trimodal.pth.tar \

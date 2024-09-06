@@ -6,7 +6,7 @@ class CustomTransformerLayer(nn.Module):
         super(CustomTransformerLayer, self).__init__()
         #self.input_proj = nn.Linear(input_dim, model_dim)
         
-        max_len = 5269
+        max_len = 16600
         
         # Initialize the CLS token
         self.cls_token = nn.Parameter(torch.randn(1, 1, model_dim))

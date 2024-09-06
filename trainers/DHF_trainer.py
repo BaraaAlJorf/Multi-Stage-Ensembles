@@ -49,7 +49,7 @@ def relevancy_loss(y_fused_pred, y_true, r_scores, preds):
         total_loss += bce_loss.sum()
 
         # Accumulate the regression losses
-        total_loss += regression_loss.sum()
+        total_loss += 0.1*regression_loss.sum()
 
     return total_loss
 
@@ -126,15 +126,24 @@ class DHFTrainer(Trainer):
         self.cxr_classifier = MLPClassifier(input_dim=384, output_dim=self.args.num_classes).to(self.device)
         self.rr_classifier = MLPClassifier(input_dim=384, output_dim=self.args.num_classes).to(self.device)
         self.dn_classifier = MLPClassifier(input_dim=384, output_dim=self.args.num_classes).to(self.device)
+        
+        self.classifier_1 = MLPClassifier(input_dim=384, output_dim=self.args.num_classes).to(self.device)
+        self.classifier_2 = MLPClassifier(input_dim=384, output_dim=self.args.num_classes).to(self.device)
+        self.classifier_3 = MLPClassifier(input_dim=384, output_dim=self.args.num_classes).to(self.device)
+        self.classifier_4 = MLPClassifier(input_dim=384, output_dim=self.args.num_classes).to(self.device)
+        
         self.classifier = MLPClassifier(input_dim=384, output_dim=self.args.num_classes).to(self.device)
         
         
         self.final_classifier = MLPClassifier(input_dim=384, output_dim=self.args.num_classes).to(self.device)
         
         # Initialize transformer layers
-        self.transformer_layer1 = CustomTransformerLayer(input_dim=384, model_dim=384, nhead=4, num_layers=1).to(self.device)
-        self.transformer_layer2 = CustomTransformerLayer(input_dim=384, model_dim=384, nhead=4, num_layers=1).to(self.device)
-        self.transformer_layer3 = CustomTransformerLayer(input_dim=384, model_dim=384, nhead=4, num_layers=1).to(self.device)
+        self.transformer_layer1 = CustomTransformerLayer(input_dim=384, model_dim=384, nhead=2, num_layers=1).to(self.device)
+        self.transformer_layer2 = CustomTransformerLayer(input_dim=384, model_dim=384, nhead=2, num_layers=1).to(self.device)
+        if self.args.task == 'in-hospital-mortality':
+            self.transformer_layer3 = CustomTransformerLayer(input_dim=384, model_dim=384, nhead=4, num_layers=1).to(self.device)
+        else:
+            self.transformer_layer3 = CustomTransformerLayer(input_dim=384, model_dim=384, nhead=2, num_layers=1).to(self.device)
         self.transformer_layer4 = CustomTransformerLayer(input_dim=384, model_dim=384, nhead=4, num_layers=1).to(self.device)
 
         if self.args.mode == 'relevancy-based-hierarchical':
@@ -172,6 +181,10 @@ class DHFTrainer(Trainer):
             list(self.transformer_layer2.parameters()) +
             list(self.transformer_layer3.parameters()) +
             list(self.transformer_layer4.parameters()) +
+            list(self.classifier_1.parameters()) +
+            list(self.classifier_2.parameters()) +
+            list(self.classifier_3.parameters()) +
+            list(self.classifier_4.parameters()) +
             list(self.final_classifier.parameters())+
             [self.token_vector, self.cls_fusion]
         )
@@ -229,12 +242,17 @@ class DHFTrainer(Trainer):
             'dn_classifier_state_dict': self.dn_classifier.state_dict(),
             'rr_classifier_state_dict': self.rr_classifier.state_dict(),
             'r_classifier_state_dict': self.r_classifier.state_dict(),
-            'classifier_state_dict': self.classifier.state_dict(),    
+            'classifier_state_dict': self.classifier.state_dict(),
+            'classifier_1_state_dict': self.classifier_1.state_dict(),
+            'classifier_2_state_dict': self.classifier_2.state_dict(),
+            'classifier_3_state_dict': self.classifier_3.state_dict(),
+            'classifier_4_state_dict': self.classifier_4.state_dict(),
             'final_classifier_state_dict': self.final_classifier.state_dict(),
             'transformer_layer1_state_dict': self.transformer_layer1.state_dict(),
             'transformer_layer2_state_dict': self.transformer_layer2.state_dict(),
             'transformer_layer3_state_dict': self.transformer_layer3.state_dict(),
             'transformer_layer4_state_dict': self.transformer_layer4.state_dict(),
+            'token_vector': self.token_vector,
             'optimizer_state_dict': self.optimizer.state_dict(),
         }
         torch.save(checkpoint, f'{self.args.save_dir}/{self.args.task}/{self.args.H_mode}/best_checkpoint_{self.args.lr}_{self.args.task}_{self.args.H_mode}_{self.args.order}_single_r.pth.tar')
@@ -257,11 +275,16 @@ class DHFTrainer(Trainer):
         self.rr_classifier.load_state_dict(checkpoint['rr_classifier_state_dict'])
         self.r_classifier.load_state_dict(checkpoint['r_classifier_state_dict'])
         self.classifier.load_state_dict(checkpoint['classifier_state_dict'])
+        self.classifier_1.load_state_dict(checkpoint['classifier_1_state_dict'])
+        self.classifier_2.load_state_dict(checkpoint['classifier_2_state_dict'])
+        self.classifier_3.load_state_dict(checkpoint['classifier_3_state_dict'])
+        self.classifier_4.load_state_dict(checkpoint['classifier_4_state_dict'])
         self.final_classifier.load_state_dict(checkpoint['final_classifier_state_dict'])
         self.transformer_layer1.load_state_dict(checkpoint['transformer_layer1_state_dict'])
         self.transformer_layer2.load_state_dict(checkpoint['transformer_layer2_state_dict'])
         self.transformer_layer3.load_state_dict(checkpoint['transformer_layer3_state_dict'])
         self.transformer_layer4.load_state_dict(checkpoint['transformer_layer4_state_dict'])
+        self.token_vector = checkpoint['token_vector']
         self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
         
     def set_train_mode(self):
@@ -277,6 +300,11 @@ class DHFTrainer(Trainer):
         self.rr_r_classifier.train()
         self.r_classifier.train()
         self.classifier.train()
+        
+        self.classifier_1.train()
+        self.classifier_2.train()
+        self.classifier_3.train()
+        self.classifier_4.train()
 
         self.ehr_classifier.train()
         self.cxr_classifier.train()
@@ -308,6 +336,11 @@ class DHFTrainer(Trainer):
         self.dn_classifier.eval()
         self.rr_classifier.eval()
         self.final_classifier.eval()
+        
+        self.classifier_1.train()
+        self.classifier_2.train()
+        self.classifier_3.train()
+        self.classifier_4.train()
 
         self.transformer_layer1.eval()
         self.transformer_layer2.eval()
@@ -333,6 +366,7 @@ class DHFTrainer(Trainer):
             vectors = {}
             r_scores = {}
             preds = {}
+            stage_predictions = []
 
             if 'EHR' in self.args.modalities:
                 v_ehr,cls_ehr = self.ehr_encoder(x)
@@ -366,7 +400,7 @@ class DHFTrainer(Trainer):
             if self.args.H_mode == 'relevancy-based-hierarchical':
                 modalities_list = self.args.modalities.split('-')
                 scores_tensor = torch.stack([r_scores[mod].squeeze() for mod in modalities_list], dim=0)
-                sorted_scores, sorted_indices = torch.sort(scores_tensor, dim=0, descending=True)
+                sorted_scores, sorted_indices = torch.sort(scores_tensor, dim=0, descending=False)
                 sorted_modalities = [modalities_list[idx] for idx in sorted_indices.cpu().numpy()]
                 #print(sorted_modalities)
                 
@@ -381,6 +415,9 @@ class DHFTrainer(Trainer):
             fused_vector = torch.cat((vectors[sorted_modalities[0]], token_vector_expanded), dim=1)
                 
             fused_vector = self.transformer_layer1(fused_vector)
+            
+            y_1 = self.classifier_1(fused_vector[:, 0, :])
+            stage_predictions.append(y_1)
 
 
             for idx, modality in enumerate(sorted_modalities[1:], 2):
@@ -392,20 +429,26 @@ class DHFTrainer(Trainer):
                 
                 # Apply the transformer layer
                 fused_vector = transformer_layer(fused_vector)
+                
+                class_layer = getattr(self, f'classifier_{idx}')
+                y_stage=class_layer(fused_vector[:, 0, :])
+                stage_predictions.append(y_stage)
     
             # Final classifier
-            y_fused_pred = self.final_classifier(fused_vector[:, 0, :])
+            #y_fused_pred = self.final_classifier(fused_vector[:, 0, :])
+            
+            y_mean_pred = torch.mean(torch.stack(stage_predictions), dim=0)
             
             if self.args.H_mode == 'relevancy-based-hierarchical':
                 loss = relevancy_loss(y_fused_pred, y, r_scores, preds)
             else:
-                loss = self.loss(y_fused_pred, y)
+                loss = self.loss(y_mean_pred, y)
             epoch_loss += loss.item()
             loss.backward()
             self.optimizer.step()
             self.optimizer.zero_grad()
             
-            outPRED = torch.cat((outPRED, y_fused_pred), 0)
+            outPRED = torch.cat((outPRED, y_mean_pred), 0)
             outGT = torch.cat((outGT, y), 0)
 
             if i % 100 == 9:
@@ -441,6 +484,7 @@ class DHFTrainer(Trainer):
                 vectors = {}
                 r_scores = {}
                 preds = {}
+                stage_predictions = []
     
                 if 'EHR' in self.args.modalities:
                     v_ehr,cls_ehr = self.ehr_encoder(x)
@@ -496,25 +540,37 @@ class DHFTrainer(Trainer):
                 fused_vector = self.transformer_layer1(fused_vector)
                 
                 
+                y_1 = self.classifier_1(fused_vector[:, 0, :])
+                stage_predictions.append(y_1)
+    
+    
                 for idx, modality in enumerate(sorted_modalities[1:], 2):
                     # Concatenate the modality vector to the fused vector
                     fused_vector = torch.cat((fused_vector, vectors[modality]), dim=1)
-
+                    
+                    # Get the current transformer layer
                     transformer_layer = getattr(self, f'transformer_layer{idx}')
                     
                     # Apply the transformer layer
                     fused_vector = transformer_layer(fused_vector)
-    
+                    
+                    class_layer = getattr(self, f'classifier_{idx}')
+                    y_stage=class_layer(fused_vector[:, 0, :])
+                    stage_predictions.append(y_stage)
+        
                 # Final classifier
-                y_fused_pred = self.final_classifier(fused_vector[:, 0, :])
+                #y_fused_pred = self.final_classifier(fused_vector[:, 0, :])
+                
+                y_mean_pred = torch.mean(torch.stack(stage_predictions), dim=0)
                 
                 if self.args.H_mode == 'relevancy-based-hierarchical':
                     #print("ok r loss")
                     loss = relevancy_loss(y_fused_pred, y, r_scores, preds)
                 else:
-                    loss = self.loss(y_fused_pred, y)
+                    loss = self.loss(y_mean_pred, y)
+                    
                 epoch_loss += loss.item()
-                outPRED = torch.cat((outPRED, y_fused_pred), 0)
+                outPRED = torch.cat((outPRED, y_mean_pred), 0)
                 outGT = torch.cat((outGT, y), 0)
     
             print(f"val [{self.epoch:04d} / {self.args.epochs:04d}] validation loss: \t{epoch_loss/i:0.5f}")

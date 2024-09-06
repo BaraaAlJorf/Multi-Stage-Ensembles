@@ -39,6 +39,11 @@ class UnimodalTrainer(Trainer):
         self.val_dl = val_dl
         self.test_dl = test_dl
         
+        print("train_dl:", len(self.train_dl))
+        print("val_dl:", len(self.val_dl))
+        print("test_dl:", len(self.test_dl))
+        
+        
         self.modality = args.pretraining
         self.token_dim = 384
         
@@ -106,7 +111,7 @@ class UnimodalTrainer(Trainer):
             'classifier_state_dict': self.classifier.state_dict(),
             'optimizer_state_dict': self.optimizer.state_dict(),
         }
-        torch.save(checkpoint, f'{self.args.save_dir}/{self.args.task}/{self.args.H_mode}/best_checkpoint_unimodal_{self.args.lr}_{self.args.task}_{self.args.pretraining}.pth.tar')
+        torch.save(checkpoint, f'{self.args.save_dir}/{self.args.task}/{self.args.H_mode}/best_checkpoint_unimodal_{self.args.lr}_{self.args.task}_{self.args.pretraining}_{self.args.order}.pth.tar')
 
     def load_unimodal_checkpoint(self, checkpoint_path):
         checkpoint = torch.load(checkpoint_path)
@@ -130,9 +135,12 @@ class UnimodalTrainer(Trainer):
         epoch_loss = 0
         outGT = torch.FloatTensor().to(self.device)
         outPRED = torch.FloatTensor().to(self.device)
+        age_list = []
+        gender_list = []
+        ethnicity_list = []
         steps = len(self.train_dl)
             
-        for i, (x, img, dn, rr, y_ehr, y_cxr, seq_lengths, pairs) in enumerate (self.train_dl):
+        for i, (x, img, dn, rr, y_ehr, y_cxr, seq_lengths, pairs, age, gender, ethnicity) in enumerate (self.train_dl):
             #print("seq_lengths:",seq_lengths)
             y = self.get_gt(y_ehr, y_cxr)
             x = torch.from_numpy(x).float()
@@ -162,16 +170,37 @@ class UnimodalTrainer(Trainer):
             
             outPRED = torch.cat((outPRED, y_pred), 0)
             outGT = torch.cat((outGT, y), 0)
+            age_list.extend(age.cpu().numpy())
+            gender_list.extend(gender.cpu().numpy())
+            ethnicity_list.extend(ethnicity.cpu().numpy())
 
             if i % 100 == 99:
                 eta = self.get_eta(self.epoch, i)
                 print(f" epoch [{self.epoch:04d} / {self.args.epochs:04d}] [{i:04}/{steps}] eta: {eta:<20}  lr: \t{self.optimizer.param_groups[0]['lr']:0.4E} loss: \t{epoch_loss/i:0.5f}")
-
-        ret = self.computeAUROC(outGT.data.cpu().numpy(), outPRED.data.cpu().numpy(), 'train')
-        wandb.log({
-            'train_Loss': epoch_loss/i, 
-            'train_AUC': ret['auroc_mean']
+        
+        if self.args.task != 'in-hospital-mortality':
+            ret = self.computeAUROC(outGT.data.cpu().numpy(), outPRED.data.cpu().numpy(), 'train')
+            wandb.log({
+            'train_Loss': epoch_loss / i,
+            'train_AUC': ret['auroc_mean'],
+            'train_AUPRC': ret['auprc_mean']
         })
+        else:
+            ret = self.compute_unimodal_AUROC(outGT.data.cpu().numpy(), outPRED.data.cpu().numpy(), age_list, gender_list, ethnicity_list, prefix='train_')
+            wandb.log({
+            'train_Loss': epoch_loss / i,
+            'train_AUC': ret['auroc_mean'],
+            'train_AUPRC': ret['auprc_mean'],
+            **ret['age_aucs'],
+            **ret['gender_aucs'],
+            **ret['ethnicity_aucs'],
+            **ret['age_auprcs'],
+            **ret['gender_auprcs'],
+            **ret['ethnicity_auprcs']
+        })
+        np.save(f'{self.args.save_dir}/pred.npy', outPRED.data.cpu().numpy())
+        np.save(f'{self.args.save_dir}/gt.npy', outGT.data.cpu().numpy())
+        
         return ret
 
     def validate(self, dl):
@@ -179,9 +208,12 @@ class UnimodalTrainer(Trainer):
         epoch_loss = 0
         outGT = torch.FloatTensor().to(self.device)
         outPRED = torch.FloatTensor().to(self.device)
+        age_list = []
+        gender_list = []
+        ethnicity_list = []
     
         with torch.no_grad():
-            for i, (x, img, dn, rr, y_ehr, y_cxr, seq_lengths, pairs) in enumerate (dl):
+            for i, (x, img, dn, rr, y_ehr, y_cxr, seq_lengths, pairs, age, gender, ethnicity) in enumerate (dl):
                 #print("seq_lengths:",seq_lengths)
                 y = self.get_gt(y_ehr, y_cxr)
                 x = torch.from_numpy(x).float()
@@ -208,32 +240,71 @@ class UnimodalTrainer(Trainer):
                 epoch_loss += loss.item()
                 outPRED = torch.cat((outPRED, y_pred), 0)
                 outGT = torch.cat((outGT, y), 0)
+                age_list.extend(age.cpu().numpy())
+                gender_list.extend(gender.cpu().numpy())
+                ethnicity_list.extend(ethnicity.cpu().numpy())
     
             print(f"val [{self.epoch:04d} / {self.args.epochs:04d}] validation loss: \t{epoch_loss/i:0.5f}")
     
-            ret = self.computeAUROC(outGT.data.cpu().numpy(), outPRED.data.cpu().numpy(), 'validation')
+            
+            if self.args.task != 'in-hospital-mortality':
+                ret = self.computeAUROC(outGT.data.cpu().numpy(), outPRED.data.cpu().numpy(), 'validation')
+                wandb.log({
+                'val_Loss': epoch_loss / i,
+                'val_AUC': ret['auroc_mean'],
+                'val_AUPRC': ret['auprc_mean']
+            })
+            else:
+                ret = self.compute_unimodal_AUROC(outGT.data.cpu().numpy(), outPRED.data.cpu().numpy(), age_list, gender_list, ethnicity_list, prefix='val_')
+                wandb.log({
+                'val_Loss': epoch_loss / i,
+                'val_AUC': ret['auroc_mean'],
+                'val_AUPRC': ret['auprc_mean'],
+                **ret['age_aucs'],
+                **ret['gender_aucs'],
+                **ret['ethnicity_aucs'],
+                **ret['age_auprcs'],
+                **ret['gender_auprcs'],
+                **ret['ethnicity_auprcs']
+            })
             np.save(f'{self.args.save_dir}/pred.npy', outPRED.data.cpu().numpy())
             np.save(f'{self.args.save_dir}/gt.npy', outGT.data.cpu().numpy())
-            wandb.log({
-                'val_Loss': epoch_loss / i,
-                'val_AUC': ret['auroc_mean']
-            })
+            
     
         return ret
 
     def eval(self):
-        self.load_unimodal_checkpoint(f'{self.args.save_dir}/{self.args.task}/{self.args.H_mode}/best_checkpoint_unimodal_{self.args.lr}_{self.args.task}_{self.args.pretraining}.pth.tar')
+        self.load_unimodal_checkpoint(f'{self.args.save_dir}/{self.args.task}/{self.args.H_mode}/best_checkpoint_unimodal_{self.args.lr}_{self.args.task}_{self.args.pretraining}_{self.args.order}.pth.tar')
         
         self.epoch = 0
         self.set_eval_mode() 
-
+    
         ret = self.validate(self.test_dl)
-        self.print_and_write(ret , isbest=True, prefix=f'{self.args.fusion_type} test', filename=f'results_{self.args.lr}_test.txt')
-        wandb.log({
+        self.print_and_write(ret, isbest=True, prefix=f'{self.args.fusion_type} test', filename=f'results_{self.args.lr}_test.txt')
+        
+        log_data = {
             'test_auprc': ret['auprc_mean'], 
-            'test_AUC': ret['auroc_mean']
-        })
+            'test_AUC': ret['auroc_mean'],
+        }
+    
+        # Add individual AUROC and AUPRC values for age, gender, and ethnicity
+        if self.args.task == 'in-hospital-mortality':
+            for key, value in ret['age_aucs'].items():
+                log_data[f'test_{key}'] = value
+            for key, value in ret['gender_aucs'].items():
+                log_data[f'test_{key}'] = value
+            for key, value in ret['ethnicity_aucs'].items():
+                log_data[f'test_{key}'] = value
+            for key, value in ret['age_auprcs'].items():
+                log_data[f'test_{key}'] = value
+            for key, value in ret['gender_auprcs'].items():
+                log_data[f'test_{key}'] = value
+            for key, value in ret['ethnicity_auprcs'].items():
+                log_data[f'test_{key}'] = value
+    
+        wandb.log(log_data)
         return
+
     
     def train(self):
         print(f'Running unimodal pretraining for modality {self.args.pretraining}')
