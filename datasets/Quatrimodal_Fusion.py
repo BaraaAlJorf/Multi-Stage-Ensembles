@@ -410,8 +410,8 @@ def loadmetadata(args, discharge_notes, radiology_reports):
 
 
 def load_cxr_ehr_rr_dn(args, ehr_train_ds, ehr_val_ds, cxr_train_ds, cxr_val_ds, ehr_test_ds, cxr_test_ds):
-    discharge_notes=pd.read_csv('/scratch/baj321/MIMIC-Note/physionet.org/files/mimic-iv-note/2.2/note/discharge.csv')
-    radiology_reports=pd.read_csv('/scratch/baj321/MIMIC-Note/physionet.org/files/mimic-iv-note/2.2/note/radiology.csv')
+    discharge_notes=pd.read_csv('')
+    radiology_reports=pd.read_csv('')
     cxr_merged_icustays = loadmetadata(args, discharge_notes, radiology_reports) 
 
     splits_labels_train = pd.read_csv(f'{args.ehr_data_dir}/{args.task}/train_listfile.csv')
