@@ -5,7 +5,7 @@ def args_parser():
 
     parser.add_argument('--modalities', default="EHR-CXR-RR-DN", type=str, help='specify the desired data modalities')
     parser.add_argument('--pretraining', default="EHR", type=str, help='which modality do you want to pretrain')
-    parser.add_argument('--H_mode', default="medfuse", type=str, help='predefined-hierarchical or relevancy-based-hierarchical')
+    parser.add_argument('--H_mode', type=str, help='predefined-hierarchical or relevancy-based-hierarchical')
     parser.add_argument('--order', default=None, type=str, help='specify the order of the modalities if predefined')
     parser.add_argument('--layer_after', default=4, type=int, help='apply mmtm module after fourth layer -1 indicates mmtm after every layer')
     parser.add_argument('--layers', default=1, type=int, help='number of lstm stacked modules')
@@ -73,10 +73,8 @@ def args_parser():
                         help='Path to a state file of a normalizer. Leave none if you want to '
                                 'use one of the provided ones.')
 
-    parser.add_argument('--ehr_data_dir', type=str, help='Path to the data of phenotyping fusion_type',
-                        default='/scratch/fs999/shamoutlab/data/mimic-iv-extracted')
-    parser.add_argument('--cxr_data_dir', type=str, help='Path to the data of phenotyping fusion_type',
-                        default='/scratch/fs999/shamoutlab/data/physionet.org/files/mimic-cxr-jpg/2.0.0')
+    parser.add_argument('--ehr_data_dir', type=str, help='Path to the data of phenotyping fusion_type')
+    parser.add_argument('--cxr_data_dir', type=str, help='Path to the data of phenotyping fusion_type')
     parser.add_argument('--save_dir', type=str, help='Directory relative which all output files are stored',
                     default='checkpoints')
 
